@@ -13,16 +13,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyB6IvYj3dRNCOSVt_-cgq4c1g8RlpWqHT8" />
-        <activity android:name=".MainActivity"> </activity>
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB6IvYj3dRNCOSVt_-cgq4c1g8RlpWqHT8" />
 
-        <activity android:name=".LocationActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name=".LocationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".mvp.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
     </application>
 
 </manifest>
