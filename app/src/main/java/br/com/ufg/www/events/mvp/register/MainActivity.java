@@ -1,7 +1,9 @@
-package br.com.ufg.www.events;
+package br.com.ufg.www.events.mvp.register;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import br.com.ufg.www.events.R;
 
 public class MainActivity extends AppCompatActivity {
 

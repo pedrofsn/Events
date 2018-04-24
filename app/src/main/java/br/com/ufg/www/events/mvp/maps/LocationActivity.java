@@ -1,12 +1,12 @@
-package br.com.ufg.www.events;
+package br.com.ufg.www.events.mvp.maps;
 
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -21,6 +21,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import br.com.ufg.www.events.R;
 
 public class LocationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
