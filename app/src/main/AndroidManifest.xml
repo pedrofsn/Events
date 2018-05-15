@@ -16,6 +16,10 @@
             android:name=".mvp.login.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".mvp.register.MainActivity"
@@ -28,15 +32,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB6IvYj3dRNCOSVt_-cgq4c1g8RlpWqHT8" />
-
         <activity
             android:name=".mvp.maps.List_Places_Activity"
             android:label="@string/title_activity_list__places_"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

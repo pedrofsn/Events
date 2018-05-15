@@ -31,16 +31,13 @@ public class LoginActivity extends BaseActivity implements Contract.View, View.O
 
     @Override
     public void login() {
-
-        if((loginString.equals("teste"))&&(passwordString.equals("teste"))) {
-            Login sing_in = new Login(loginString, passwordString);
-            showMessage("Logou com sucesso!");
-            presenter.login(sing_in);
-        }
+        Login sing_in = new Login(loginString, passwordString);
+        presenter.login(sing_in);
     }
 
     @Override
     public void onLoggedIn() {
+        showMessage("Logou com sucesso!");
         callListPlaces();
     }
 
@@ -64,4 +61,9 @@ public class LoginActivity extends BaseActivity implements Contract.View, View.O
     public void callListPlaces(){
         Intent intent = new Intent(this, List_Places_Activity.class);
     }
+
+    public void loginFailed(){
+        showMessage("Usuário ou senhas inválidos");
+    }
+
 }

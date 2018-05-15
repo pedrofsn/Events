@@ -11,7 +11,7 @@ public class Event {
     private double latitude;
     private double longitude;
     private String description;
-
+    private static final String LOCAL_FORMATADO = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=%f,%f";
 
     public double getLatitude() {
         return latitude;
@@ -48,6 +48,7 @@ public class Event {
 
     @Override
     public String toString() {
-        return this.description +"  - local "+String.valueOf(this.latitude)+ ' '+String.valueOf(this.longitude);
+        return this.description +"  - local "+String.format(LOCAL_FORMATADO, this.latitude, this.longitude);
+                //String.valueOf(this.latitude)+ ' '+String.valueOf(this.longitude);
     }
 }

@@ -35,6 +35,4 @@ public class List_Places_Activity extends BaseActivity {
 
     }
 
-
-
 }
