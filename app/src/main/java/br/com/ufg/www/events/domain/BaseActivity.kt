@@ -6,8 +6,6 @@ import android.view.View
 
 abstract class BaseActivity : Activity(), UIFeedback {
 
-    override fun showMessage(message: String) {
-        Snackbar.make(findViewById<View>(android.R.id.content), message, Snackbar.LENGTH_SHORT).show()
-    }
+    override fun showMessage(message: String) = Snackbar.make(findViewById<View>(android.R.id.content), message, Snackbar.LENGTH_SHORT).show()
 
 }
