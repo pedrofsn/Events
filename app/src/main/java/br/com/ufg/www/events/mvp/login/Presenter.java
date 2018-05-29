@@ -5,21 +5,24 @@ import br.com.ufg.www.events.model.Login;
 public class Presenter implements Contract.Presenter {
 
     private Contract.View view;
-    private Interactor interactor = new Interactor(this);
+    private Interactor interactor;
 
     public Presenter(Contract.View view) {
         this.view = view;
+//        this.interactor = new Interactor();
     }
 
     @Override
     public void login(Login login) {
-        interactor.login(login);
-        if (("teste".equals(login.getLogin())) && ("teste".equals(login.getPassword()))) {
-            view.onLoggedIn();
-        } else {
-            view.showMessage("Login inválido");
-        }
+        attempLogin(login.getLogin(), login.getPassword());
     }
 
-
+    public void attempLogin(String email, String senha){
+        boolean isValid = interactor.validadtedCredentials(email);
+        if (isValid){
+            view.onLoggedIn();
+        } else {
+            view.loginFailed();
+        }
+    }
 }

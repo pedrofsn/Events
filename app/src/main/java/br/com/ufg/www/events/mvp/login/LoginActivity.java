@@ -36,12 +36,23 @@ public class LoginActivity extends BaseActivity implements Contract.View, View.O
 
     @Override
     public void login() {
+<<<<<<< HEAD
         hideKeyboard();
 
         String login = editTextLogin.getText().toString();
         String password = editTextPassword.getText().toString();
 
         presenter.login(new Login(login, password));
+=======
+        Login sing_in = new Login(loginString, passwordString);
+        presenter.login(sing_in);
+    }
+
+    @Override
+    public void onLoggedIn() {
+        showMessage("Logou com sucesso!");
+        callListPlaces();
+>>>>>>> merge
     }
 
     private void hideKeyboard() {
@@ -66,4 +77,9 @@ public class LoginActivity extends BaseActivity implements Contract.View, View.O
         Intent intent = new Intent(this, List_Places_Activity.class);
         startActivity(intent);
     }
+
+    public void loginFailed(){
+        showMessage("Usuário ou senhas inválidos");
+    }
+
 }

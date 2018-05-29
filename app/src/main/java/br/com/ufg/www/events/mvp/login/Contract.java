@@ -9,6 +9,9 @@ public interface Contract {
         void login();
 
         void onLoggedIn();
+
+        void loginFailed();
+
     }
 
     interface Presenter {
