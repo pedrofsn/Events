@@ -28,7 +28,6 @@
             android:name=".mvp.maps.List_Places_Activity"
             android:label="@string/title_activity_list__places_"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
