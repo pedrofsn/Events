@@ -22,17 +22,32 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    kotlin {
+        experimental {
+            coroutines 'enable'
+        }
+    }
 }
 
 dependencies {
-    implementation "com.google.android.gms:play-services-location:15.0.1"
-    implementation "com.android.support:appcompat-v7:$support_version"
+    // Localização
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
+
+    // Suporte
+    implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support:design:$support_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
 
+    // Banco de dados
     implementation "android.arch.persistence.room:runtime:$room_version"
     kapt "android.arch.persistence.room:compiler:$room_version"
+
+    // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.5'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.21'
 }
