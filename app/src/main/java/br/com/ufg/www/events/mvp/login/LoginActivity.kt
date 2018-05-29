@@ -30,7 +30,7 @@ class LoginActivity : BaseActivity(), Contract.View, View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.btnLogar -> login()
+            R.id.buttonLogin -> login()
         }
     }
 
