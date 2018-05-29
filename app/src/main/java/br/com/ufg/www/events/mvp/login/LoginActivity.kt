@@ -36,6 +36,6 @@ class LoginActivity : BaseActivity(), Contract.View, View.OnClickListener {
 
     override fun onLoggedIn() = startActivity(Intent(this, List_Places_Activity::class.java))
 
-    override fun loginFailed() = showMessage("Usuário ou senhas inválidos")
+    override fun loginFailed() = showMessage(getString(R.string.error_login_or_password))
 
 }
