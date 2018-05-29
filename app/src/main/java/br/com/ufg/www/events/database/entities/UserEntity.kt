@@ -7,7 +7,7 @@ import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "users")
 class UserEntity(
-        @PrimaryKey(autoGenerate = false) val id: Long,
+        @PrimaryKey(autoGenerate = false) val id: Long = 0,
         @ColumnInfo(name = "password") val passwordUpperAndHashed: String,
         val email: String
 )
