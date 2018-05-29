@@ -1,5 +1,6 @@
 package br.com.ufg.www.events.mvp.login;
 
+import br.com.ufg.www.events.App;
 import br.com.ufg.www.events.model.Login;
 
 public class Presenter implements Contract.Presenter {
@@ -9,7 +10,7 @@ public class Presenter implements Contract.Presenter {
 
     public Presenter(Contract.View view) {
         this.view = view;
-//        this.interactor = new Interactor();
+        this.interactor = new Interactor(App.getContext());
     }
 
     @Override

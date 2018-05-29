@@ -14,8 +14,8 @@ public class Interactor extends SQLiteOpenHelper implements Contract.Interactor 
     private static final String TABELA_LOGIN ="login";
     private static final int VERSAO =1;
 
-    public Interactor(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public Interactor(Context context) {
+        super(context, NOME_BANCO, null, VERSAO);
     }
 
     @Override
@@ -33,12 +33,6 @@ public class Interactor extends SQLiteOpenHelper implements Contract.Interactor 
 
     public boolean validadtedCredentials(String email){
         return email.contains("gmail");
-    }
-
-    private Contract.Presenter presenter;
-
-    public Interactor(Contract.Presenter presenter) {
-        this.presenter = presenter;
     }
 
     @Override

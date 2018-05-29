@@ -36,23 +36,11 @@ public class LoginActivity extends BaseActivity implements Contract.View, View.O
 
     @Override
     public void login() {
-<<<<<<< HEAD
-        hideKeyboard();
+        String loginString = editTextLogin.getText().toString();
+        String passwordString = editTextPassword.getText().toString();
 
-        String login = editTextLogin.getText().toString();
-        String password = editTextPassword.getText().toString();
-
-        presenter.login(new Login(login, password));
-=======
         Login sing_in = new Login(loginString, passwordString);
         presenter.login(sing_in);
-    }
-
-    @Override
-    public void onLoggedIn() {
-        showMessage("Logou com sucesso!");
-        callListPlaces();
->>>>>>> merge
     }
 
     private void hideKeyboard() {
