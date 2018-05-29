@@ -1,7 +1,6 @@
 package br.com.ufg.www.events
 
 import android.app.Application
-import android.content.Context
 
 class App : Application() {
 

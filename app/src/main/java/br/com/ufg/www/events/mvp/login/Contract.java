@@ -7,7 +7,9 @@ public interface Contract {
 
     interface View extends UIFeedback {
         void login();
+
         void onLoggedIn();
+
         void loginFailed();
     }
 

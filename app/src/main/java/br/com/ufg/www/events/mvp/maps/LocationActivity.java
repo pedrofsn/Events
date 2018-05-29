@@ -28,12 +28,11 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
 
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private static final int DEFAULT_ZOOM = 15;
-    private boolean locationGranted;
-
     MapView mMapView;
     GoogleMap mGoogleMap;
     android.location.Location mLastKnownLocation;
     FusedLocationProviderClient mFusedLocationProviderClient;
+    private boolean locationGranted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +83,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mGoogleMap = googleMap;
-        mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(-30, -50 )).title("Marker").flat(true));
+        mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(-30, -50)).title("Marker").flat(true));
         getLocationPermission();
         getDeviceLocation();
     }
@@ -123,7 +122,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
                     }
                 });
             }
-        } catch(SecurityException e)  {
+        } catch (SecurityException e) {
             Log.e("Exception: %s", e.getMessage());
         }
     }
@@ -158,12 +157,12 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
                 mLastKnownLocation = null;
                 getLocationPermission();
             }
-        } catch (SecurityException e)  {
+        } catch (SecurityException e) {
             Log.e("APP_ERROR", e.getMessage());
         }
     }
 
-    public void route(){
+    public void route() {
         LatLng ponto = new LatLng(-16.6824, -49.2567);
         PolylineOptions polylineOptions = new PolylineOptions();
         mGoogleMap.addPolyline(polylineOptions);

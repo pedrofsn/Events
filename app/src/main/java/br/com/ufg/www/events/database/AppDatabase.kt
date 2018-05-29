@@ -27,11 +27,11 @@ abstract class AppDatabase : RoomDatabase() {
         private var INSTANCE: AppDatabase? = null
         private val DATABASE_NAME: String = "events.db"
 
-        fun getInstance(context : Context = App.instance) = INSTANCE ?: synchronized(this) {
+        fun getInstance(context: Context = App.instance) = INSTANCE ?: synchronized(this) {
             INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
         }
 
-        private fun buildDatabase(context : Context): AppDatabase {
+        private fun buildDatabase(context: Context): AppDatabase {
             val room = Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
 //            room.addMigrations(object : Migration(1, 2) {
 //                override fun migrate(database: SupportSQLiteDatabase) {

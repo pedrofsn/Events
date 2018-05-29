@@ -66,7 +66,7 @@ public class LoginActivity extends BaseActivity implements Contract.View, View.O
         startActivity(intent);
     }
 
-    public void loginFailed(){
+    public void loginFailed() {
         showMessage("Usuário ou senhas inválidos");
     }
 
