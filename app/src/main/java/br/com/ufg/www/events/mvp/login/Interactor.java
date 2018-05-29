@@ -35,12 +35,6 @@ public class Interactor extends SQLiteOpenHelper implements Contract.Interactor 
         return email.contains("gmail");
     }
 
-    private Contract.Presenter presenter;
-
-    public Interactor(Contract.Presenter presenter) {
-        this.presenter = presenter;
-    }
-
     @Override
     public void login(Login login) {
         if (validadtedCredentials(login.getLogin())){
