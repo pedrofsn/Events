@@ -16,12 +16,12 @@ class LoginActivity : BaseActivity(), Contract.View, View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        btnLogar.setOnClickListener(this)
+        buttonLogin.setOnClickListener(this)
     }
 
     override fun login() {
-        val loginString = edtLogin!!.text.toString()
-        val passwordString = edtSenha!!.text.toString()
+        val loginString = editTextLogin.text.toString()
+        val passwordString = editTextPassword.text.toString()
 
         val sing_in = Login(loginString, passwordString)
         presenter.login(sing_in)

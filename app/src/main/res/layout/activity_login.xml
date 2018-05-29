@@ -24,7 +24,7 @@
         android:padding="16dp">
 
         <EditText
-            android:id="@+id/edtLogin"
+            android:id="@+id/editTextLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_login"
@@ -32,7 +32,7 @@
             android:padding="8dp" />
 
         <EditText
-            android:id="@+id/edtSenha"
+            android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_password"
@@ -41,7 +41,7 @@
             android:singleLine="true" />
 
         <Button
-            android:id="@+id/btnLogar"
+            android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
