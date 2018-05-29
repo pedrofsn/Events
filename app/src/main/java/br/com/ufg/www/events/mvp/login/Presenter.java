@@ -1,6 +1,5 @@
 package br.com.ufg.www.events.mvp.login;
 
-import br.com.ufg.www.events.App;
 import br.com.ufg.www.events.model.Login;
 
 public class Presenter implements Contract.Presenter {
@@ -10,17 +9,13 @@ public class Presenter implements Contract.Presenter {
 
     public Presenter(Contract.View view) {
         this.view = view;
-        this.interactor = new Interactor(App.getContext());
+        this.interactor = new Interactor();
     }
 
     @Override
     public void login(Login login) {
-        attempLogin(login.getLogin(), login.getPassword());
-    }
-
-    public void attempLogin(String email, String senha){
-        boolean isValid = interactor.validadtedCredentials(email);
-        if (isValid){
+        Boolean result = interactor.login(login);
+        if (result) {
             view.onLoggedIn();
         } else {
             view.loginFailed();

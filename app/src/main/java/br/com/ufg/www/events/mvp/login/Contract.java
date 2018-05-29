@@ -7,18 +7,11 @@ public interface Contract {
 
     interface View extends UIFeedback {
         void login();
-
         void onLoggedIn();
-
         void loginFailed();
-
     }
 
     interface Presenter {
-        void login(Login login);
-    }
-
-    interface Interactor {
         void login(Login login);
     }
 
