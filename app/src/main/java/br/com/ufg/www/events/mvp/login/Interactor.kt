@@ -10,7 +10,13 @@ import kotlinx.coroutines.experimental.launch
 class Interactor {
 
     fun login(login: Login, callback: ((Boolean) -> Unit)) = launch(UI) {
-        val deferred = async(CommonPool) { AppDatabase.getInstance().userDAO().isLoginValid(email = login.login, passwordUpperAndHashed = login.password) }
+        val entity = login.toEntity()
+        val deferred = async(CommonPool) {
+            AppDatabase.getInstance().userDAO().isLoginValid(
+                    email = entity.email,
+                    passwordUpperAndHashed = entity.passwordUpperAndHashed
+            )
+        }
         val result = deferred.await()
         callback.invoke(result)
     }
