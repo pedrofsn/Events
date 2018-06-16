@@ -1,11 +1,15 @@
 package br.com.ufg.www.events.database
 
+import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
+import android.arch.persistence.room.migration.Migration
 import android.content.Context
 import br.com.ufg.www.events.App
+import br.com.ufg.www.events.database.dao.EventDao
 import br.com.ufg.www.events.database.dao.UserDao
+import br.com.ufg.www.events.database.entities.EventEntity
 import br.com.ufg.www.events.database.entities.UserEntity
 
 /**
@@ -13,13 +17,15 @@ import br.com.ufg.www.events.database.entities.UserEntity
  */
 
 @Database(entities = arrayOf(
-        UserEntity::class
+        UserEntity::class,
+        EventEntity::class
 ),
-        version = 1,
+        version = 2,
         exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDAO(): UserDao
+    abstract fun eventDAO(): EventDao
 
     companion object {
 
@@ -33,11 +39,11 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): AppDatabase {
             val room = Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
-//            room.addMigrations(object : Migration(1, 2) {
-//                override fun migrate(database: SupportSQLiteDatabase) {
-//                    database.execSQL("DROP TABLE tb_X;");
-//                }
-//            })
+            room.addMigrations(object : Migration(1, 2) {
+                override fun migrate(database: SupportSQLiteDatabase) {
+                    database.execSQL("CREATE TABLE events (latitude double not null,longitude double not null,description text,login text not null)");
+                }
+            })
             return room.build()
         }
     }
