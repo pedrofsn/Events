@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import br.com.ufg.www.events.R;
 
-public class MainActivity extends AppCompatActivity {
+public class RegisterUserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
