@@ -7,6 +7,7 @@ import br.com.ufg.www.events.R
 import br.com.ufg.www.events.domain.BaseActivity
 import br.com.ufg.www.events.model.Login
 import br.com.ufg.www.events.mvp.maps.List_Places_Activity
+import br.com.ufg.www.events.mvp.register.RegisterUserActivity
 
 class LoginActivity : BaseActivity(), Contract.View, View.OnClickListener {
 
@@ -34,9 +35,7 @@ class LoginActivity : BaseActivity(), Contract.View, View.OnClickListener {
         }
     }
 
-    override fun register() {
-        showMessage("clicou em registrar")
-    } //= startActivity(Intent(this, List_Places_Activity::class.java))
+    override fun register() = startActivity(Intent(this, RegisterUserActivity::class.java))
 
     override fun onLoggedIn() = startActivity(Intent(this, List_Places_Activity::class.java))
 
