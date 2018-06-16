@@ -48,6 +48,16 @@
             android:text="@string/caption_login"
             android:textColor="@android:color/holo_green_dark" />
 
+        <TextView
+            android:id="@+id/textViewRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:padding="10dp"
+            android:text="@string/register"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
 </LinearLayout>
