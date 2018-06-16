@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.login
+package br.com.ufg.www.events.mvp.user.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import br.com.ufg.www.events.extensions.getString
 import br.com.ufg.www.events.extensions.isFilled
 import br.com.ufg.www.events.model.Login
 import br.com.ufg.www.events.mvp.maps.List_Places_Activity
-import br.com.ufg.www.events.mvp.register.RegisterUserActivity
+import br.com.ufg.www.events.mvp.user.register.RegisterUserActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), Contract.View, View.OnClickListener {

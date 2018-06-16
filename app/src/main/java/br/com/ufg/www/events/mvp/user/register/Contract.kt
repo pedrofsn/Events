@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.register
+package br.com.ufg.www.events.mvp.user.register
 
 import br.com.ufg.www.events.domain.UIFeedback
 import br.com.ufg.www.events.model.RegisterUser

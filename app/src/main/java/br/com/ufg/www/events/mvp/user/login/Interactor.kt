@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.login
+package br.com.ufg.www.events.mvp.user.login
 
 import br.com.ufg.www.events.database.AppDatabase
 import br.com.ufg.www.events.model.Login

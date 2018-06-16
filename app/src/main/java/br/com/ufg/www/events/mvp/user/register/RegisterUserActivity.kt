@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.register
+package br.com.ufg.www.events.mvp.user.register
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK

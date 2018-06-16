@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.register
+package br.com.ufg.www.events.mvp.user.register
 
 import br.com.ufg.www.events.extensions.isValid
 import br.com.ufg.www.events.model.RegisterUser

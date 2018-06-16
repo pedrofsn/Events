@@ -1,7 +1,6 @@
-package br.com.ufg.www.events.mvp.register
+package br.com.ufg.www.events.mvp.user.register
 
 import br.com.ufg.www.events.database.AppDatabase
-import br.com.ufg.www.events.model.Login
 import br.com.ufg.www.events.model.RegisterUser
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.android.UI

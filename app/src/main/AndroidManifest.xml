@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".mvp.login.LoginActivity"
+            android:name="br.com.ufg.www.events.mvp.user.login.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
@@ -31,7 +31,7 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name=".mvp.register.RegisterUserActivity"
+            android:name="br.com.ufg.www.events.mvp.user.register.RegisterUserActivity"
             android:label="@string/register"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
