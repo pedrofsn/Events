@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.ufg.www.events.mvp.maps.List_Places_Activity">
+    tools:context="br.com.ufg.www.events.mvp.maps.list.List_Places_Activity">
 
-    <ListView
-        android:id="@+id/listEvents"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewEvents"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
-
+        android:layout_height="wrap_content" />
 
 </android.support.design.widget.CoordinatorLayout>
