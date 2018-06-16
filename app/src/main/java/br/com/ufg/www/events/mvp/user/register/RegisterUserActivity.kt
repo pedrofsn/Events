@@ -10,7 +10,7 @@ import br.com.ufg.www.events.domain.BaseActivity
 import br.com.ufg.www.events.extensions.getString
 import br.com.ufg.www.events.extensions.isFilled
 import br.com.ufg.www.events.model.RegisterUser
-import br.com.ufg.www.events.mvp.maps.List_Places_Activity
+import br.com.ufg.www.events.mvp.maps.list.List_Places_Activity
 import kotlinx.android.synthetic.main.activity_register_user.*
 
 class RegisterUserActivity : BaseActivity(), Contract.View, View.OnClickListener {
