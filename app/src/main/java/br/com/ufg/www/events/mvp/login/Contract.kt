@@ -7,6 +7,7 @@ interface Contract {
 
     interface View : UIFeedback {
         fun login()
+        fun register()
         fun onLoggedIn()
         fun loginFailed()
     }
