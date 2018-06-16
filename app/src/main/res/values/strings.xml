@@ -12,4 +12,6 @@
     <string name="not_filled">O campo \"%s\" não foi preenchido</string>
     <string name="password_doesnt_match">As senhas não conferem</string>
     <string name="passwords_need_minimal_x_characters">A senha precisa conter no mínimo %d caracteres</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
 </resources>
