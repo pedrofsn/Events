@@ -6,6 +6,7 @@ Projeto de conclusão da disciplina de Android Avançado da pós graduação em 
 
 # Tecnologias utilizadas até a última atualização do projeto
 - Kotlin
+- Java
 - Constraint Layout
 - Play Services Location
 - AppCompatV7
