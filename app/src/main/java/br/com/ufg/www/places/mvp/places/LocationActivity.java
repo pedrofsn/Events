@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import br.com.ufg.www.places.R;
+import br.com.ufg.www.places.model.Place;
 
 public class LocationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -33,6 +34,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
     android.location.Location mLastKnownLocation;
     FusedLocationProviderClient mFusedLocationProviderClient;
     private boolean locationGranted;
+    private Place place;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
         setContentView(R.layout.activity_location);
         initMap();
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        place = getIntent().getParcelableExtra("place");
     }
 
     @Override
