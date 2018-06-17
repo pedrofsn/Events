@@ -41,7 +41,7 @@ abstract class AppDatabase : RoomDatabase() {
             val room = Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
             room.addMigrations(object : Migration(1, 2) {
                 override fun migrate(database: SupportSQLiteDatabase) {
-                    database.execSQL("CREATE TABLE events (latitude double not null,longitude double not null,description text,login text not null)");
+                    database.execSQL("CREATE TABLE events (latitude REAL not null,longitude REAL not null,description TEXT,login TEXT NOT NULL)");
                 }
             })
             return room.build()
