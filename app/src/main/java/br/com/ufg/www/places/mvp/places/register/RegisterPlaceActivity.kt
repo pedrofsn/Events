@@ -28,8 +28,8 @@ class RegisterPlaceActivity : BaseActivity(), View.OnClickListener, Contract.Vie
             val description = editTextDescription.getString()
 
             val place = Place(
-                    latitude = latitude.toDouble(),
-                    longitude = longitude.toDouble(),
+                    latitude = latitude,
+                    longitude = longitude,
                     description = description,
                     login = App.userLoggedIn
             )

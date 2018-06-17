@@ -9,8 +9,8 @@ import br.com.ufg.www.places.model.Place
 @Entity(tableName = "places")
 class PlaceEntity(
         @PrimaryKey(autoGenerate = true) val id: Long = 0,
-        val latitude: Double,
-        val longitude: Double,
+        val latitude: String,
+        val longitude: String,
         val description: String?,
         @ColumnInfo(name = "login") val userLogin: String
 ) {
