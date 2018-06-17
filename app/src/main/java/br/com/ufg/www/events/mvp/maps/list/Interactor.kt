@@ -10,7 +10,7 @@ import kotlinx.coroutines.experimental.launch
 class Interactor {
 
     fun load(userLogin: String, callback: ((List<Event>) -> Unit)) = launch(UI) {
-        val deferred = async(CommonPool) { AppDatabase.getInstance().eventDAO().readAll(userLogin = userLogin) }
+        val deferred = async(CommonPool) { AppDatabase.getInstance().eventDAO().readAll(userLogin = userLogin).map { entity -> entity.toModel() } }
         val result = deferred.await()
         callback.invoke(result)
     }
