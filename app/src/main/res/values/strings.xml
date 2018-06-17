@@ -7,10 +7,12 @@
     <string name="title_activity_list__places_">List_Places_Activity</string>
     <string name="error_login_or_password">Usuário ou senha inválido(s)</string>
     <string name="register">Cadastre-se</string>
+    <string name="register_place">Cadastre um local</string>
     <string name="hint_password_again">Confirme a senha</string>
     <string name="not_filled">O campo \"%s\" não foi preenchido</string>
     <string name="password_doesnt_match">As senhas não conferem</string>
     <string name="passwords_need_minimal_x_characters">A senha precisa conter no mínimo %d caracteres</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
+    <string name="description">Descrição</string>
 </resources>
