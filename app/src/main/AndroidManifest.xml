@@ -37,6 +37,12 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
+            android:name=".mvp.places.register.RegisterPlaceActivity"
+            android:label="@string/register_place"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
             android:name=".mvp.places.LocationActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
