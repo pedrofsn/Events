@@ -7,6 +7,7 @@ interface Contract {
 
     interface View : UIFeedback {
         fun load()
+        fun register()
         fun openInMaps(place: Place)
         fun onLoaded(places: List<Place>)
     }
