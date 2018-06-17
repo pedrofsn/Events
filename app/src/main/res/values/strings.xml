@@ -4,7 +4,6 @@
     <string name="hint_login">Login</string>
     <string name="hint_password">Senha</string>
     <string name="logaded">Logou com sucesso</string>
-    <string name="title_activity_list__places_">List_Places_Activity</string>
     <string name="error_login_or_password">Usuário ou senha inválido(s)</string>
     <string name="register">Cadastre-se</string>
     <string name="register_place">Cadastre um local</string>
@@ -15,4 +14,7 @@
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
     <string name="description">Descrição</string>
+    <string name="latitude_two_dots">Latitude:</string>
+    <string name="longitude_two_dots">Longitude:</string>
+    <string name="places">Locais</string>
 </resources>
