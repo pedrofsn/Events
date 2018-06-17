@@ -15,7 +15,6 @@
         android:src="@mipmap/ic_launcher" />
 
     <LinearLayout
-        android:id="@+id/container_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
