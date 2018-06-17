@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">events</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="app_name">Places</string>
     <string name="caption_login">Logar</string>
     <string name="hint_login">Login</string>
     <string name="hint_password">Senha</string>
