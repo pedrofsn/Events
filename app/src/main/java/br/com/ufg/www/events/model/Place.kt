@@ -4,6 +4,7 @@ import android.os.Parcelable
 import br.com.ufg.www.events.App
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.database.entities.PlaceEntity
+import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -21,4 +22,6 @@ data class Place(
             description = description,
             userLogin = login
     )
+
+    fun toLatLng() = LatLng(latitude.toDouble(), longitude.toDouble())
 }
