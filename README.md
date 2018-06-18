@@ -1,4 +1,4 @@
-# Places
+# Events
 Um app para guardar localizações. Permite realizar login e registro de usuário, além de listar os registros salvos e exibir as coordenadas geográficas no mapa.
 
 # Sobre este Projeto
@@ -17,9 +17,6 @@ Projeto de conclusão da disciplina de Android Avançado da pós graduação em 
 - Github
 - Android
 - XML
-- GSON
-- JSON
-- Retrofit
 
 # Alunos
 - Márcio Pereira Alves (marciopalves)
