@@ -8,7 +8,7 @@ import br.com.ufg.www.events.R
 import br.com.ufg.www.events.domain.BaseActivity
 import br.com.ufg.www.events.domain.MyOnItemClickListener
 import br.com.ufg.www.events.model.Place
-import br.com.ufg.www.events.mvp.places.LocationActivity
+import br.com.ufg.www.events.mvp.places.map.GoogleMapsActivity
 import br.com.ufg.www.events.mvp.places.list.adapter.AdapterPlace
 import br.com.ufg.www.events.mvp.places.register.RegisterPlaceActivity
 import kotlinx.android.synthetic.main.activity_places.*
@@ -46,7 +46,7 @@ class PlacesActivity : BaseActivity(), MyOnItemClickListener<Place>, View.OnClic
     override fun register() = startActivity(Intent(this@PlacesActivity, RegisterPlaceActivity::class.java))
 
     override fun openInMaps(place: Place) {
-        val intent = Intent(this, LocationActivity::class.java)
+        val intent = Intent(this, GoogleMapsActivity::class.java)
         intent.putExtra("place", place)
         startActivity(intent)
     }

@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.places;
+package br.com.ufg.www.events.mvp.places.map;
 
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -25,7 +25,7 @@ import br.com.ufg.www.events.R;
 import br.com.ufg.www.events.domain.BaseActivity;
 import br.com.ufg.www.events.model.Place;
 
-public class LocationActivity extends BaseActivity implements OnMapReadyCallback {
+public class GoogleMapsActivity extends BaseActivity implements OnMapReadyCallback {
 
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private static final int DEFAULT_ZOOM = 15;
