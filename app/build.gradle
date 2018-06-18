@@ -7,7 +7,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "br.com.ufg.www.places"
+        applicationId "br.com.ufg.www.events"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
