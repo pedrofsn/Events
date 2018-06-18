@@ -1,12 +1,12 @@
-package br.com.ufg.www.events.mvp.maps;
+package br.com.ufg.www.events.mvp.places.map;
 
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -17,14 +17,15 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import br.com.ufg.www.events.R;
+import br.com.ufg.www.events.domain.BaseActivity;
+import br.com.ufg.www.events.model.Place;
 
-public class LocationActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class GoogleMapsActivity extends BaseActivity implements OnMapReadyCallback {
 
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private static final int DEFAULT_ZOOM = 15;
@@ -33,13 +34,17 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
     android.location.Location mLastKnownLocation;
     FusedLocationProviderClient mFusedLocationProviderClient;
     private boolean locationGranted;
+    private Place place;
+    private boolean hasPolyneDrawn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initMap();
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        place = getIntent().getParcelableExtra("place");
     }
 
     @Override
@@ -83,7 +88,6 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mGoogleMap = googleMap;
-        mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(-30, -50)).title("Marker").flat(true));
         getLocationPermission();
         getDeviceLocation();
     }
@@ -118,6 +122,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
                             mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                     new LatLng(mLastKnownLocation.getLatitude(),
                                             mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+                            updateLocationUI();
                         }
                     }
                 });
@@ -143,28 +148,44 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
     private void updateLocationUI() {
-        if (mMapView == null && mGoogleMap != null) {
+        if (mMapView == null) {
             return;
         }
+
         try {
-            if (locationGranted) {
-                mGoogleMap.setMyLocationEnabled(true);
-                mGoogleMap.getUiSettings().setMyLocationButtonEnabled(true);
-                route();
-            } else {
-                mGoogleMap.setMyLocationEnabled(false);
-                mGoogleMap.getUiSettings().setMyLocationButtonEnabled(false);
-                mLastKnownLocation = null;
-                getLocationPermission();
+            if (mGoogleMap != null) {
+                if (locationGranted) {
+                    mGoogleMap.setMyLocationEnabled(true);
+                    mGoogleMap.getUiSettings().setMyLocationButtonEnabled(true);
+                } else {
+                    mGoogleMap.setMyLocationEnabled(false);
+                    mGoogleMap.getUiSettings().setMyLocationButtonEnabled(false);
+                    mLastKnownLocation = null;
+                    getLocationPermission();
+                }
             }
         } catch (SecurityException e) {
             Log.e("APP_ERROR", e.getMessage());
         }
+
+        drawPolyne();
     }
 
-    public void route() {
-        LatLng ponto = new LatLng(-16.6824, -49.2567);
-        PolylineOptions polylineOptions = new PolylineOptions();
-        mGoogleMap.addPolyline(polylineOptions);
+    public void drawPolyne() {
+        if (mLastKnownLocation != null && !hasPolyneDrawn) {
+            LatLng lastLocation = new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude());
+
+            PolylineOptions polylineOptions = new PolylineOptions();
+            polylineOptions.visible(true);
+            polylineOptions.color(Color.RED);
+            polylineOptions.geodesic(true);
+
+            polylineOptions.add(lastLocation);
+            polylineOptions.add(place.toLatLng());
+
+            mGoogleMap.addPolyline(polylineOptions);
+
+            hasPolyneDrawn = true;
+        }
     }
 }

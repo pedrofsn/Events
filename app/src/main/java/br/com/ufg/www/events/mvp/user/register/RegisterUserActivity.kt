@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.register
+package br.com.ufg.www.events.mvp.user.register
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -10,7 +10,7 @@ import br.com.ufg.www.events.domain.BaseActivity
 import br.com.ufg.www.events.extensions.getString
 import br.com.ufg.www.events.extensions.isFilled
 import br.com.ufg.www.events.model.RegisterUser
-import br.com.ufg.www.events.mvp.maps.List_Places_Activity
+import br.com.ufg.www.events.mvp.places.list.PlacesActivity
 import kotlinx.android.synthetic.main.activity_register_user.*
 
 class RegisterUserActivity : BaseActivity(), Contract.View, View.OnClickListener {
@@ -47,7 +47,7 @@ class RegisterUserActivity : BaseActivity(), Contract.View, View.OnClickListener
     }
 
     override fun onRegistered() {
-        val intent = Intent(this, List_Places_Activity::class.java)
+        val intent = Intent(this, PlacesActivity::class.java)
         intent.addFlags(FLAG_ACTIVITY_CLEAR_TASK)
         intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
