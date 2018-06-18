@@ -24,9 +24,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import br.com.ufg.www.events.R;
+import br.com.ufg.www.events.domain.BaseActivity;
 import br.com.ufg.www.events.model.Place;
 
-public class LocationActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class LocationActivity extends BaseActivity implements OnMapReadyCallback {
 
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private static final int DEFAULT_ZOOM = 15;
@@ -42,6 +43,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initMap();
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         place = getIntent().getParcelableExtra("place");
