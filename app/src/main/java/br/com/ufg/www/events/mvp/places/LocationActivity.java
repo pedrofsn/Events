@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -18,7 +17,6 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -188,12 +186,6 @@ public class LocationActivity extends BaseActivity implements OnMapReadyCallback
             mGoogleMap.addPolyline(polylineOptions);
 
             hasPolyneDrawn = true;
-
-            addMarker();
         }
-    }
-
-    private void addMarker() {
-        mGoogleMap.addMarker(new MarkerOptions().position(place.toLatLng()).title(place.getDescription()).flat(true));
     }
 }
