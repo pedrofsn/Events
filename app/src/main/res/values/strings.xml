@@ -17,4 +17,5 @@
     <string name="latitude_two_dots">Latitude:</string>
     <string name="longitude_two_dots">Longitude:</string>
     <string name="places">Locais</string>
+    <string name="registered_place">Local cadastrado</string>
 </resources>
