@@ -14,6 +14,20 @@ android {
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
         resConfigs("pt", "rBR", "pt-rBR", "en")
+
+        vectorDrawables.useSupportLibrary = true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${variant.name}-${variant.versionName}.apk"
+        }
     }
 
     buildTypes {
@@ -23,14 +37,24 @@ android {
         }
     }
 
-    kotlin {
-        experimental {
-            coroutines 'enable'
-        }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
     }
 
     androidExtensions {
-        experimental = true
+        experimental true
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    subprojects {
+        gradle.projectsEvaluated {
+            tasks.withType(JavaCompile) {
+                options.compilerArgs << '-Xmaxerrs' << '500'
+            }
+        }
     }
 }
 
@@ -49,7 +73,7 @@ dependencies {
     kapt 'android.arch.persistence.room:compiler:1.1.1'
 
     // Kotlin
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.61'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.5'
