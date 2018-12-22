@@ -1,6 +1,5 @@
 package br.com.ufg.www.events.domain
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import java.util.*
 /**
  * Created by pedrofsn on 16/10/2017.
  */
-abstract class BaseAdapter<Objeto, VH : BaseViewHolder<Objeto>>(var myOnItemClickListener: MyOnItemClickListener<Objeto>? = null) : RecyclerView.Adapter<VH>() {
+abstract class BaseAdapter<Objeto, VH : BaseViewHolder<Objeto>>(var myOnItemClickListener: MyOnItemClickListener<Objeto>? = null) : androidx.recyclerview.widget.RecyclerView.Adapter<VH>() {
 
     abstract var click: MyOnItemClickListener<Objeto>?
     private val original = arrayListOf<Objeto>()

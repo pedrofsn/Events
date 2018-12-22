@@ -2,14 +2,13 @@ package br.com.ufg.www.events.mvp.places.list
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.domain.BaseActivity
 import br.com.ufg.www.events.domain.MyOnItemClickListener
 import br.com.ufg.www.events.model.Place
-import br.com.ufg.www.events.mvp.places.map.GoogleMapsActivity
 import br.com.ufg.www.events.mvp.places.list.adapter.AdapterPlace
+import br.com.ufg.www.events.mvp.places.map.GoogleMapsActivity
 import br.com.ufg.www.events.mvp.places.register.RegisterPlaceActivity
 import kotlinx.android.synthetic.main.activity_places.*
 
@@ -21,7 +20,7 @@ class PlacesActivity : BaseActivity(), MyOnItemClickListener<Place>, View.OnClic
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_places)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         recyclerView.adapter = adapter
         fab.setOnClickListener(this)
     }

@@ -1,12 +1,11 @@
 package br.com.ufg.www.events.domain
 
-import android.support.v7.widget.RecyclerView
 import android.view.View
 
 /**
  * Created by pedrofsn on 16/10/2017.
  */
-abstract class BaseViewHolder<Objeto>(itemView: View) : RecyclerView.ViewHolder(itemView) {
+abstract class BaseViewHolder<Objeto>(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     abstract fun popular(obj: Objeto)
 
