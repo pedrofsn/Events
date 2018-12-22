@@ -5,17 +5,16 @@ import android.os.Bundle
 import android.view.View
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.domain.BaseActivity
-import br.com.ufg.www.events.domain.MyOnItemClickListener
 import br.com.ufg.www.events.model.Place
 import br.com.ufg.www.events.mvp.places.list.adapter.AdapterPlace
 import br.com.ufg.www.events.mvp.places.map.GoogleMapsActivity
 import br.com.ufg.www.events.mvp.places.register.RegisterPlaceActivity
 import kotlinx.android.synthetic.main.activity_places.*
 
-class PlacesActivity : BaseActivity(), MyOnItemClickListener<Place>, View.OnClickListener, Contract.View {
+class PlacesActivity : BaseActivity(), View.OnClickListener, Contract.View {
 
     private val presenter = Presenter(this)
-    private val adapter = AdapterPlace(this)
+    private val adapter = AdapterPlace() { place: Place, _: Int -> openInMaps(place) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +48,5 @@ class PlacesActivity : BaseActivity(), MyOnItemClickListener<Place>, View.OnClic
         intent.putExtra("place", place)
         startActivity(intent)
     }
-
-    override fun onItemClickListener(item: Place, position: Int) = openInMaps(item)
 
 }

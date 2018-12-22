@@ -59,21 +59,24 @@ android {
 }
 
 dependencies {
-    // Localização
+    // Location
     implementation 'com.google.android.gms:play-services-location:16.0.0'
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
 
-    // Suporte
+    // Visual
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
     implementation 'com.google.android.material:material:1.1.0-alpha02'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
 
-    // Banco de dados
+    // ORM
     implementation 'androidx.room:room-runtime:2.1.0-alpha03'
     kapt 'androidx.room:room-compiler:2.1.0-alpha03'
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Handle Recyclerview
+    implementation 'com.github.pedrofsn:EasyRecyclerview:1.0.0'
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.5'
