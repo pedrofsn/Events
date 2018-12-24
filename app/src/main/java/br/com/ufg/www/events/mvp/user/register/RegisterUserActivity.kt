@@ -1,63 +1,32 @@
 package br.com.ufg.www.events.mvp.user.register
 
-import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
-import android.os.Bundle
 import android.view.View
+import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.ufg.www.events.R
-import br.com.ufg.www.events.domain.BaseActivity
-import br.com.ufg.www.events.extensions.getString
+import br.com.ufg.www.events.databinding.ActivityRegisterUserBinding
 import br.com.ufg.www.events.extensions.isFilled
-import br.com.ufg.www.events.model.RegisterUser
 import br.com.ufg.www.events.mvp.places.list.PlacesActivity
-import kotlinx.android.synthetic.main.activity_register_user.*
 
-class RegisterUserActivity : BaseActivity(), Contract.View, View.OnClickListener {
+class RegisterUserActivity : ActivityMVVM<ActivityRegisterUserBinding, RegisterViewModel>() {
 
-    private val presenter by lazy { Presenter(this) }
-    private val MINIMAL_LENGTH_PASSWORD = 3
+    override val classViewModel = RegisterViewModel::class.java
+    override val layout = R.layout.activity_register_user
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_user)
-        buttonRegister.setOnClickListener(this)
-    }
+    override fun afterOnCreate() = viewModel.load()
 
-    override fun register() {
-        if (editTextLogin.isFilled() && editTextPassword.isFilled() && editTextPasswordConfirmation.isFilled()) {
-            val login = editTextLogin.getString()
-            val password = editTextPassword.getString()
-            val passwordConfirmation = editTextPasswordConfirmation.getString()
-
-            when {
-                password.length < MINIMAL_LENGTH_PASSWORD -> showMessage(String.format(getString(R.string.passwords_need_minimal_x_characters), MINIMAL_LENGTH_PASSWORD))
-                password != passwordConfirmation -> showMessage(getString(R.string.password_doesnt_match))
-                else -> {
-                    val registerUser = RegisterUser(
-                            login = login,
-                            password = password
-                    )
-
-                    presenter.register(registerUser)
-                }
-            }
-
+    fun register(view: View?) {
+        if (binding.editTextLogin.isFilled() && binding.editTextPassword.isFilled() && binding.editTextPasswordConfirmation.isFilled()) {
+            viewModel.register()
         }
     }
 
-    override fun onRegistered() {
-        val intent = Intent(this, PlacesActivity::class.java)
-        intent.addFlags(FLAG_ACTIVITY_CLEAR_TASK)
-        intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
-        startActivity(intent)
-    }
-
-    override fun onClick(v: View?) {
-        v?.let {
-            when (v.id) {
-                buttonRegister.id -> register()
-            }
+    override fun handleEvent(event: String, obj: Any?) {
+        when (event) {
+            "onRegistered" -> onRegistered()
+            else -> super.handleEvent(event, obj)
         }
     }
+
+    private fun onRegistered() = goToWithNoHistory(PlacesActivity::class.java)
+
 }

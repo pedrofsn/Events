@@ -13,9 +13,7 @@ class LoginActivity : ActivityMVVM<ActivityLoginBinding, LoginViewModel>() {
     override val classViewModel = LoginViewModel::class.java
     override val layout = R.layout.activity_login
 
-    override fun afterOnCreate() {
-
-    }
+    override fun afterOnCreate() = viewModel.load()
 
     fun login(view: View?) {
         if (binding.editTextLogin.isFilled() && binding.editTextPassword.isFilled()) {
