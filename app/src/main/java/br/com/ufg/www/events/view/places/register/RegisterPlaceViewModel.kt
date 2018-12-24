@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.places.register
+package br.com.ufg.www.events.view.places.register
 
 import br.com.redcode.base.utils.Constants.EMPTY_STRING
 import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData

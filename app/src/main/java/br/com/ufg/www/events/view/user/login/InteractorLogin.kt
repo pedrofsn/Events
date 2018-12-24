@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.user.login
+package br.com.ufg.www.events.view.user.login
 
 import br.com.ufg.www.events.domain.BaseInteractorMVVM
 import br.com.ufg.www.events.model.ui.InputLogin

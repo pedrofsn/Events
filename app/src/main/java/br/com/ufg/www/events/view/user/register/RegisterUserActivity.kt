@@ -1,11 +1,11 @@
-package br.com.ufg.www.events.mvp.user.register
+package br.com.ufg.www.events.view.user.register
 
 import android.view.View
 import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityRegisterUserBinding
 import br.com.ufg.www.events.extensions.isFilled
-import br.com.ufg.www.events.mvp.places.list.PlacesActivity
+import br.com.ufg.www.events.view.places.list.PlacesActivity
 
 class RegisterUserActivity : ActivityMVVM<ActivityRegisterUserBinding, RegisterViewModel>() {
 

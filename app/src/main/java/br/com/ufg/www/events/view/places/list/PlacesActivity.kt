@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.places.list
+package br.com.ufg.www.events.view.places.list
 
 import android.view.View
 import br.com.redcode.base.mvvm.extensions.observer
@@ -7,9 +7,9 @@ import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityPlacesBinding
 import br.com.ufg.www.events.model.Place
 import br.com.ufg.www.events.model.ui.LabelPlaces
-import br.com.ufg.www.events.mvp.places.list.adapter.AdapterPlace
-import br.com.ufg.www.events.mvp.places.map.GoogleMapsActivity
-import br.com.ufg.www.events.mvp.places.register.RegisterPlaceActivity
+import br.com.ufg.www.events.view.places.list.adapter.AdapterPlace
+import br.com.ufg.www.events.view.places.map.GoogleMapsActivity
+import br.com.ufg.www.events.view.places.register.RegisterPlaceActivity
 
 class PlacesActivity : ActivityMVVM<ActivityPlacesBinding, PlacesViewModel>() {
 

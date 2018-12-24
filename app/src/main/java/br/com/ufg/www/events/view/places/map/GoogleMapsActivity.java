@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.places.map;
+package br.com.ufg.www.events.view.places.map;
 
 import android.content.pm.PackageManager;
 import android.graphics.Color;

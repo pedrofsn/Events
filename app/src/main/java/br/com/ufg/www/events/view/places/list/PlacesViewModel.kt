@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.places.list
+package br.com.ufg.www.events.view.places.list
 
 import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
 import br.com.ufg.www.events.App

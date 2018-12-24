@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.places.register
+package br.com.ufg.www.events.view.places.register
 
 import android.view.View
 import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM

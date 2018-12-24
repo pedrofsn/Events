@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.mvp.places.register
+package br.com.ufg.www.events.view.places.register
 
 import br.com.ufg.www.events.domain.BaseInteractorMVVM
 import br.com.ufg.www.events.model.Place
