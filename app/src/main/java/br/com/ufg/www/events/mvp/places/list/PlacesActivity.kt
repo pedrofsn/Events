@@ -7,7 +7,6 @@ import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityPlacesBinding
 import br.com.ufg.www.events.model.Place
 import br.com.ufg.www.events.model.ui.LabelPlaces
-import br.com.ufg.www.events.mvp.places.PlacesViewModel
 import br.com.ufg.www.events.mvp.places.list.adapter.AdapterPlace
 import br.com.ufg.www.events.mvp.places.map.GoogleMapsActivity
 import br.com.ufg.www.events.mvp.places.register.RegisterPlaceActivity
