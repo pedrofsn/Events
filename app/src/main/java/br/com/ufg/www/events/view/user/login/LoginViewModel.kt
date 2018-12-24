@@ -1,20 +1,29 @@
 package br.com.ufg.www.events.view.user.login
 
 import br.com.redcode.base.utils.Constants.EMPTY_STRING
-import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
+import br.com.ufg.www.events.App
 import br.com.ufg.www.events.model.ui.InputLogin
+import kotlinx.coroutines.launch
 
-class LoginViewModel : BaseViewModelWithLiveData<InputLogin>() {
+class LoginViewModel : BaseViewModelWithLiveData2<InputLogin>() {
 
     private val interactor = InteractorLogin(job)
 
-    override fun load() = liveData.postValue(InputLogin(EMPTY_STRING))
+    override fun load() {
+        val temp = InputLogin(EMPTY_STRING)
+        temp.login = "pedrofsn"
+        temp.password = "pedrofsn"
+        liveData.postValue(temp)
+        login()
+    }
 
     fun login() {
         liveData.value?.let { login ->
-            val callback = { result: Boolean ->
-                val command = if (result) {
-//                    App.userLoggedIn = login
+            launch(coroutineContext) {
+                val loggedIn = interactor.login(login).await()
+
+                val command = if (loggedIn) {
+                    App.userLoggedIn = login.login
                     "onLoggedIn"
                 } else {
                     "onLoginFailed"
@@ -22,8 +31,6 @@ class LoginViewModel : BaseViewModelWithLiveData<InputLogin>() {
 
                 sendEventToUI(command)
             }
-
-//            interactor.login(login, callback)
         }
     }
 

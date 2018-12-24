@@ -3,7 +3,6 @@ package br.com.ufg.www.events.view.places.map;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
-import android.os.Bundle;
 import android.util.Log;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -21,11 +20,11 @@ import com.google.android.gms.tasks.Task;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import br.com.redcode.easyrestful.library.impl.activity.ActivityWithoutMVVM;
 import br.com.ufg.www.events.R;
-import br.com.ufg.www.events.domain.BaseActivity;
 import br.com.ufg.www.events.model.Place;
 
-public class GoogleMapsActivity extends BaseActivity implements OnMapReadyCallback {
+public class GoogleMapsActivity extends ActivityWithoutMVVM implements OnMapReadyCallback {
 
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private static final int DEFAULT_ZOOM = 15;
@@ -38,10 +37,13 @@ public class GoogleMapsActivity extends BaseActivity implements OnMapReadyCallba
     private boolean hasPolyneDrawn = false;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_location);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    public int getLayout() {
+        return R.layout.activity_location;
+    }
+
+    @Override
+    public void afterOnCreate() {
+        enableHomeAsUpActionBar();
         initMap();
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         place = getIntent().getParcelableExtra("place");
