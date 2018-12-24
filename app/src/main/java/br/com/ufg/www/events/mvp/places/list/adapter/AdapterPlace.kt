@@ -1,11 +1,12 @@
 package br.com.ufg.www.events.mvp.places.list.adapter
 
-import android.view.View
-import br.com.redcode.easyrecyclerview.library.adapter.BaseAdapter
+import br.com.redcode.base.mvvm.domain.adapter.BaseAdapterMVVM
 import br.com.ufg.www.events.R
+import br.com.ufg.www.events.databinding.AdapterPlaceBinding
 import br.com.ufg.www.events.model.Place
 
-class AdapterPlace(override var click: ((Place, Int) -> Unit)?) : BaseAdapter<Place, ViewHolderPlace>() {
+// TODO rename adapter and viewholder (including xml)
+class AdapterPlace(override var click: ((Place, Int) -> Unit)?) : BaseAdapterMVVM<Place, AdapterPlaceBinding>() {
     override val layout: Int = R.layout.adapter_place
-    override fun getViewHolder(view: View) = ViewHolderPlace(view)
+    override fun getViewHolder(binding: AdapterPlaceBinding) = ViewHolderPlace(binding)
 }
