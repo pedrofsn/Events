@@ -1,54 +1,38 @@
 package br.com.ufg.www.events.mvp.user.login
 
-import android.content.Intent
-import android.os.Bundle
 import android.view.View
+import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.ufg.www.events.R
-import br.com.ufg.www.events.domain.BaseActivity
-import br.com.ufg.www.events.extensions.getString
+import br.com.ufg.www.events.databinding.ActivityLoginBinding
 import br.com.ufg.www.events.extensions.isFilled
-import br.com.ufg.www.events.model.Login
 import br.com.ufg.www.events.mvp.places.list.PlacesActivity
 import br.com.ufg.www.events.mvp.user.register.RegisterUserActivity
-import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : BaseActivity(), Contract.View, View.OnClickListener {
+class LoginActivity : ActivityMVVM<ActivityLoginBinding, LoginViewModel>() {
 
-    private val presenter = Presenter(this)
+    override val classViewModel = LoginViewModel::class.java
+    override val layout = R.layout.activity_login
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        buttonLogin.setOnClickListener(this)
-        textViewRegister.setOnClickListener(this)
+    override fun afterOnCreate() {
+
     }
 
-    override fun login() {
-        val login = editTextLogin.getString()
-        val password = editTextPassword.getString()
-
-        if (editTextLogin.isFilled() && editTextPassword.isFilled()) {
-            val obj = Login(login, password)
-            presenter.login(obj)
+    fun login(view: View?) {
+        if (binding.editTextLogin.isFilled() && binding.editTextPassword.isFilled()) {
+            viewModel.login()
         }
     }
 
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.buttonLogin -> login()
-            R.id.textViewRegister -> register()
+    override fun handleEvent(event: String, obj: Any?) {
+        when (event) {
+            "onLoggedIn" -> onLoggedIn()
+            "onLoginFailed" -> onLoginFailed()
+            else -> super.handleEvent(event, obj)
         }
     }
 
-    override fun register() = startActivity(Intent(this, RegisterUserActivity::class.java))
-
-    override fun onLoggedIn() {
-        val intent = Intent(this, PlacesActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        startActivity(intent)
-    }
-
-    override fun loginFailed() = showMessage(getString(R.string.error_login_or_password))
+    fun register(view: View?) = goTo<RegisterUserActivity>()
+    private fun onLoggedIn() = goToWithNoHistory(PlacesActivity::class.java)
+    private fun onLoginFailed() = showMessage(getString(R.string.error_login_or_password))
 
 }
