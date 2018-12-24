@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.view.user.login
+package br.com.ufg.www.events.domain
 
 
 import androidx.databinding.ViewDataBinding

@@ -2,12 +2,13 @@ package br.com.ufg.www.events.view.user.login
 
 import br.com.redcode.base.utils.Constants.EMPTY_STRING
 import br.com.ufg.www.events.App
+import br.com.ufg.www.events.domain.BaseViewModelWithLiveData2
 import br.com.ufg.www.events.model.ui.InputLogin
 import kotlinx.coroutines.launch
 
 class LoginViewModel : BaseViewModelWithLiveData2<InputLogin>() {
 
-    private val interactor = InteractorLogin(job)
+    private val interactor = InteractorLogin()
 
     override fun load() {
         val temp = InputLogin(EMPTY_STRING)
@@ -18,8 +19,8 @@ class LoginViewModel : BaseViewModelWithLiveData2<InputLogin>() {
     }
 
     fun login() {
-        liveData.value?.let { login ->
-            launch(coroutineContext) {
+        launch(coroutineContext) {
+            liveData.value?.let { login ->
                 val loggedIn = interactor.login(login).await()
 
                 val command = if (loggedIn) {

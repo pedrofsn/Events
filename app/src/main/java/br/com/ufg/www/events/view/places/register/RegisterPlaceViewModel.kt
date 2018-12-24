@@ -1,12 +1,14 @@
 package br.com.ufg.www.events.view.places.register
 
+import br.com.redcode.base.extensions.toLogcat
 import br.com.redcode.base.utils.Constants.EMPTY_STRING
-import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
+import br.com.ufg.www.events.domain.BaseViewModelWithLiveData2
 import br.com.ufg.www.events.model.ui.InputPlace
+import kotlinx.coroutines.launch
 
-class RegisterPlaceViewModel : BaseViewModelWithLiveData<InputPlace>() {
+class RegisterPlaceViewModel : BaseViewModelWithLiveData2<InputPlace>() {
 
-    private val interactor = RegisterPlaceInteractor(job)
+    private val interactor = InteractorRegisterPlace()
 
     init {
         load()
@@ -14,13 +16,12 @@ class RegisterPlaceViewModel : BaseViewModelWithLiveData<InputPlace>() {
 
     override fun load() = liveData.postValue(InputPlace(EMPTY_STRING))
 
-    fun register() {
-        liveData.value?.toModel()?.let {
-            interactor.register(it) {
-                // TODO
-                showSimpleAlert(it.toString())
-                sendEventToUI("onSuccess")
-            }
+    fun register() = launch(coroutineContext) {
+        liveData.value?.toModel()?.let { place ->
+            val id = interactor.register(place).await()
+
+            "Registrado como $id ($place)".toLogcat()
+            sendEventToUI("onSuccess")
         }
     }
 

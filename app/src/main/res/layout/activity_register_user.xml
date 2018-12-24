@@ -64,6 +64,7 @@
                 android:id="@+id/buttonRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="register"
                 android:padding="8dp"
                 android:text="@string/register"
                 android:textColor="@android:color/holo_green_dark" />

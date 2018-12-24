@@ -2,16 +2,17 @@ package br.com.ufg.www.events.view.places.list
 
 import android.view.View
 import br.com.redcode.base.mvvm.extensions.observer
-import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
+import br.com.redcode.easyrecyclerview.library.extension_functions.setCustomAdapter
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityPlacesBinding
+import br.com.ufg.www.events.domain.ActivityMVVM2
 import br.com.ufg.www.events.model.Place
 import br.com.ufg.www.events.model.ui.LabelPlaces
 import br.com.ufg.www.events.view.places.list.adapter.AdapterPlace
 import br.com.ufg.www.events.view.places.map.GoogleMapsActivity
 import br.com.ufg.www.events.view.places.register.RegisterPlaceActivity
 
-class PlacesActivity : ActivityMVVM<ActivityPlacesBinding, PlacesViewModel>() {
+class PlacesActivity : ActivityMVVM2<ActivityPlacesBinding, PlacesViewModel>() {
 
     override val classViewModel = PlacesViewModel::class.java
     override val layout = R.layout.activity_places
@@ -20,7 +21,7 @@ class PlacesActivity : ActivityMVVM<ActivityPlacesBinding, PlacesViewModel>() {
     private val observer = observer<LabelPlaces> { updateUI(it) }
 
     override fun afterOnCreate() {
-
+        binding.recyclerView.setCustomAdapter(adapter)
     }
 
     override fun setupUI() {

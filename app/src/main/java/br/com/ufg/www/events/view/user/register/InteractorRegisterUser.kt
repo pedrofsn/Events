@@ -1,15 +1,14 @@
 package br.com.ufg.www.events.view.user.register
 
+import br.com.ufg.www.events.database.AppDatabase
 import br.com.ufg.www.events.model.ui.InputUser
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 
 class InteractorRegisterUser {
 
-    fun register(registerUser: InputUser, callback: ((Long) -> Unit)) {
-//        launch(UI) {
-//            val deferred = async(CommonPool) { AppDatabase.getInstance().userDAO().insert(registerUser.toEntity()) }
-//            val result = deferred.await()
-//            callback.invoke(result)
-//        }
+    suspend fun register(registerUser: InputUser) = coroutineScope {
+        async { AppDatabase.getInstance().userDAO().insert(registerUser.toEntity()) }
     }
 
 }

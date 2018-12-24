@@ -1,12 +1,12 @@
 package br.com.ufg.www.events.view.places.register
 
 import android.view.View
-import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityRegisterPlaceBinding
+import br.com.ufg.www.events.domain.ActivityMVVM2
 import br.com.ufg.www.events.extensions.isFilled
 
-class RegisterPlaceActivity : ActivityMVVM<ActivityRegisterPlaceBinding, RegisterPlaceViewModel>() {
+class RegisterPlaceActivity : ActivityMVVM2<ActivityRegisterPlaceBinding, RegisterPlaceViewModel>() {
 
     override val classViewModel = RegisterPlaceViewModel::class.java
     override val layout = R.layout.activity_register_place
