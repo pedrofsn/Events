@@ -24,4 +24,6 @@ data class Place(
     )
 
     fun toLatLng() = LatLng(latitude.toDouble(), longitude.toDouble())
+    fun getLatitudeWithLabel() = "${App.instance.getString(R.string.latitude_two_dots)} $latitude"
+    fun getLongitudeWithLabel() = "${App.instance.getString(R.string.longitude_two_dots)} $longitude"
 }
