@@ -12,7 +12,7 @@ class RegisterPlaceActivity : ActivityMVVM2<ActivityRegisterPlaceBinding, Regist
     override val layout = R.layout.activity_register_place
 
     override fun afterOnCreate() {
-
+        enableHomeAsUpActionBar()
     }
 
     fun register(view: View?) {
