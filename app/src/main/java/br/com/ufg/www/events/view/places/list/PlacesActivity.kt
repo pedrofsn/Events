@@ -8,6 +8,7 @@ import br.com.ufg.www.events.databinding.ActivityPlacesBinding
 import br.com.ufg.www.events.domain.ActivityMVVM2
 import br.com.ufg.www.events.model.Place
 import br.com.ufg.www.events.model.ui.LabelPlaces
+import br.com.ufg.www.events.view.event.EventRegisterActivity
 import br.com.ufg.www.events.view.places.list.adapter.AdapterPlace
 import br.com.ufg.www.events.view.places.map.GoogleMapsActivity
 import br.com.ufg.www.events.view.places.register.RegisterPlaceActivity
@@ -22,6 +23,7 @@ class PlacesActivity : ActivityMVVM2<ActivityPlacesBinding, PlacesViewModel>() {
 
     override fun afterOnCreate() {
         binding.recyclerView.setCustomAdapter(adapter)
+        goTo<EventRegisterActivity>()
     }
 
     override fun setupUI() {
