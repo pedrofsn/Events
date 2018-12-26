@@ -50,7 +50,7 @@
                 android:inputType="textMultiLine"
                 android:padding="8dp"
                 android:singleLine="true"
-                android:text="@={viewModel.liveData.description}" />
+                android:text="@={viewModel.liveData.address}" />
 
             <Button
                 android:id="@+id/buttonRegister"
