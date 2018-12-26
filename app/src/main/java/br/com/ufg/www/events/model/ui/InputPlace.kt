@@ -16,12 +16,12 @@ data class InputPlace(val login: String) : BaseObservable() {
     var longitude: String = Constants.EMPTY_STRING
 
     @get:Bindable
-    var description: String = Constants.EMPTY_STRING
+    var address: String = Constants.EMPTY_STRING
 
     fun toModel() = Place(
             latitude = extract safe latitude,
             longitude = extract safe longitude,
-            description = extract safe description,
+            address = extract safe address,
             login = App.userLoggedIn
     )
 

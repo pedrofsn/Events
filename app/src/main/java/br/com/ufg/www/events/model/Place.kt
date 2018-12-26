@@ -11,19 +11,20 @@ import kotlinx.android.parcel.Parcelize
 data class Place(
         val latitude: String,
         val longitude: String,
-        val description: String?,
+        val address: String?,
         val login: String
 ) : Parcelable {
-    override fun toString() = "$description\n${App.instance.getString(R.string.latitude)}: $latitude\t${App.instance.getString(R.string.longitude)}: $longitude"
+    override fun toString() = "$address\n${App.instance.getString(R.string.latitude)}: $latitude\t${App.instance.getString(R.string.longitude)}: $longitude"
 
     fun toEntity() = PlaceEntity(
             latitude = latitude,
             longitude = longitude,
-            description = description,
+            address = address,
             userLogin = login
     )
 
     fun toLatLng() = LatLng(latitude.toDouble(), longitude.toDouble())
     fun getLatitudeWithLabel() = "${App.instance.getString(R.string.latitude_two_dots)} $latitude"
     fun getLongitudeWithLabel() = "${App.instance.getString(R.string.longitude_two_dots)} $longitude"
+    fun toPosition() = LatLng(latitude.toDouble(), longitude.toDouble())
 }

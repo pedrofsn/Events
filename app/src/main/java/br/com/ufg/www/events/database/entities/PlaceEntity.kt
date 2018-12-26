@@ -11,13 +11,13 @@ class PlaceEntity(
         @PrimaryKey(autoGenerate = true) val id: Long = 0,
         val latitude: String,
         val longitude: String,
-        val description: String?,
+        val address: String?,
         @ColumnInfo(name = "login") val userLogin: String
 ) {
     fun toModel() = Place(
             latitude = latitude,
             longitude = longitude,
-            description = description,
+            address = address,
             login = userLogin
     )
 }
