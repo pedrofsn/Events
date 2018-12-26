@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="br.com.ufg.www.events">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -8,14 +9,16 @@
     <application
         android:name=".App"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name="br.com.ufg.www.events.view.user.login.LoginActivity"
+            android:name=".view.user.login.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
@@ -25,26 +28,38 @@
         </activity>
 
         <activity
-            android:name="br.com.ufg.www.events.view.places.list.PlacesActivity"
+            android:name=".view.event.EventRegisterActivity"
+            android:label="@string/event_register"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name=".view.places.list.PlacesActivity"
             android:label="@string/places"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name="br.com.ufg.www.events.view.user.register.RegisterUserActivity"
+            android:name=".view.user.register.RegisterUserActivity"
             android:label="@string/register"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name="br.com.ufg.www.events.view.places.register.RegisterPlaceActivity"
+            android:name=".view.places.register.RegisterPlaceActivity"
             android:label="@string/register_place"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name="br.com.ufg.www.events.view.places.map.GoogleMapsActivity"
+            android:name=".view.places.map.GoogleMapsActivity"
             android:label="@string/registered_place"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name=".view.places.add_map.MapsSelectLocationActivity"
+            android:label="@string/select_location"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
