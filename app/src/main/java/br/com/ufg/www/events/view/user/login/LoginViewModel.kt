@@ -2,13 +2,13 @@ package br.com.ufg.www.events.view.user.login
 
 import br.com.redcode.base.extensions.delay
 import br.com.redcode.base.utils.Constants.EMPTY_STRING
+import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
 import br.com.ufg.www.events.App
 import br.com.ufg.www.events.database.Mock
-import br.com.ufg.www.events.domain.BaseViewModelWithLiveData2
 import br.com.ufg.www.events.model.ui.InputLogin
 import kotlinx.coroutines.launch
 
-class LoginViewModel : BaseViewModelWithLiveData2<InputLogin>() {
+class LoginViewModel : BaseViewModelWithLiveData<InputLogin>() {
 
     private val interactor = InteractorLogin()
 

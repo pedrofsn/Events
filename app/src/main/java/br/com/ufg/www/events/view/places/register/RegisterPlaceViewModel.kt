@@ -2,11 +2,11 @@ package br.com.ufg.www.events.view.places.register
 
 import br.com.redcode.base.extensions.toLogcat
 import br.com.redcode.base.utils.Constants.EMPTY_STRING
-import br.com.ufg.www.events.domain.BaseViewModelWithLiveData2
+import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
 import br.com.ufg.www.events.model.ui.InputPlace
 import kotlinx.coroutines.launch
 
-class RegisterPlaceViewModel : BaseViewModelWithLiveData2<InputPlace>() {
+class RegisterPlaceViewModel : BaseViewModelWithLiveData<InputPlace>() {
 
     private val interactor = InteractorRegisterPlace()
 

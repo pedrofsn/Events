@@ -1,12 +1,12 @@
 package br.com.ufg.www.events.view.event
 
 import br.com.redcode.easyrecyclerview.library.extension_functions.clearAndAddAll
-import br.com.ufg.www.events.domain.BaseViewModelWithLiveData2
+import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
 import br.com.ufg.www.events.model.JobType
 import br.com.ufg.www.events.model.ui.InputEvent
 import kotlinx.coroutines.launch
 
-class EventRegisterViewModel : BaseViewModelWithLiveData2<InputEvent>() {
+class EventRegisterViewModel : BaseViewModelWithLiveData<InputEvent>() {
 
     private val interactorJobTypes = InteractorJobTypes()
     private val jobTypes = arrayListOf<JobType>()

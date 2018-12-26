@@ -7,10 +7,10 @@ import android.view.View
 import br.com.redcode.base.extensions.extract
 import br.com.redcode.base.utils.Alerts
 import br.com.redcode.easymask.handleDate
+import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.redcode.easyvalidation.Validate
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityEventRegisterBinding
-import br.com.ufg.www.events.domain.ActivityMVVM2
 import br.com.ufg.www.events.extensions.showOrHide
 import br.com.ufg.www.events.model.JobType
 import br.com.ufg.www.events.view.places.add_map.BaseGoogleMapsActivity.Companion.CHANGE_LOCATION
@@ -20,7 +20,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.snackbar.Snackbar.LENGTH_SHORT
 
-class EventRegisterActivity : ActivityMVVM2<ActivityEventRegisterBinding, EventRegisterViewModel>() {
+class EventRegisterActivity : ActivityMVVM<ActivityEventRegisterBinding, EventRegisterViewModel>() {
 
     override val classViewModel = EventRegisterViewModel::class.java
     override val layout = R.layout.activity_event_register

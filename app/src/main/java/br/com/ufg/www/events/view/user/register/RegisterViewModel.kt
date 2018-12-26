@@ -1,14 +1,14 @@
 package br.com.ufg.www.events.view.user.register
 
 import br.com.redcode.base.utils.Constants.EMPTY_STRING
+import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
 import br.com.ufg.www.events.App
 import br.com.ufg.www.events.R
-import br.com.ufg.www.events.domain.BaseViewModelWithLiveData2
 import br.com.ufg.www.events.extensions.isValid
 import br.com.ufg.www.events.model.ui.InputUser
 import kotlinx.coroutines.launch
 
-class RegisterViewModel : BaseViewModelWithLiveData2<InputUser>() {
+class RegisterViewModel : BaseViewModelWithLiveData<InputUser>() {
 
     private val interactor = InteractorRegisterUser()
     private val MINIMAL_LENGTH_PASSWORD = 3

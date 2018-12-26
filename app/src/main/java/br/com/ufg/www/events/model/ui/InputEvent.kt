@@ -7,9 +7,7 @@ import br.com.redcode.base.utils.Constants.EMPTY_STRING
 import br.com.redcode.easyvalidation.isAllValid
 import br.com.ufg.www.events.BR
 
-data class InputEvent(
-        val nothing: String = EMPTY_STRING
-) : BaseObservable() {
+class InputEvent : BaseObservable() {
 
     @get:Bindable
     var name: String = EMPTY_STRING

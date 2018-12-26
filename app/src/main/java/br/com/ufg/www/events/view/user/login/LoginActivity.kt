@@ -1,14 +1,14 @@
 package br.com.ufg.www.events.view.user.login
 
 import android.view.View
+import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityLoginBinding
-import br.com.ufg.www.events.domain.ActivityMVVM2
 import br.com.ufg.www.events.extensions.isFilled
 import br.com.ufg.www.events.view.places.list.PlacesActivity
 import br.com.ufg.www.events.view.user.register.RegisterUserActivity
 
-class LoginActivity : ActivityMVVM2<ActivityLoginBinding, LoginViewModel>() {
+class LoginActivity : ActivityMVVM<ActivityLoginBinding, LoginViewModel>() {
 
     override val classViewModel = LoginViewModel::class.java
     override val layout = R.layout.activity_login
