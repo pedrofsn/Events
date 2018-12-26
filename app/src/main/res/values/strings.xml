@@ -18,4 +18,22 @@
     <string name="longitude_two_dots">Longitude:</string>
     <string name="places">Locais</string>
     <string name="registered_place">Local cadastrado</string>
+    <string name="name">Nome</string>
+    <string name="date">Data</string>
+    <string name="event">Evento</string>
+    <string name="add">Adicionar</string>
+    <string name="job_needs">Trabalhos necessários</string>
+    <string name="event_register">Cadastro do Evento</string>
+    <string name="added">adicionado</string>
+    <string name="you_reached_max_limit">Você atingiu o limite máximo</string>
+    <string name="place">Local</string>
+    <string name="address">Endereço</string>
+    <string name="save">Salvar</string>
+    <string name="undo">Desfazer</string>
+    <string name="removed">removido</string>
+    <string name="select_a_job_need">Selecione ao menos um trabalho que será necessário</string>
+    <string name="label_add_point_map">Clique em um ponto do mapa para adicionar o endereço.</string>
+    <string name="results_not_found">Resultados não encontrados</string>
+    <string name="select_location">Selecionar localização</string>
+    <string name="change">Alterar</string>
 </resources>
