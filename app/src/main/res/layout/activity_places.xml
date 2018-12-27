@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 tools:itemCount="2"
                 tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/adapter_place" />
+                tools:listitem="@layout/viewholder_place" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
