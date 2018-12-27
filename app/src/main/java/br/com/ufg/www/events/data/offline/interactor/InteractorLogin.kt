@@ -7,6 +7,12 @@ import kotlinx.coroutines.coroutineScope
 
 class InteractorLogin {
 
+    suspend fun readAll() = coroutineScope {
+        async {
+            AppDatabase.getInstance().userDAO().readAll()
+        }
+    }
+
     suspend fun login(login: InputLogin) = coroutineScope {
         async {
             val entity = login.toEntity()

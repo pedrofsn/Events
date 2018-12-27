@@ -13,7 +13,7 @@ interface UserDao : BaseDAO<UserEntity> {
     fun readAll(): List<UserEntity>
 
     @Language("RoomSql")
-    @Query("SELECT count(*) == 1 FROM users where email like :email and password like :passwordUpperAndHashed ")
+    @Query("SELECT count(*) > 0 FROM users where email like :email and password like :passwordUpperAndHashed ")
     fun isLoginValid(email: String, passwordUpperAndHashed: String): Boolean
 
 }

@@ -23,7 +23,7 @@ import java.util.concurrent.Executors
             EventEntity::class,
             EventWithJobTypesEntity::class
         ],
-        version = 4,
+        version = 1,
         exportSchema = false
 )
 @TypeConverters(Converters::class)
@@ -49,7 +49,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): AppDatabase {
             val room = Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
-            room.fallbackToDestructiveMigration()
+//            if(BuildConfig.DEBUG) room.fallbackToDestructiveMigration()
             seedDatabase(room)
             return room.build()
         }
