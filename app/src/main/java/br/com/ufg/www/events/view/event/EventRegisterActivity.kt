@@ -10,9 +10,9 @@ import br.com.redcode.easymask.handleDate
 import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.redcode.easyvalidation.Validate
 import br.com.ufg.www.events.R
+import br.com.ufg.www.events.data.model.JobType
 import br.com.ufg.www.events.databinding.ActivityEventRegisterBinding
 import br.com.ufg.www.events.extensions.showOrHide
-import br.com.ufg.www.events.model.JobType
 import br.com.ufg.www.events.view.places.add_map.BaseGoogleMapsActivity.Companion.CHANGE_LOCATION
 import br.com.ufg.www.events.view.places.add_map.MapsSelectLocationActivity
 import com.google.android.gms.maps.model.LatLng

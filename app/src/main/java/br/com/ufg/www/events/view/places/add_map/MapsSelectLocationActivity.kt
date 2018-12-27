@@ -5,8 +5,8 @@ import android.location.Location
 import android.view.View
 import br.com.redcode.base.extensions.setSubtituloToolbar
 import br.com.ufg.www.events.R
+import br.com.ufg.www.events.data.model.Place
 import br.com.ufg.www.events.extensions.toLatLng
-import br.com.ufg.www.events.model.Place
 import kotlinx.android.synthetic.main.activity_maps_select_location.*
 
 /**

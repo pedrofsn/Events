@@ -1,7 +1,7 @@
 package br.com.ufg.www.events.view.places.add_map
 
 import br.com.redcode.base.utils.Constants.EMPTY_STRING
-import br.com.ufg.www.events.model.Place
+import br.com.ufg.www.events.data.model.Place
 import com.google.android.gms.maps.model.LatLng
 
 /**

@@ -22,7 +22,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import br.com.redcode.easyrestful.library.impl.activity.ActivityWithoutMVVM;
 import br.com.ufg.www.events.R;
-import br.com.ufg.www.events.model.Place;
+import br.com.ufg.www.events.data.model.Place;
 
 public class GoogleMapsActivity extends ActivityWithoutMVVM implements OnMapReadyCallback {
 

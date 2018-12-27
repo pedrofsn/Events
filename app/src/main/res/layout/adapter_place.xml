@@ -6,7 +6,7 @@
 
         <variable
             name="data"
-            type="br.com.ufg.www.events.model.Place" />
+            type="br.com.ufg.www.events.data.model.Place" />
     </data>
 
     <LinearLayout

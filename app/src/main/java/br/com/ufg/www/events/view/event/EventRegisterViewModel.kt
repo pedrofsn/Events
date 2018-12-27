@@ -2,8 +2,9 @@ package br.com.ufg.www.events.view.event
 
 import br.com.redcode.easyrecyclerview.library.extension_functions.clearAndAddAll
 import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
-import br.com.ufg.www.events.model.JobType
-import br.com.ufg.www.events.model.ui.InputEvent
+import br.com.ufg.www.events.data.model.JobType
+import br.com.ufg.www.events.data.offline.interactor.InteractorJobTypes
+import br.com.ufg.www.events.data.ui.InputEvent
 import kotlinx.coroutines.launch
 
 class EventRegisterViewModel : BaseViewModelWithLiveData<InputEvent>() {
