@@ -1,13 +1,11 @@
 package br.com.ufg.www.events.data.offline.interactor
 
 import br.com.ufg.www.events.data.offline.database.AppDatabase
-import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 
 class InteractorJobType {
 
-    suspend fun getJobTypes() = coroutineScope {
-        async { AppDatabase.getInstance().jobTypesDAO().readAll().map { entity -> entity.toModel() } }
-    }
+    suspend fun readAll() = coroutineScope { AppDatabase.getInstance().jobTypesDAO().readAll() }
+    suspend fun readAll(idEvent: Long) = coroutineScope { AppDatabase.getInstance().jobTypesDAO().readAll(idEvent) }
 
 }

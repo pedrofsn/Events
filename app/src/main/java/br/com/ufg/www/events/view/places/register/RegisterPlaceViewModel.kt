@@ -20,7 +20,7 @@ class RegisterPlaceViewModel : BaseViewModelWithLiveData<InputPlace>() {
     fun register() = launch(coroutineContext) {
         App.userLoggedIn?.id?.let { idUser ->
             liveData.value?.toPlaceEntity(idUser)?.let { entity ->
-                interactor.register(entity).await()
+                interactor.register(entity)
                 sendEventToUI("onSuccess")
             }
         }

@@ -23,7 +23,7 @@ class LoginViewModel : BaseViewModelWithLiveData<InputLogin>() {
     fun login() {
         launch(coroutineContext) {
             liveData.value?.let { login ->
-                App.userLoggedIn = interactor.login(login).await()
+                App.userLoggedIn = interactor.login(login)
                 val command = if (App.userLoggedIn != null) "onLoggedIn" else "onLoginFailed"
                 sendEventToUI(command)
             }

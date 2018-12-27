@@ -5,12 +5,15 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.view.View
 import br.com.redcode.base.extensions.extract
+import br.com.redcode.base.extensions.lazyId
+import br.com.redcode.base.mvvm.extensions.observer
 import br.com.redcode.base.utils.Alerts
 import br.com.redcode.easymask.handleDate
 import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.redcode.easyvalidation.Validate
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.data.model.JobType
+import br.com.ufg.www.events.data.ui.InputEvent
 import br.com.ufg.www.events.databinding.ActivityEventRegisterBinding
 import br.com.ufg.www.events.extensions.showOrHide
 import br.com.ufg.www.events.view.places.add_map.BaseGoogleMapsActivity.Companion.CHANGE_LOCATION
@@ -25,10 +28,24 @@ class EventRegisterActivity : ActivityMVVM<ActivityEventRegisterBinding, EventRe
     override val classViewModel = EventRegisterViewModel::class.java
     override val layout = R.layout.activity_event_register
 
+    private val id by lazyId()
+    private val observer = observer<InputEvent> { updateUI(it) }
+
     override fun afterOnCreate() {
         enableHomeAsUpActionBar()
         binding.editTextDate.handleDate()
+        viewModel.id = id
         viewModel.load()
+    }
+
+    override fun setupUI() {
+        super.setupUI()
+        viewModel.liveData.observe(this, observer)
+    }
+
+    private fun updateUI(label: InputEvent) {
+        viewModel.selectedJobTypes.forEach { addChip(it) }
+        viewModel.refreshVisibilityImageViewAdd()
     }
 
     fun addJob(view: View?) {

@@ -27,9 +27,9 @@ class RegisterViewModel : BaseViewModelWithLiveData<InputUser>() {
                 password != confirmation -> showSimpleAlert(App.getContext()?.getString(R.string.password_doesnt_match)!!)
                 else -> {
                     launch(coroutineContext) {
-                        val idUser = interactorRegisterUser.register(inputUser).await()
+                        val idUser = interactorRegisterUser.register(inputUser)
                         if (idUser.isValid()) {
-                            val user = interactorUser.getUser(idUser).await()
+                            val user = interactorUser.getUser(idUser)
 
                             if (user != null) {
                                 App.userLoggedIn = user

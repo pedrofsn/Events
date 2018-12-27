@@ -10,7 +10,11 @@ import org.intellij.lang.annotations.Language
 interface EventDAO : BaseDAO<EventEntity> {
 
     @Language("RoomSql")
-    @Query("SELECT id, name, date FROM events where user_id like :idUser order by date asc")
+    @Query("SELECT id, name, date, place_id as idPlace FROM events where user_id like :idUser order by date asc")
     fun readAll(idUser: Long): List<Event>
+
+    @Language("RoomSql")
+    @Query("SELECT id, name, date, place_id as idPlace FROM events where id = :idEvent")
+    fun read(idEvent: Long): Event?
 
 }

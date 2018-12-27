@@ -13,4 +13,8 @@ interface PlaceDao : BaseDAO<PlaceEntity> {
     @Query("SELECT id, latitude, longitude, address FROM places where user_id like :idUser")
     fun readAll(idUser: Long): List<Place>
 
+    @Language("RoomSql")
+    @Query("SELECT id, latitude, longitude, address FROM places where id = :id")
+    fun read(id: Long): Place?
+
 }

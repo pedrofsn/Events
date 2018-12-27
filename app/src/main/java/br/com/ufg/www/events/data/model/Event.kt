@@ -6,7 +6,8 @@ import java.util.*
 data class Event(
         val id: Long,
         val name: String,
-        val date: Date
+        val date: Date,
+        val idPlace: Long
 ) {
     fun getDateFormmated() = SDF_BRAZILIAN_DATE.format(date)
 }

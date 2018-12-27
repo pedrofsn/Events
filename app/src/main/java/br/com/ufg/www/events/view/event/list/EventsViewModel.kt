@@ -12,7 +12,7 @@ class EventsViewModel : BaseViewModelWithLiveData<LabelEvents>() {
 
     override fun load() {
         launch(coroutineContext) {
-            val results = interactor.readAll(App.userLoggedIn?.id!!).await()
+            val results = interactor.readAll(App.userLoggedIn?.id!!)
             liveData.postValue(LabelEvents(results))
         }
     }
