@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Places</string>
+    <string name="app_name">Events</string>
     <string name="caption_login">Logar</string>
     <string name="hint_login">Login</string>
     <string name="hint_password">Senha</string>
@@ -36,4 +36,6 @@
     <string name="results_not_found">Resultados não encontrados</string>
     <string name="select_location">Selecionar localização</string>
     <string name="change">Alterar</string>
+    <string name="event_registered_successfully">Evento registrado com sucesso</string>
+    <string name="events">Eventos</string>
 </resources>

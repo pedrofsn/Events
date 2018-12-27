@@ -8,8 +8,8 @@ object Mock {
 
     private val mockUser = UserEntity(
             id = 1,
-            email = "pedrofsn",
-            passwordUpperAndHashed = "pedrofsn".toUpperCaseAndApplySHA256()
+            email = "pedrokra@gmail.com",
+            passwordUpperAndHashed = "pedrokra@gmail.com".toUpperCaseAndApplySHA256()
     )
 
     private val mockJobType1 = JobTypeEntity(id = 1, description = "Garçom")

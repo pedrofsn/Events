@@ -8,7 +8,6 @@ import br.com.ufg.www.events.R
 import br.com.ufg.www.events.data.model.Place
 import br.com.ufg.www.events.data.ui.LabelPlaces
 import br.com.ufg.www.events.databinding.ActivityPlacesBinding
-import br.com.ufg.www.events.view.event.EventRegisterActivity
 import br.com.ufg.www.events.view.places.list.adapter.AdapterPlace
 import br.com.ufg.www.events.view.places.map.GoogleMapsActivity
 import br.com.ufg.www.events.view.places.register.RegisterPlaceActivity
@@ -21,10 +20,7 @@ class PlacesActivity : ActivityMVVM<ActivityPlacesBinding, PlacesViewModel>() {
     private val adapter = AdapterPlace() { place: Place, _: Int -> openInMaps(place) }
     private val observer = observer<LabelPlaces> { updateUI(it) }
 
-    override fun afterOnCreate() {
-        binding.recyclerView.setCustomAdapter(adapter)
-        goTo<EventRegisterActivity>()
-    }
+    override fun afterOnCreate() = binding.recyclerView.setCustomAdapter(adapter)
 
     override fun setupUI() {
         super.setupUI()

@@ -2,6 +2,7 @@ package br.com.ufg.www.events.data.offline.dao
 
 import androidx.room.Dao
 import androidx.room.Query
+import br.com.ufg.www.events.data.model.User
 import br.com.ufg.www.events.data.offline.entities.UserEntity
 import org.intellij.lang.annotations.Language
 
@@ -13,7 +14,11 @@ interface UserDao : BaseDAO<UserEntity> {
     fun readAll(): List<UserEntity>
 
     @Language("RoomSql")
-    @Query("SELECT count(*) > 0 FROM users where email like :email and password like :passwordUpperAndHashed ")
-    fun isLoginValid(email: String, passwordUpperAndHashed: String): Boolean
+    @Query("SELECT id, email FROM users where email like :email and password like :passwordUpperAndHashed limit 1")
+    fun login(email: String, passwordUpperAndHashed: String): User?
+
+    @Language("RoomSql")
+    @Query("SELECT id, email FROM users where id = :idUser")
+    fun getUser(idUser: Long): User?
 
 }

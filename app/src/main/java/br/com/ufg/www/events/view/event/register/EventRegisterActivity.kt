@@ -1,4 +1,4 @@
-package br.com.ufg.www.events.view.event
+package br.com.ufg.www.events.view.event.register
 
 import android.app.Activity
 import android.content.DialogInterface
@@ -70,9 +70,12 @@ class EventRegisterActivity : ActivityMVVM<ActivityEventRegisterBinding, EventRe
             "addJobType" -> if (obj != null && obj is JobType) addChip(jobType = obj)
             "removeJobType" -> if (obj != null && obj is JobType) removeChip(jobType = obj)
             "refreshVisibilityImageViewAdd" -> if (obj != null && obj is Boolean) refreshVisibilityImageViewAdd(obj)
+            "onRegistered" -> onRegistered()
             else -> super.handleEvent(event, obj)
         }
     }
+
+    private fun onRegistered() = showSimpleAlert(getString(R.string.event_registered_successfully)) { finish() }
 
     private fun addChip(jobType: JobType) {
         showFeedbackJobTypeAdded(jobType)

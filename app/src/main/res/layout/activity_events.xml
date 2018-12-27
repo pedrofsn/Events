@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="br.com.ufg.www.events.view.places.list.PlacesViewModel" />
+            type="br.com.ufg.www.events.view.event.list.EventsViewModel" />
     </data>
 
 
@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 tools:itemCount="2"
                 tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/adapter_place" />
+                tools:listitem="@layout/viewholder_event" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"

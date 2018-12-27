@@ -5,13 +5,16 @@ import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveDa
 import br.com.ufg.www.events.App
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.data.offline.interactor.InteractorRegisterUser
+import br.com.ufg.www.events.data.offline.interactor.InteractorUser
 import br.com.ufg.www.events.data.ui.InputUser
 import br.com.ufg.www.events.extensions.isValid
 import kotlinx.coroutines.launch
 
 class RegisterViewModel : BaseViewModelWithLiveData<InputUser>() {
 
-    private val interactor = InteractorRegisterUser()
+    private val interactorRegisterUser = InteractorRegisterUser()
+    private val interactorUser = InteractorUser()
+
     private val MINIMAL_LENGTH_PASSWORD = 3
 
     override fun load() = liveData.postValue(InputUser(EMPTY_STRING))
@@ -24,10 +27,14 @@ class RegisterViewModel : BaseViewModelWithLiveData<InputUser>() {
                 password != confirmation -> showSimpleAlert(App.getContext()?.getString(R.string.password_doesnt_match)!!)
                 else -> {
                     launch(coroutineContext) {
-                        val id = interactor.register(inputUser).await()
-                        if (id.isValid()) {
-                            App.userLoggedIn = login
-                            sendEventToUI("onRegistered")
+                        val idUser = interactorRegisterUser.register(inputUser).await()
+                        if (idUser.isValid()) {
+                            val user = interactorUser.getUser(idUser).await()
+
+                            if (user != null) {
+                                App.userLoggedIn = user
+                                sendEventToUI("onRegistered")
+                            }
                         }
                     }
                 }

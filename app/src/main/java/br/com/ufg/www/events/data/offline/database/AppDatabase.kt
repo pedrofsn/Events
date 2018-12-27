@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import br.com.ufg.www.events.App
+import br.com.ufg.www.events.BuildConfig
 import br.com.ufg.www.events.data.offline.dao.*
 import br.com.ufg.www.events.data.offline.entities.*
 import java.util.concurrent.Executors
@@ -21,7 +22,7 @@ import java.util.concurrent.Executors
             PlaceEntity::class,
             JobTypeEntity::class,
             EventEntity::class,
-            EventWithJobTypesEntity::class
+            EventWithJobTypeEntity::class
         ],
         version = 1,
         exportSchema = false
@@ -33,7 +34,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun placeDAO(): PlaceDao
     abstract fun eventDAO(): EventDAO
     abstract fun jobTypesDAO(): JobTypeDao
-    abstract fun eventWithJobTypesDAO(): EventWithJobTypesDAO
+    abstract fun eventWithJobTypeDAO(): EventWithJobTypesDAO
 
     companion object {
 
@@ -49,7 +50,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): AppDatabase {
             val room = Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
-//            if(BuildConfig.DEBUG) room.fallbackToDestructiveMigration()
+            if (BuildConfig.DEBUG) room.fallbackToDestructiveMigration()
             seedDatabase(room)
             return room.build()
         }

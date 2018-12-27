@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity(
-        tableName = "event_with_job_types",
+        tableName = "event_with_job_type",
         foreignKeys = arrayOf(
                 ForeignKey(
                         entity = EventEntity::class,
@@ -23,7 +23,7 @@ import androidx.room.PrimaryKey
                         onUpdate = ForeignKey.CASCADE)
         )
 )
-class EventWithJobTypesEntity(
+class EventWithJobTypeEntity(
         @PrimaryKey(autoGenerate = true) val id: Long = 0,
         @ColumnInfo(name = "event_id") val idEvent: Long,
         @ColumnInfo(name = "job_type_id") val idJobType: Long
