@@ -28,12 +28,12 @@
                 tools:listitem="@layout/viewholder_event" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
-                android:onClick="register"
-                android:src="@android:drawable/ic_input_add"
-                app:backgroundTint="@color/blue"
+                android:src="@drawable/ic_add"
+                app:backgroundTint="@color/accent"
                 app:layout_anchor="@id/recyclerView"
                 app:layout_anchorGravity="bottom|right" />
 

@@ -5,7 +5,7 @@ import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityLoginBinding
 import br.com.ufg.www.events.extensions.isFilled
-import br.com.ufg.www.events.view.event.list.EventsActivity
+import br.com.ufg.www.events.view.user.professional.ProfessionalActivity
 import br.com.ufg.www.events.view.user.register.RegisterUserActivity
 
 class LoginActivity : ActivityMVVM<ActivityLoginBinding, LoginViewModel>() {
@@ -30,7 +30,7 @@ class LoginActivity : ActivityMVVM<ActivityLoginBinding, LoginViewModel>() {
     }
 
     fun register(view: View?) = goTo<RegisterUserActivity>()
-    private fun onLoggedIn() = goToWithNoHistory(EventsActivity::class.java)
+    private fun onLoggedIn() = goToWithNoHistory(ProfessionalActivity::class.java)
     private fun onLoginFailed() = showMessage(getString(R.string.error_login_or_password))
 
 }
