@@ -13,6 +13,10 @@ interface MySkillsDAO : BaseDAO<MySkillEntity> {
     @Query("delete FROM my_skills")
     fun deleteAll()
 
+    @Language("RoomSql")
+    @Query("delete FROM my_skills where skill_id = :idSkill")
+    fun delete(idSkill: Long)
+
     @Transaction
     fun insertAll(vararg entities: MySkillEntity) {
         deleteAll()

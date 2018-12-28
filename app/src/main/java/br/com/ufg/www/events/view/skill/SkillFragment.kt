@@ -9,6 +9,7 @@ import br.com.ufg.www.events.R
 import br.com.ufg.www.events.data.model.Skill
 import br.com.ufg.www.events.databinding.FragmentSkillBinding
 import br.com.ufg.www.events.extensions.showOrHide
+import br.com.ufg.www.events.view.user.professional.ProfessionalActivity
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
 import java.util.*
@@ -51,6 +52,7 @@ class SkillFragment : FragmentMVVM<FragmentSkillBinding, SkillViewModel>() {
                     callback = DialogInterface.OnClickListener { dialog, which ->
                         dialog.dismiss()
                         val selected = viewModel.getUnselecteds()[which]
+                        (activity as? ProfessionalActivity)?.viewModel?.saveMySkill(selected)
                         viewModel.add(selected)
                     }
             )
@@ -85,7 +87,10 @@ class SkillFragment : FragmentMVVM<FragmentSkillBinding, SkillViewModel>() {
         viewChip.tag = skill.id
         viewChip.isCheckable = false
         viewChip.isCloseIconEnabled = true
-        viewChip.setOnCloseIconClickListener { viewModel.remove(skill) }
+        viewChip.setOnCloseIconClickListener {
+            viewModel.remove(skill)
+            (activity as? ProfessionalActivity)?.viewModel?.removeMySkill(skill)
+        }
 
         binding.chipGroup.addView(viewChip)
     }
