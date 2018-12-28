@@ -11,6 +11,17 @@ class ProfessionalActivity : ActivityMVVM<ActivityProfessionalBinding, Professio
 
     override fun afterOnCreate() {
         enableHomeAsUpActionBar()
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_events -> {
+                    showMessage("eventos")
+                }
+                R.id.nav_skills -> {
+                    showMessage("habilidades")
+                }
+            }
+            return@setOnNavigationItemSelectedListener true
+        }
     }
 
 //    override fun onResume() {
