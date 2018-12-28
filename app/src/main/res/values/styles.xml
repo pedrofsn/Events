@@ -20,4 +20,11 @@
         <item name="contentPadding">@dimen/respiro_visual</item>
     </style>
 
+    <style name="CustomButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">150dp</item>
+        <item name="cornerRadius">@dimen/respiro_visual_menor</item>
+    </style>
+
 </resources>

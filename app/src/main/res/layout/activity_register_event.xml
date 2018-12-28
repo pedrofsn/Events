@@ -139,24 +139,18 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.button.MaterialButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            style="@style/CustomButton"
                             android:layout_gravity="right"
-                            android:minWidth="150dp"
                             android:onClick="changeLocation"
-                            android:text="@string/change"
-                            app:cornerRadius="@dimen/respiro_visual_menor" />
+                            android:text="@string/change" />
 
                     </LinearLayout>
 
                     <com.google.android.material.button.MaterialButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/CustomButton"
                         android:layout_gravity="right"
-                        android:minWidth="150dp"
                         android:onClick="changeLocation"
                         android:text="@string/add"
-                        app:cornerRadius="@dimen/respiro_visual_menor"
                         app:shouldGone="@{viewModel.liveData.hasLocation}" />
 
                 </LinearLayout>
