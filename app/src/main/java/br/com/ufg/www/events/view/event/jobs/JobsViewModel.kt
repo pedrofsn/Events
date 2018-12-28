@@ -11,7 +11,9 @@ class JobsViewModel : BaseViewModelWithLiveData<LabelEvents>() {
     // TODO copied from EventsViewModel
     private val interactor = InteractorEvent()
 
-    override fun load() {
+    override fun load() = load(null)
+
+    fun load(query: String?) {
         launch(coroutineContext) {
             val results = interactor.readAll(App.userLoggedIn?.id!!)
             val temp = arrayListOf<Event>()
@@ -19,7 +21,14 @@ class JobsViewModel : BaseViewModelWithLiveData<LabelEvents>() {
             temp.addAll(results)
             temp.addAll(results)
             temp.addAll(results)
-            liveData.postValue(LabelEvents(temp))
+
+            val result = if (query.isNullOrBlank().not()) {
+                temp.filter { it.name.contains(query!!, true) }
+            } else {
+                temp
+            }
+            liveData.postValue(LabelEvents(result))
+
             showProgressbar(false)
         }
     }

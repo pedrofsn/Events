@@ -1,7 +1,7 @@
 package br.com.ufg.www.events.view.event.jobs
 
 import br.com.redcode.base.extensions.delay
-import br.com.redcode.base.extensions.extract
+import br.com.redcode.base.extensions.getString
 import br.com.redcode.base.mvvm.extensions.observer
 import br.com.redcode.base.utils.Constants
 import br.com.redcode.easyrecyclerview.library.extension_functions.setCustomAdapter
@@ -13,7 +13,7 @@ import br.com.ufg.www.events.view.event.list.adapter.AdapterEvent
 
 class JobsFragment : FragmentSwipeRefreshRecyclerViewMVVM<FragmentJobsBinding, JobsViewModel>() {
 
-    override val colummns: Int = 3
+    override val colummns: Int = 1
     override val hasSearch: Boolean = true
     override val hasSwipeRefreshLayout: Boolean = true
     override val adapter = AdapterEvent(null)
@@ -25,12 +25,12 @@ class JobsFragment : FragmentSwipeRefreshRecyclerViewMVVM<FragmentJobsBinding, J
     override fun afterOnCreate() {
         super.afterOnCreate()
         binding.recyclerView.setCustomAdapter(adapter)
-        load()
+        load(null)
     }
 
-    private fun load() {
+    private fun load(query: String?) {
         showProgress()
-        delay(Constants.ONE_SECOND_IN_MILLISECONDS * 5) { viewModel.load() }
+        delay(Constants.ONE_SECOND_IN_MILLISECONDS * 5) { viewModel.load(query) }
     }
 
     override fun setupUI() {
@@ -45,15 +45,12 @@ class JobsFragment : FragmentSwipeRefreshRecyclerViewMVVM<FragmentJobsBinding, J
 
     override fun onRefreshed() {
         super.onRefreshed()
-        delay {
-            showMessage("onRefreshed")
-            hideProgress()
-        }
+        load(searchPlate?.getString())
     }
 
     override fun search(query: String?) {
         super.search(query)
-        showMessage(extract safe query)
+        load(query)
     }
 
 }
