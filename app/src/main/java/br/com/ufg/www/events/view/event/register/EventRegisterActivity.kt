@@ -95,8 +95,6 @@ class EventRegisterActivity : ActivityMVVM<ActivityEventRegisterBinding, EventRe
     private fun onRegistered() = showSimpleAlert(getString(R.string.event_registered_successfully)) { finish() }
 
     private fun addChip(jobType: JobType) {
-        showFeedbackJobTypeAdded(jobType)
-
         val viewChip = Chip(this)
         viewChip.text = jobType.description
         viewChip.tag = jobType.id
@@ -111,12 +109,6 @@ class EventRegisterActivity : ActivityMVVM<ActivityEventRegisterBinding, EventRe
         showFeedbackJobTypeRemoved(jobType)
         val viewChip = binding.chipGroup.findViewWithTag<Chip>(jobType.id)
         binding.chipGroup.removeView(viewChip)
-    }
-
-    private fun showFeedbackJobTypeAdded(jobType: JobType) {
-        val message = "'${jobType.description}' ${getString(R.string.added)}"
-        showMessage(message)
-        viewModel.refreshVisibilityImageViewAdd()
     }
 
     private fun showFeedbackJobTypeRemoved(jobType: JobType) {
