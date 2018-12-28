@@ -12,23 +12,24 @@ class ProfessionalActivity : ActivityMVVM<ActivityProfessionalBinding, Professio
     override val classViewModel = ProfessionalViewModel::class.java
     override val layout = R.layout.activity_professional
 
-    private val fragmentEvents by lazy { FragmentEvents() }
-    private val fragmentSkills by lazy { SkillFragment() }
-
     override fun afterOnCreate() {
+        viewModel.load()
+        handleNavigation()
+        selectFragment(FragmentEvents())
+    }
+
+    private fun handleNavigation() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             val fragment = when (it.itemId) {
-                R.id.nav_events -> fragmentEvents
-                R.id.nav_skills -> fragmentSkills
-                else -> fragmentSkills
+                R.id.nav_events -> FragmentEvents()
+                R.id.nav_skills -> SkillFragment.newInstance(viewModel.skills)
+                else -> FragmentEvents()
             }
 
             selectFragment(fragment)
 
             return@setOnNavigationItemSelectedListener true
         }
-
-        selectFragment(fragmentEvents)
     }
 
     private fun selectFragment(fragment: Fragment) = supportFragmentManager
