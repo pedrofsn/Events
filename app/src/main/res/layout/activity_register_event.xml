@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -19,16 +20,7 @@
             android:background="#f1f1f1"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/respiro_visual_menor"
-                android:layout_marginTop="@dimen/respiro_visual_menor"
-                android:layout_marginRight="@dimen/respiro_visual_menor"
-                android:orientation="vertical"
-                app:cardCornerRadius="@dimen/respiro_visual_menor"
-                app:cardElevation="@dimen/respiro_visual_menor"
-                app:contentPadding="16dp">
+            <androidx.cardview.widget.CardView style="@style/CustomCardView">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -79,17 +71,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/respiro_visual_menor"
-                android:layout_marginTop="@dimen/respiro_visual_menor"
-                android:layout_marginRight="@dimen/respiro_visual_menor"
-                android:orientation="vertical"
-                android:padding="16dp"
-                app:cardCornerRadius="@dimen/respiro_visual_menor"
-                app:cardElevation="@dimen/respiro_visual_menor"
-                app:contentPadding="16dp">
+            <androidx.cardview.widget.CardView style="@style/CustomCardView">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -181,65 +163,12 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!--<androidx.cardview.widget.CardView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="@dimen/respiro_visual_menor"-->
-            <!--android:layout_marginTop="@dimen/respiro_visual_menor"-->
-            <!--android:layout_marginRight="@dimen/respiro_visual_menor"-->
-            <!--android:orientation="vertical"-->
-            <!--android:padding="16dp"-->
-            <!--app:cardCornerRadius="@dimen/respiro_visual_menor"-->
-            <!--app:cardElevation="@dimen/respiro_visual_menor"-->
-            <!--app:contentPadding="16dp">-->
-
-            <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical">-->
-
-            <!--<TextView-->
-            <!--style="@style/TextAppearance.AppCompat.Title"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="5dp"-->
-            <!--android:layout_marginBottom="@dimen/respiro_visual_menor"-->
-            <!--android:text="@string/job_needs" />-->
-
-            <!--<RelativeLayout-->
-            <!--android:id="@+id/relativeLayoutChipGroup"-->
-            <!--style="@style/Base.Widget.MaterialComponents.TextInputEditText"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<com.google.android.material.chip.ChipGroup-->
-            <!--android:id="@+id/chipGroup"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:layout_alignParentTop="true" />-->
-
-            <!--</RelativeLayout>-->
-
-            <!--<com.google.android.material.button.MaterialButton-->
-            <!--android:id="@+id/imageViewAdd"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="right"-->
-            <!--android:minWidth="150dp"-->
-            <!--android:onClick="add"-->
-            <!--android:text="@string/add"-->
-            <!--app:cornerRadius="@dimen/respiro_visual_menor" />-->
-
-            <!--</LinearLayout>-->
-
-            <!--</androidx.cardview.widget.CardView>-->
-
             <fragment
                 android:name="br.com.ufg.www.events.view.skill.SkillFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:tag="skillFragment" />
+                android:tag="skillFragment"
+                tools:layout="@layout/fragment_skill" />
 
             <Button
                 android:layout_width="match_parent"

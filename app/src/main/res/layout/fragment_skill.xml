@@ -15,17 +15,8 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/respiro_visual_menor"
-            android:layout_marginTop="@dimen/respiro_visual_menor"
-            android:layout_marginRight="@dimen/respiro_visual_menor"
-            android:layout_marginBottom="@dimen/respiro_visual_menor"
-            android:orientation="vertical"
-            android:padding="16dp"
-            app:cardCornerRadius="@dimen/respiro_visual_menor"
-            app:cardElevation="@dimen/respiro_visual_menor"
-            app:contentPadding="16dp">
+            style="@style/CustomCardView"
+            android:layout_marginBottom="@dimen/respiro_visual_menor">
 
             <LinearLayout
                 android:layout_width="match_parent"
