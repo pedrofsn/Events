@@ -17,4 +17,8 @@ interface SkillDAO : BaseDAO<SkillEntity> {
     @Query("SELECT j.id, j.description, (select count(*) > 0 from event_with_skills ew where ew.event_id = :idEvent and ew.skill_id = j.id) as selected FROM skills j order by description asc")
     fun readAll(idEvent: Long): List<Skill>
 
+    @Language("RoomSql")
+    @Query("SELECT j.id, j.description, 'false' as selected FROM skills j inner join my_skills my on my.id = j.id order by description asc")
+    fun getMySkills(): List<Skill>
+
 }

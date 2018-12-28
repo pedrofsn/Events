@@ -1,6 +1,7 @@
 package br.com.ufg.www.events.view.event.register
 
 import br.com.redcode.base.extensions.extract
+import br.com.redcode.easyrecyclerview.library.extension_functions.clearAndAddAll
 import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
 import br.com.ufg.www.events.App
 import br.com.ufg.www.events.R
@@ -8,6 +9,7 @@ import br.com.ufg.www.events.data.model.Skill
 import br.com.ufg.www.events.data.offline.interactor.InteractorEvent
 import br.com.ufg.www.events.data.offline.interactor.InteractorEventWithSkills
 import br.com.ufg.www.events.data.offline.interactor.InteractorPlace
+import br.com.ufg.www.events.data.offline.interactor.InteractorSkill
 import br.com.ufg.www.events.data.ui.InputEvent
 import br.com.ufg.www.events.extensions.isValid
 import kotlinx.coroutines.async
@@ -15,6 +17,7 @@ import kotlinx.coroutines.launch
 
 class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
 
+    private val interactorSkills = InteractorSkill()
     private val interactorPlaces = InteractorPlace()
     private val interactorEvent = InteractorEvent()
     private val interactorEventWithSkills = InteractorEventWithSkills()
@@ -22,6 +25,7 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
     override fun load() {
         launch(coroutineContext) {
             val loadLabel = async {
+
                 val label = InputEvent()
 
                 if (id.isValid()) {
@@ -44,6 +48,15 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
             }
 
             liveData.postValue(loadLabel.await())
+        }
+    }
+
+    fun loadSkills(callback: (ArrayList<Skill>) -> Unit) {
+        launch(coroutineContext) {
+            val skills = arrayListOf<Skill>()
+            val results = if (id.isValid()) interactorSkills.readAll(idEvent = id) else interactorSkills.readAll()
+            skills.clearAndAddAll(results)
+            callback.invoke(skills)
         }
     }
 

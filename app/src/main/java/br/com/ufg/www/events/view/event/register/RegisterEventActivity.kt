@@ -30,9 +30,11 @@ class RegisterEventActivity : ActivityMVVM<ActivityRegisterEventBinding, Registe
         enableHomeAsUpActionBar()
         binding.editTextDate.handleDate()
         viewModel.id = id
-        ((fragmentSkill as BaseFragmentMVVM<*, *>).viewModel as SkillViewModel).load(idEvent = id)
         viewModel.load()
+        loadSkills()
     }
+
+    private fun loadSkills() = viewModel.loadSkills { ((fragmentSkill as BaseFragmentMVVM<*, *>).viewModel as SkillViewModel).load(it) }
 
     fun changeLocation(view: View?) = goTo<MapsSelectLocationActivity>(CHANGE_LOCATION)
 

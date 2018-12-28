@@ -3,23 +3,15 @@ package br.com.ufg.www.events.view.skill
 import br.com.redcode.easyrecyclerview.library.extension_functions.clearAndAddAll
 import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModel
 import br.com.ufg.www.events.data.model.Skill
-import br.com.ufg.www.events.data.offline.interactor.InteractorSkill
-import br.com.ufg.www.events.extensions.isValid
-import kotlinx.coroutines.launch
+import java.util.*
 
 class SkillViewModel : BaseViewModel() {
 
-    private val interactor = InteractorSkill()
+    val skills = arrayListOf<Skill>()
 
-    private val skills = arrayListOf<Skill>()
-
-    fun load(idEvent: Long) {
-        launch(coroutineContext) {
-            val result = if (idEvent.isValid()) interactor.readAll(idEvent) else interactor.readAll()
-            skills.clearAndAddAll(result)
-
-            sendEventToUI("onAdded", getSelecteds())
-        }
+    fun load(skills: ArrayList<Skill>?) {
+        this.skills.clearAndAddAll(skills)
+        sendEventToUI("onAdded", getSelecteds())
     }
 
     fun getUnselecteds() = skills.filterNot { it.selected }

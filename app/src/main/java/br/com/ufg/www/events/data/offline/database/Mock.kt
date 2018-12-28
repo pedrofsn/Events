@@ -22,11 +22,14 @@ object Mock {
     private val mockEventWithSkillEntity1 = EventWithSkillsEntity(1, mockEventEntity.id, mockSkill1.id)
     private val mockEventWithSkillEntity2 = EventWithSkillsEntity(2, mockEventEntity.id, mockSkill2.id)
 
+    private val mockMySkill1 = MySkillEntity(id = 1, idSkill = mockSkill1.id)
+
     fun seedDatabase() {
         AppDatabase.getInstance().userDAO().insert(mockUser)
         AppDatabase.getInstance().skillDAO().insert(mockSkill1, mockSkill2, mockSkill3)
         AppDatabase.getInstance().placeDAO().insert(mockPlace)
         AppDatabase.getInstance().eventDAO().insert(mockEventEntity)
         AppDatabase.getInstance().eventWithSkillsDAO().insert(mockEventWithSkillEntity1, mockEventWithSkillEntity2)
+        AppDatabase.getInstance().mySkillsDAO().insert(mockMySkill1)
     }
 }

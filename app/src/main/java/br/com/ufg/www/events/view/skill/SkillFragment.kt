@@ -2,6 +2,7 @@ package br.com.ufg.www.events.view.skill
 
 import android.content.Context
 import android.content.DialogInterface
+import android.os.Bundle
 import br.com.redcode.base.utils.Alerts
 import br.com.redcode.easyrestful.library.fragment.FragmentMVVM
 import br.com.ufg.www.events.R
@@ -10,14 +11,31 @@ import br.com.ufg.www.events.databinding.FragmentSkillBinding
 import br.com.ufg.www.events.extensions.showOrHide
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
+import java.util.*
+
 
 class SkillFragment : FragmentMVVM<FragmentSkillBinding, SkillViewModel>() {
 
     override val classViewModel = SkillViewModel::class.java
     override val layout = R.layout.fragment_skill
 
+    private val skills by lazy { arguments?.getParcelableArrayList<Skill>(PARAMETER) }
+
+    companion object {
+        const val PARAMETER = "skills"
+
+        fun newInstance(skills: ArrayList<Skill>?): SkillFragment {
+            val frag = SkillFragment()
+            val args = Bundle()
+            args.putParcelableArrayList(PARAMETER, skills)
+            frag.arguments = args
+            return frag
+        }
+    }
+
     override fun afterOnCreate() {
         super.afterOnCreate()
+        viewModel.load(skills)
         binding.imageViewAdd.setOnClickListener { add() }
     }
 

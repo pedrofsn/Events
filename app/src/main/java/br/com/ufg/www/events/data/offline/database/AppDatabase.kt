@@ -22,7 +22,8 @@ import java.util.concurrent.Executors
             PlaceEntity::class,
             SkillEntity::class,
             EventEntity::class,
-            EventWithSkillsEntity::class
+            EventWithSkillsEntity::class,
+            MySkillEntity::class
         ],
         version = 1,
         exportSchema = false
@@ -35,6 +36,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun eventDAO(): EventDAO
     abstract fun skillDAO(): SkillDAO
     abstract fun eventWithSkillsDAO(): EventWithSkillsDAO
+    abstract fun mySkillsDAO(): MySkillsDAO
 
     companion object {
 
