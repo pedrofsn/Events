@@ -1,9 +1,6 @@
 package br.com.ufg.www.events.data.offline.entities
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 
 @Entity(
@@ -21,7 +18,12 @@ import androidx.room.PrimaryKey
                         childColumns = arrayOf("job_type_id"),
                         onDelete = ForeignKey.CASCADE,
                         onUpdate = ForeignKey.CASCADE)
-        )
+        ),
+        indices = [
+            Index(
+                    value = ["event_id", "job_type_id"],
+                    unique = true)
+        ]
 )
 class EventWithJobTypeEntity(
         @PrimaryKey(autoGenerate = true) val id: Long = 0,
