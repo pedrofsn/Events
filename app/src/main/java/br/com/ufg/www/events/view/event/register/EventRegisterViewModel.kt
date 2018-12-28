@@ -37,11 +37,13 @@ class EventRegisterViewModel : BaseViewModelWithLiveData<InputEvent>() {
 
                 if (id.isValid()) {
                     interactorEvent.read(id)?.let { event ->
+                        label.idEvent = event.id
                         label.name = event.name
                         label.date = event.getDateFormmated()
 
                         val loadPlace = async {
                             interactorPlaces.read(event.idPlace)?.let { place ->
+                                label.idPlace = place.id
                                 label.address = extract safe place.address
                                 label.latitude = place.latitude
                                 label.longitude = place.longitude

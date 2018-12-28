@@ -13,6 +13,9 @@ import br.com.ufg.www.events.data.offline.entities.PlaceEntity
 
 class InputEvent : BaseObservable() {
 
+    var idEvent: Long? = null
+    var idPlace: Long? = null
+
     @get:Bindable
     var name: String = EMPTY_STRING
 
@@ -35,6 +38,7 @@ class InputEvent : BaseObservable() {
     fun toDate() = SDF_BRAZILIAN_DATE.parse(extract safe date)
 
     fun toPlaceEntity(idUser: Long) = PlaceEntity(
+            id = idPlace ?: 0,
             latitude = extract safe latitude,
             longitude = extract safe longitude,
             address = extract safe address,
@@ -42,6 +46,7 @@ class InputEvent : BaseObservable() {
     )
 
     fun toEventEntity(idUser: Long, idPlace: Long) = EventEntity(
+            id = idEvent ?: 0,
             idUser = idUser,
             idPlace = idPlace,
             date = toDate(),
