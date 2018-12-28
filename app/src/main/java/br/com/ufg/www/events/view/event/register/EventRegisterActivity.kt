@@ -44,7 +44,7 @@ class EventRegisterActivity : ActivityMVVM<ActivityEventRegisterBinding, EventRe
     }
 
     private fun updateUI(label: InputEvent) {
-        viewModel.selectedJobTypes.forEach { addChip(it) }
+        viewModel.getSelectedJobTypes().forEach { addChip(it) }
         viewModel.refreshVisibilityImageViewAdd()
     }
 

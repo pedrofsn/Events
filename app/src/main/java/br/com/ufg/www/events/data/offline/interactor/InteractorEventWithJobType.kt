@@ -7,5 +7,6 @@ import kotlinx.coroutines.coroutineScope
 class InteractorEventWithJobType {
 
     suspend fun save(entity: EventWithJobTypeEntity) = coroutineScope { AppDatabase.getInstance().eventWithJobTypeDAO().insert(entity) }
+    suspend fun insertAll(idEvent: Long, vararg entities: EventWithJobTypeEntity) = coroutineScope { AppDatabase.getInstance().eventWithJobTypeDAO().insertAll(idEvent, *entities) }
 
 }

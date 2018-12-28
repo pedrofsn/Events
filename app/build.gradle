@@ -90,4 +90,6 @@ dependencies {
 
     // Base code
     implementation 'com.github.pedrofsn.base-redcode:mvvm-restful:1.1.3.1'
+
+    debugImplementation 'com.facebook.stetho:stetho:1.5.0'
 }

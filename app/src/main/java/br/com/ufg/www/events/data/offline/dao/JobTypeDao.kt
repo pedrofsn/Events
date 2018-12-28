@@ -10,11 +10,11 @@ import org.intellij.lang.annotations.Language
 interface JobTypeDao : BaseDAO<JobTypeEntity> {
 
     @Language("RoomSql")
-    @Query("SELECT id, description FROM job_types order by description")
+    @Query("SELECT id, description, 0 > 1 as selected FROM job_types order by description")
     fun readAll(): List<JobType>
 
     @Language("RoomSql")
-    @Query("SELECT id, description FROM job_types where id in (select id from event_with_job_type where event_id = :idEvent) order by description asc")
+    @Query("SELECT j.id, j.description, (select count(*) > 0 from event_with_job_type ew where ew.event_id = :idEvent and ew.job_type_id = j.id) as selected FROM job_types j order by description asc")
     fun readAll(idEvent: Long): List<JobType>
 
 }

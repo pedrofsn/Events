@@ -5,7 +5,7 @@ import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityRegisterUserBinding
 import br.com.ufg.www.events.extensions.isFilled
-import br.com.ufg.www.events.view.places.list.PlacesActivity
+import br.com.ufg.www.events.view.event.list.EventsActivity
 
 class RegisterUserActivity : ActivityMVVM<ActivityRegisterUserBinding, RegisterViewModel>() {
 
@@ -27,6 +27,6 @@ class RegisterUserActivity : ActivityMVVM<ActivityRegisterUserBinding, RegisterV
         }
     }
 
-    private fun onRegistered() = goToWithNoHistory(PlacesActivity::class.java)
+    private fun onRegistered() = goToWithNoHistory(EventsActivity::class.java)
 
 }

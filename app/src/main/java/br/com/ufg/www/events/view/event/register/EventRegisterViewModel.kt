@@ -23,64 +23,52 @@ class EventRegisterViewModel : BaseViewModelWithLiveData<InputEvent>() {
     private val interactorEventWithJobTypes = InteractorEventWithJobType()
 
     private val jobTypes = arrayListOf<JobType>()
-    val selectedJobTypes = arrayListOf<JobType>()
 
     override fun load() {
         launch(coroutineContext) {
-            val loadData = async {
-                val result = interactorJobTypes.readAll()
+            val loadLabel = async {
+                val result = if (id.isValid()) interactorJobTypes.readAll(idEvent = id) else interactorJobTypes.readAll()
                 jobTypes.clearAndAddAll(result)
-            }
 
-            val loadForm = async {
                 val label = InputEvent()
 
                 if (id.isValid()) {
-                    interactorEvent.read(id)?.let { event ->
+
+                    interactorEvent.read(idEvent = id)?.let { event ->
                         label.idEvent = event.id
                         label.name = event.name
                         label.date = event.getDateFormmated()
 
-                        val loadPlace = async {
-                            interactorPlaces.read(event.idPlace)?.let { place ->
-                                label.idPlace = place.id
-                                label.address = extract safe place.address
-                                label.latitude = place.latitude
-                                label.longitude = place.longitude
-                            }
+                        interactorPlaces.read(event.idPlace)?.let { place ->
+                            label.idPlace = place.id
+                            label.address = extract safe place.address
+                            label.latitude = place.latitude
+                            label.longitude = place.longitude
                         }
-
-                        val loadNeed = async {
-                            val result = interactorJobTypes.readAll(event.id)
-                            selectedJobTypes.clearAndAddAll(result)
-                        }
-
-                        loadNeed.await()
-                        loadPlace.await()
                     }
                 }
 
-                liveData.postValue(label)
+                label
             }
 
-            loadData.await()
-            loadForm.await()
+            liveData.postValue(loadLabel.await())
         }
     }
 
-    fun getSelectableJobTypes() = jobTypes.filterNot { it in selectedJobTypes }
+    fun getSelectableJobTypes() = jobTypes.filterNot { it.selected }
+    fun getSelectedJobTypes() = jobTypes.filter { it.selected }
 
     fun addJobType(jobType: JobType) {
-        selectedJobTypes.add(jobType)
+        jobTypes.filter { it.id == jobType.id }.firstOrNull()?.selected = true
         sendEventToUI("addJobType", jobType)
     }
 
     fun removeJobType(jobType: JobType) {
-        selectedJobTypes.remove(jobType)
+        jobTypes.filter { it.id == jobType.id }.firstOrNull()?.selected = false
         sendEventToUI("removeJobType", jobType)
     }
 
-    fun hasSelectedJobType() = selectedJobTypes.isNotEmpty()
+    fun hasSelectedJobType() = jobTypes.filter { it.selected }.isNotEmpty()
     fun refreshVisibilityImageViewAdd() = sendEventToUI("refreshVisibilityImageViewAdd", getSelectableJobTypes().isNotEmpty())
 
     fun save() {
@@ -97,18 +85,12 @@ class EventRegisterViewModel : BaseViewModelWithLiveData<InputEvent>() {
 
                             val idEvent = interactorEvent.save(eventEntity)
 
-                            val needs = arrayListOf<Long>()
                             if (idEvent.isValid()) {
-                                selectedJobTypes.forEach {
-                                    val eventWithJobTypesEntity = it.toEventWithJobTypesEntity(idEvent)
-                                    val idEventWithJobType = interactorEventWithJobTypes.save(eventWithJobTypesEntity)
-                                    needs.add(idEventWithJobType)
-                                }
+                                val toInsert = getSelectedJobTypes().map { it.toEventWithJobTypesEntity(idEvent) }.toTypedArray()
+                                interactorEventWithJobTypes.insertAll(idEvent, *toInsert)
                             }
 
-                            if (needs.isNotEmpty()) {
-                                sendEventToUI("onRegistered")
-                            }
+                            sendEventToUI("onRegistered")
                         }
                     }
                 }
