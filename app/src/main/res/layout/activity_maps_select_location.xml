@@ -11,21 +11,20 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
         tools:context="br.com.redcode.base.dr24h.domain.BaseGoogleMapsActivity" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textViewLabel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:alpha="0.7"
-        android:background="@color/blue"
+        android:layout_margin="10dp"
+        android:background="@color/colorPrimary"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:padding="@dimen/respiro_visual"
-        android:text="@string/label_add_point_map"
-        android:textColor="@android:color/black"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:padding="10dp"
+        android:text="@string/drag_map_instruction"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="30dp"
@@ -37,9 +36,12 @@
 
     <Button
         android:id="@+id/buttonSave"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginLeft="@dimen/respiro_visual"
+        android:layout_marginRight="@dimen/respiro_visual"
+        android:layout_marginBottom="@dimen/border"
         android:background="@color/blue"
         android:text="@string/save"
         android:textAllCaps="false"

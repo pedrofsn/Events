@@ -13,20 +13,6 @@
         android:layout_height="match_parent"
         tools:context="br.com.redcode.base.dr24h.domain.BaseGoogleMapsActivity" />
 
-    <TextView
-        android:id="@+id/textViewLabelExplicacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@color/colorPrimary"
-        android:fontFamily="sans-serif"
-        android:padding="10dp"
-        android:singleLine="true"
-        android:text="string/arraste_o_mapa"
-        android:textAllCaps="true"
-        android:textColor="@android:color/white"
-        android:visibility="visible" />
-
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"

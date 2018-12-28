@@ -38,4 +38,5 @@
     <string name="change">Alterar</string>
     <string name="event_registered_successfully">Evento registrado com sucesso</string>
     <string name="events">Eventos</string>
+    <string name="drag_map_instruction">Arraste o mapa para posicionar o ponto do endereço</string>
 </resources>
