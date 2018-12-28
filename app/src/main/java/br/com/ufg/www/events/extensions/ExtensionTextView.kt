@@ -2,6 +2,8 @@ package br.com.ufg.www.events.extensions
 
 import android.view.View
 import android.widget.TextView
+import br.com.redcode.base.extensions.gone
+import br.com.redcode.base.extensions.visible
 
 /**
  * Created by pedrofsn on 30/11/2017.

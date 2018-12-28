@@ -3,12 +3,12 @@ package br.com.ufg.www.events.view.skill
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
+import br.com.redcode.base.extensions.showOrHide
 import br.com.redcode.base.utils.Alerts
 import br.com.redcode.easyrestful.library.fragment.FragmentMVVM
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.data.model.Skill
 import br.com.ufg.www.events.databinding.FragmentSkillBinding
-import br.com.ufg.www.events.extensions.showOrHide
 import br.com.ufg.www.events.view.user.professional.ProfessionalActivity
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar

@@ -2,9 +2,9 @@ package br.com.ufg.www.events.view.places.register
 
 import android.view.View
 import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
+import br.com.redcode.easyvalidation.Validate
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityRegisterPlaceBinding
-import br.com.ufg.www.events.extensions.isFilled
 
 class RegisterPlaceActivity : ActivityMVVM<ActivityRegisterPlaceBinding, RegisterPlaceViewModel>() {
 
@@ -16,7 +16,7 @@ class RegisterPlaceActivity : ActivityMVVM<ActivityRegisterPlaceBinding, Registe
     }
 
     fun register(view: View?) {
-        if (binding.editTextLatitude.isFilled() && binding.editTextLongitude.isFilled()) {
+        if (Validate.isFilled(binding.editTextLatitude, binding.editTextLongitude)) {
             viewModel.register()
         }
     }

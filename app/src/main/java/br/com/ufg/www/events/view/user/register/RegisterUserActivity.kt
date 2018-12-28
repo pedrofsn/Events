@@ -2,9 +2,9 @@ package br.com.ufg.www.events.view.user.register
 
 import android.view.View
 import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
+import br.com.redcode.easyvalidation.Validate
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityRegisterUserBinding
-import br.com.ufg.www.events.extensions.isFilled
 import br.com.ufg.www.events.view.user.professional.ProfessionalActivity
 
 class RegisterUserActivity : ActivityMVVM<ActivityRegisterUserBinding, RegisterViewModel>() {
@@ -15,7 +15,7 @@ class RegisterUserActivity : ActivityMVVM<ActivityRegisterUserBinding, RegisterV
     override fun afterOnCreate() = viewModel.load()
 
     fun register(view: View?) {
-        if (binding.editTextLogin.isFilled() && binding.editTextPassword.isFilled() && binding.editTextPasswordConfirmation.isFilled()) {
+        if (Validate.isFilled(binding.editTextLogin, binding.editTextPassword, binding.editTextPasswordConfirmation)) {
             viewModel.register()
         }
     }
