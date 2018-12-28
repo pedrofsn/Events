@@ -14,7 +14,7 @@ import br.com.redcode.easyvalidation.Validate
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.data.model.JobType
 import br.com.ufg.www.events.data.ui.InputEvent
-import br.com.ufg.www.events.databinding.ActivityEventRegisterBinding
+import br.com.ufg.www.events.databinding.ActivityRegisterEventBinding
 import br.com.ufg.www.events.extensions.showOrHide
 import br.com.ufg.www.events.view.places.add_map.BaseGoogleMapsActivity.Companion.CHANGE_LOCATION
 import br.com.ufg.www.events.view.places.add_map.MapsSelectLocationActivity
@@ -23,10 +23,10 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.snackbar.Snackbar.LENGTH_SHORT
 
-class EventRegisterActivity : ActivityMVVM<ActivityEventRegisterBinding, EventRegisterViewModel>() {
+class RegisterEventActivity : ActivityMVVM<ActivityRegisterEventBinding, RegisterEventViewModel>() {
 
-    override val classViewModel = EventRegisterViewModel::class.java
-    override val layout = R.layout.activity_event_register
+    override val classViewModel = RegisterEventViewModel::class.java
+    override val layout = R.layout.activity_register_event
 
     private val id by lazyId()
     private val observer = observer<InputEvent> { updateUI(it) }

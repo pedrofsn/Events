@@ -15,7 +15,7 @@ import br.com.ufg.www.events.extensions.isValid
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class EventRegisterViewModel : BaseViewModelWithLiveData<InputEvent>() {
+class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
 
     private val interactorJobTypes = InteractorJobType()
     private val interactorPlaces = InteractorPlace()

@@ -9,7 +9,7 @@ import br.com.ufg.www.events.data.model.Event
 import br.com.ufg.www.events.data.ui.LabelEvents
 import br.com.ufg.www.events.databinding.ActivityEventsBinding
 import br.com.ufg.www.events.view.event.list.adapter.AdapterEvent
-import br.com.ufg.www.events.view.event.register.EventRegisterActivity
+import br.com.ufg.www.events.view.event.register.RegisterEventActivity
 
 class EventsActivity : ActivityMVVM<ActivityEventsBinding, EventsViewModel>() {
 
@@ -36,6 +36,6 @@ class EventsActivity : ActivityMVVM<ActivityEventsBinding, EventsViewModel>() {
 
     fun register(view: View?) = showSimpleAlert("not yet")
 
-    private fun onClickItem(event: Event) = goTo<EventRegisterActivity>("id" to event.id)
+    private fun onClickItem(event: Event) = goTo<RegisterEventActivity>("id" to event.id)
 
 }
