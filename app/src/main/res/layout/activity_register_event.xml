@@ -45,35 +45,51 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/name"
+                            android:imeOptions="actionDone"
                             android:inputType="textCapWords"
                             android:padding="8dp"
                             android:text="@={viewModel.liveData.name}" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
-                        android:id="@+id/textViewDateStart"
-                        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:hint="@string/date_start"
-                        android:onClick="changeDateStart"
-                        android:padding="8dp"
-                        android:text="@={viewModel.liveData.dateStart}" />
 
-                    <TextView
-                        android:id="@+id/textViewDateEnd"
-                        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextDateStart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:hint="@string/date_start"
+                            android:onClick="changeDateStart"
+                            android:padding="8dp"
+                            android:text="@={viewModel.liveData.dateStart}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:hint="@string/date_end"
-                        android:onClick="changeDateEnd"
-                        android:padding="8dp"
-                        android:text="@={viewModel.liveData.dateEnd}" />
+                        android:hint="@string/date_end">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextDateEnd"
+                            style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:hint="@string/date_end"
+                            android:onClick="changeDateEnd"
+                            android:padding="8dp"
+                            android:text="@={viewModel.liveData.dateEnd}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
 
@@ -109,7 +125,9 @@
                                 android:id="@+id/editTextLatitude"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:enabled="false"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
                                 android:hint="@string/latitude"
                                 android:padding="8dp"
                                 android:text="@={viewModel.liveData.latitude}" />
@@ -124,7 +142,9 @@
                                 android:id="@+id/editTextLongitude"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:enabled="false"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
                                 android:hint="@string/longitude"
                                 android:padding="8dp"
                                 android:text="@={viewModel.liveData.longitude}" />
@@ -139,7 +159,9 @@
                                 android:id="@+id/editTextAddress"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:enabled="false"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
                                 android:hint="@string/address"
                                 android:padding="8dp"
                                 android:text="@={viewModel.liveData.address}" />

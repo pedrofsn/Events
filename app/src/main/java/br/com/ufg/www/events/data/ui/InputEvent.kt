@@ -42,9 +42,12 @@ class InputEvent : BaseObservable() {
         @Bindable(value = ["latitude", "longitude", "address"])
         get() = isAllValid(latitude, longitude, address)
 
-    fun refreshDates() {
-        dateStart = SDF_BRAZILIAN_DATE_AND_TIME.format(calendarStart.time)
+    fun refreshDateEnd() {
         dateEnd = SDF_BRAZILIAN_DATE_AND_TIME.format(calendarEnd.time)
+    }
+
+    fun refreshDateStart() {
+        dateStart = SDF_BRAZILIAN_DATE_AND_TIME.format(calendarStart.time)
     }
 
     fun toPlaceEntity(idUser: Long) = PlaceEntity(
@@ -65,5 +68,7 @@ class InputEvent : BaseObservable() {
     )
 
     fun isDateValid() = calendarEnd.timeInMillis > calendarStart.timeInMillis
+    fun isDateInvalid() = isDateValid().not()
+    fun haveNotPlace() = hasLocation.not()
 
 }

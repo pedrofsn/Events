@@ -38,38 +38,43 @@ class RegisterEventActivity : ActivityMVVM<ActivityRegisterEventBinding, Registe
 
     private fun loadSkills() = viewModel.loadSkills { ((fragmentSkill as BaseFragmentMVVM<*, *>).viewModel as SkillViewModel).load(it) }
 
-    private fun changeDate(calendar: Calendar?) {
+    private fun changeDate(calendar: Calendar?, callback: () -> Unit) {
         calendar?.let {
             val callbackDatePicler = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
                 val callbackTimePicker = TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
                     calendar.set(year, month, dayOfMonth, hourOfDay, minute)
-                    viewModel.liveData.value?.refreshDates()
+                    callback.invoke()
                     binding.executePendingBindings()
                 }
-                Alerts.showTimePicker(context = this, callback = callbackTimePicker, calendar = calendar)
+
+                Alerts.showTimePicker(
+                        context = this,
+                        callback = callbackTimePicker,
+                        calendar = calendar
+                )
             }
-            Alerts.showDatePicker(context = this, callback = callbackDatePicler, calendar = calendar)
+
+            Alerts.showDatePicker(
+                    context = this,
+                    callback = callbackDatePicler,
+                    calendar = calendar
+            )
         }
     }
 
-    fun changeDateStart(view: View?) = changeDate(viewModel.liveData.value?.calendarStart)
-    fun changeDateEnd(view: View?) = changeDate(viewModel.liveData.value?.calendarEnd)
+    fun changeDateStart(view: View?) = viewModel.liveData.value?.apply { changeDate(calendarStart) { refreshDateStart() } }
+    fun changeDateEnd(view: View?) = viewModel.liveData.value?.apply { changeDate(calendarEnd) { refreshDateEnd() } }
     fun changeLocation(view: View?) = goTo<MapsSelectLocationActivity>(CHANGE_LOCATION)
 
     fun save(view: View?) {
-        if (Validate.isFilled(binding.editTextName, binding.textViewDateStart, binding.editTextLatitude, binding.editTextLongitude)) {
-
-            if (viewModel.liveData.value?.isDateValid()?.not() == true) {
-                showMessage(getString(R.string.date_max_min_limit))
-                return
-            }
-
+        if (Validate.isFilled(binding.editTextName, binding.editTextDateStart, binding.editTextDateEnd, binding.editTextLatitude, binding.editTextLongitude)) {
             val skillViewModel = ((fragmentSkill as BaseFragmentMVVM<*, *>).viewModel as SkillViewModel)
 
-            if (skillViewModel.hasSelected()) {
-                viewModel.save(skillViewModel.getSelecteds())
-            } else {
-                showMessage(getString(R.string.select_a_job_need))
+            when {
+                viewModel.liveData.value?.isDateInvalid() == true -> showMessage(getString(R.string.date_max_min_limit))
+                viewModel.liveData.value?.haveNotPlace() == true -> showMessage(getString(R.string.add_a_place))
+                skillViewModel.hasSelected().not() -> showMessage(getString(R.string.select_a_job_need))
+                else -> viewModel.save(skillViewModel.getSelecteds())
             }
         }
     }
