@@ -30,7 +30,7 @@
             app:itemBackground="@color/primary"
             app:itemIconTint="@drawable/bottom_item_background_color"
             app:itemTextColor="@drawable/bottom_item_background_color"
-            app:menu="@menu/activity_main" />
+            app:menu="@menu/menu_activity_professional" />
 
     </RelativeLayout>
 

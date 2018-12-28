@@ -15,12 +15,17 @@ class ProfessionalActivity : ActivityMVVM<ActivityProfessionalBinding, Professio
     override fun afterOnCreate() {
         viewModel.load()
         handleNavigation()
-        selectFragment(FragmentEvents())
+        firstCaseSelection()
+    }
+
+    private fun firstCaseSelection() {
+        binding.bottomNavigationView.selectedItemId = R.id.nav_events
     }
 
     private fun handleNavigation() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             val fragment = when (it.itemId) {
+//                R.id.nav_jobs-> FragmentEvents()
                 R.id.nav_events -> FragmentEvents()
                 R.id.nav_skills -> SkillFragment.newInstance(viewModel.skills)
                 else -> FragmentEvents()
