@@ -1,12 +1,14 @@
 package br.com.ufg.www.events.view.event.register
 
 import android.app.Activity
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.view.View
 import br.com.redcode.base.extensions.extract
 import br.com.redcode.base.extensions.lazyId
 import br.com.redcode.base.mvvm.domain.fragment.BaseFragmentMVVM
-import br.com.redcode.easymask.handleDate
+import br.com.redcode.base.utils.Alerts
 import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.redcode.easyvalidation.Validate
 import br.com.ufg.www.events.R
@@ -16,6 +18,7 @@ import br.com.ufg.www.events.view.places.add_map.MapsSelectLocationActivity
 import br.com.ufg.www.events.view.skill.SkillFragment
 import br.com.ufg.www.events.view.skill.SkillViewModel
 import com.google.android.gms.maps.model.LatLng
+import java.util.*
 
 class RegisterEventActivity : ActivityMVVM<ActivityRegisterEventBinding, RegisterEventViewModel>() {
 
@@ -28,7 +31,6 @@ class RegisterEventActivity : ActivityMVVM<ActivityRegisterEventBinding, Registe
 
     override fun afterOnCreate() {
         enableHomeAsUpActionBar()
-        binding.editTextDate.handleDate()
         viewModel.id = id
         viewModel.load()
         loadSkills()
@@ -36,10 +38,31 @@ class RegisterEventActivity : ActivityMVVM<ActivityRegisterEventBinding, Registe
 
     private fun loadSkills() = viewModel.loadSkills { ((fragmentSkill as BaseFragmentMVVM<*, *>).viewModel as SkillViewModel).load(it) }
 
+    private fun changeDate(calendar: Calendar?) {
+        calendar?.let {
+            val callbackDatePicler = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+                val callbackTimePicker = TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
+                    calendar.set(year, month, dayOfMonth, hourOfDay, minute)
+                    viewModel.liveData.value?.refreshDates()
+                    binding.executePendingBindings()
+                }
+                Alerts.showTimePicker(context = this, callback = callbackTimePicker, calendar = calendar)
+            }
+            Alerts.showDatePicker(context = this, callback = callbackDatePicler, calendar = calendar)
+        }
+    }
+
+    fun changeDateStart(view: View?) = changeDate(viewModel.liveData.value?.calendarStart)
+    fun changeDateEnd(view: View?) = changeDate(viewModel.liveData.value?.calendarEnd)
     fun changeLocation(view: View?) = goTo<MapsSelectLocationActivity>(CHANGE_LOCATION)
 
     fun save(view: View?) {
-        if (Validate.isFilled(binding.editTextName, binding.editTextDate, binding.editTextLatitude, binding.editTextLongitude)) {
+        if (Validate.isFilled(binding.editTextName, binding.textViewDateStart, binding.editTextLatitude, binding.editTextLongitude)) {
+
+            if (viewModel.liveData.value?.isDateValid()?.not() == true) {
+                showMessage(getString(R.string.date_max_min_limit))
+                return
+            }
 
             val skillViewModel = ((fragmentSkill as BaseFragmentMVVM<*, *>).viewModel as SkillViewModel)
 

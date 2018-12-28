@@ -40,4 +40,7 @@
     <string name="events">Eventos</string>
     <string name="drag_map_instruction">Arraste o mapa para posicionar o ponto do endereço</string>
     <string name="skills">Habilidades</string>
+    <string name="date_start">Data e horário de início</string>
+    <string name="date_end">Data e horário de fim</string>
+    <string name="date_max_min_limit">A data de início não pode ser maior que a data de finalização do evento.</string>
 </resources>

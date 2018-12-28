@@ -17,7 +17,7 @@ object Mock {
     private val mockSkill3 = SkillEntity(id = 3, description = "Animador de festa infantil")
 
     private val mockPlace = PlaceEntity(1, mockUser.id, "-16.650307", "-49.228746", "Parque Beija Flor")
-    private val mockEventEntity = EventEntity(1, mockPlace.idUser, mockPlace.id, Date(), "Festa do Dia")
+    private val mockEventEntity = EventEntity(1, mockPlace.idUser, mockPlace.id, Date(), Date(), "Festa do Dia")
 
     private val mockEventWithSkillEntity1 = EventWithSkillsEntity(1, mockEventEntity.id, mockSkill1.id)
     private val mockEventWithSkillEntity2 = EventWithSkillsEntity(2, mockEventEntity.id, mockSkill2.id)

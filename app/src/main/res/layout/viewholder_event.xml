@@ -25,10 +25,9 @@
                 tools:text="@tools:sample/full_names" />
 
             <TextView
-                android:id="@+id/textViewLatitude"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{data.getDateFormmated()}"
+                android:text="@{data.getDateStartAndEnd()}"
                 tools:text="@tools:sample/date/ddmmyy" />
 
         </LinearLayout>

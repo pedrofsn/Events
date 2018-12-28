@@ -51,21 +51,29 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <TextView
+                        android:id="@+id/textViewDateStart"
+                        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/date_start"
+                        android:onClick="changeDateStart"
+                        android:padding="8dp"
+                        android:text="@={viewModel.liveData.dateStart}" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextDate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/date"
-                            android:imeOptions="actionDone"
-                            android:inputType="number"
-                            android:padding="8dp"
-                            android:text="@={viewModel.liveData.date}" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:id="@+id/textViewDateEnd"
+                        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/date_end"
+                        android:onClick="changeDateEnd"
+                        android:padding="8dp"
+                        android:text="@={viewModel.liveData.dateEnd}" />
 
                 </LinearLayout>
 

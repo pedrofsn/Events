@@ -28,6 +28,7 @@ class EventEntity(
         @PrimaryKey(autoGenerate = true) val id: Long = 0,
         @ColumnInfo(name = "user_id") val idUser: Long,
         @ColumnInfo(name = "place_id") val idPlace: Long,
-        @ColumnInfo(name = "date") val date: Date,
+        @ColumnInfo(name = "date_start") val dateStart: Date,
+        @ColumnInfo(name = "date_end") val dateEnd: Date,
         val name: String
 )

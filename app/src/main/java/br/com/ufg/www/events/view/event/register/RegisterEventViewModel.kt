@@ -33,7 +33,8 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
                     interactorEvent.read(idEvent = id)?.let { event ->
                         label.idEvent = event.id
                         label.name = event.name
-                        label.date = event.getDateFormmated()
+                        label.dateStart = event.getDateStartFormmated()
+                        label.dateEnd = event.getDateEndFormmated()
 
                         interactorPlaces.read(event.idPlace)?.let { place ->
                             label.idPlace = place.id
