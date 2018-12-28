@@ -1,14 +1,12 @@
 package br.com.ufg.www.events.view.event.register
 
 import br.com.redcode.base.extensions.extract
-import br.com.redcode.easyrecyclerview.library.extension_functions.clearAndAddAll
 import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
 import br.com.ufg.www.events.App
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.data.model.JobType
 import br.com.ufg.www.events.data.offline.interactor.InteractorEvent
 import br.com.ufg.www.events.data.offline.interactor.InteractorEventWithJobType
-import br.com.ufg.www.events.data.offline.interactor.InteractorJobType
 import br.com.ufg.www.events.data.offline.interactor.InteractorPlace
 import br.com.ufg.www.events.data.ui.InputEvent
 import br.com.ufg.www.events.extensions.isValid
@@ -17,19 +15,13 @@ import kotlinx.coroutines.launch
 
 class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
 
-    private val interactorJobTypes = InteractorJobType()
     private val interactorPlaces = InteractorPlace()
     private val interactorEvent = InteractorEvent()
     private val interactorEventWithJobTypes = InteractorEventWithJobType()
 
-    private val jobTypes = arrayListOf<JobType>()
-
     override fun load() {
         launch(coroutineContext) {
             val loadLabel = async {
-                val result = if (id.isValid()) interactorJobTypes.readAll(idEvent = id) else interactorJobTypes.readAll()
-                jobTypes.clearAndAddAll(result)
-
                 val label = InputEvent()
 
                 if (id.isValid()) {
@@ -55,23 +47,7 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
         }
     }
 
-    fun getSelectableJobTypes() = jobTypes.filterNot { it.selected }
-    fun getSelectedJobTypes() = jobTypes.filter { it.selected }
-
-    fun addJobType(jobType: JobType) {
-        jobTypes.filter { it.id == jobType.id }.firstOrNull()?.selected = true
-        sendEventToUI("addJobType", jobType)
-    }
-
-    fun removeJobType(jobType: JobType) {
-        jobTypes.filter { it.id == jobType.id }.firstOrNull()?.selected = false
-        sendEventToUI("removeJobType", jobType)
-    }
-
-    fun hasSelectedJobType() = jobTypes.filter { it.selected }.isNotEmpty()
-    fun refreshVisibilityImageViewAdd() = sendEventToUI("refreshVisibilityImageViewAdd", getSelectableJobTypes().isNotEmpty())
-
-    fun save() {
+    fun save(selecteds: List<JobType>) {
         launch(coroutineContext) {
             try {
                 liveData.value?.apply {
@@ -86,7 +62,7 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
                             val idEvent = interactorEvent.save(eventEntity)
 
                             if (idEvent.isValid()) {
-                                val toInsert = getSelectedJobTypes().map { it.toEventWithJobTypesEntity(idEvent) }.toTypedArray()
+                                val toInsert = selecteds.map { it.toEventWithJobTypesEntity(idEvent) }.toTypedArray()
                                 interactorEventWithJobTypes.insertAll(idEvent, *toInsert)
                             }
 
