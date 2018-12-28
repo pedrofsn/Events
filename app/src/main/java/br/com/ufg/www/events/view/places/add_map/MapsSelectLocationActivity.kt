@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_maps_select_location.*
 /**
  * Created by pedrofsn on 04/05/18.
  */
-class MapsSelectLocationActivity : BaseMapLocationSearchActivity(), View.OnClickListener, Contract.View {
+class MapsSelectLocationActivity : BaseGoogleMapsActivityWithLocation(), View.OnClickListener, Contract.View {
 
     override val layout: Int = R.layout.activity_maps_select_location
     private var firstRun = true
@@ -50,11 +50,6 @@ class MapsSelectLocationActivity : BaseMapLocationSearchActivity(), View.OnClick
                 R.id.buttonSave -> save()
             }
         }
-    }
-
-    override fun search(query: String?) {
-        super.search(query)
-        presenter.load(query)
     }
 
     override fun updateUI(list: List<Place>) {
