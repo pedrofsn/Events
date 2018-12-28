@@ -67,11 +67,12 @@ class RegisterEventActivity : ActivityMVVM<ActivityRegisterEventBinding, Registe
     fun changeLocation(view: View?) = goTo<MapsSelectLocationActivity>(CHANGE_LOCATION)
 
     fun save(view: View?) {
-        if (Validate.isFilled(binding.editTextName, binding.editTextDateStart, binding.editTextDateEnd, binding.editTextLatitude, binding.editTextLongitude)) {
+        if (Validate.isFilled(binding.editTextName, binding.editTextDateStart, binding.editTextDateEnd)) {
             val skillViewModel = ((fragmentSkill as BaseFragmentMVVM<*, *>).viewModel as SkillViewModel)
 
             when {
-                viewModel.liveData.value?.isDateInvalid() == true -> showMessage(getString(R.string.date_max_min_limit))
+                viewModel.liveData.value?.isDateStartAfterEnd() == true -> showMessage(getString(R.string.date_max_min_limit))
+                viewModel.liveData.value?.isSameDates() == true -> showMessage(getString(R.string.date_equals))
                 viewModel.liveData.value?.haveNotPlace() == true -> showMessage(getString(R.string.add_a_place))
                 skillViewModel.hasSelected().not() -> showMessage(getString(R.string.select_a_job_need))
                 else -> viewModel.save(skillViewModel.getSelecteds())

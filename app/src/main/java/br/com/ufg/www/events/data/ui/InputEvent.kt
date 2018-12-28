@@ -67,8 +67,11 @@ class InputEvent : BaseObservable() {
             name = extract safe name
     )
 
-    fun isDateValid() = calendarEnd.timeInMillis > calendarStart.timeInMillis
-    fun isDateInvalid() = isDateValid().not()
+    fun isSameDates() = calendarStart.get(Calendar.DAY_OF_YEAR) == calendarEnd.get(Calendar.DAY_OF_YEAR) &&
+            calendarStart.get(Calendar.HOUR) == calendarEnd.get(Calendar.HOUR) &&
+            calendarStart.get(Calendar.MINUTE) == calendarEnd.get(Calendar.MINUTE)
+
+    fun isDateStartAfterEnd() = calendarStart.timeInMillis > calendarEnd.timeInMillis
     fun haveNotPlace() = hasLocation.not()
 
 }

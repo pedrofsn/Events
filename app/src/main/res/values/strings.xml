@@ -42,7 +42,8 @@
     <string name="skills">Habilidades</string>
     <string name="date_start">Data e horário de início</string>
     <string name="date_end">Data e horário de fim</string>
-    <string name="date_max_min_limit">A data de início não pode ser maior que a data de finalização do evento.</string>
+    <string name="date_max_min_limit">A data de início não pode ser maior que a data de finalização</string>
+    <string name="date_equals">A data e horário de início não podem ser idênticas a data e horário de finalização</string>
     <string name="my_skills">Minhas Habilidades</string>
     <string name="my_events">Meus Eventos</string>
     <string name="add_a_place">Adicione um local</string>
