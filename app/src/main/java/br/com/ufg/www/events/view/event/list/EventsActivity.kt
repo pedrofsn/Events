@@ -10,6 +10,7 @@ import br.com.ufg.www.events.data.ui.LabelEvents
 import br.com.ufg.www.events.databinding.ActivityEventsBinding
 import br.com.ufg.www.events.view.event.list.adapter.AdapterEvent
 import br.com.ufg.www.events.view.event.register.RegisterEventActivity
+import br.com.ufg.www.events.view.user.professional.ProfessionalActivity
 
 class EventsActivity : ActivityMVVM<ActivityEventsBinding, EventsViewModel>() {
 
@@ -20,7 +21,10 @@ class EventsActivity : ActivityMVVM<ActivityEventsBinding, EventsViewModel>() {
 
     private val observer = observer<LabelEvents> { updateUI(it) }
 
-    override fun afterOnCreate() = binding.recyclerView.setCustomAdapter(adapter)
+    override fun afterOnCreate() {
+        binding.recyclerView.setCustomAdapter(adapter)
+        goTo<ProfessionalActivity>()
+    }
 
     override fun setupUI() {
         super.setupUI()
@@ -34,8 +38,7 @@ class EventsActivity : ActivityMVVM<ActivityEventsBinding, EventsViewModel>() {
         viewModel.load()
     }
 
-    fun register(view: View?) = showSimpleAlert("not yet")
-
+    fun register(view: View?) = goTo<RegisterEventActivity>()
     private fun onClickItem(event: Event) = goTo<RegisterEventActivity>("id" to event.id)
 
 }
