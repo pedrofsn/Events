@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import br.com.redcode.easyrestful.library.impl.activity.ActivityMVVM
 import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityProfessionalBinding
+import br.com.ufg.www.events.view.event.jobs.JobsFragment
 import br.com.ufg.www.events.view.event.list.FragmentEvents
 import br.com.ufg.www.events.view.skill.SkillFragment
 
@@ -19,13 +20,13 @@ class ProfessionalActivity : ActivityMVVM<ActivityProfessionalBinding, Professio
     }
 
     private fun firstCaseSelection() {
-        binding.bottomNavigationView.selectedItemId = R.id.nav_events
+        binding.bottomNavigationView.selectedItemId = R.id.nav_jobs
     }
 
     private fun handleNavigation() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             val fragment = when (it.itemId) {
-//                R.id.nav_jobs-> FragmentEvents()
+                R.id.nav_jobs -> JobsFragment()
                 R.id.nav_events -> FragmentEvents()
                 R.id.nav_skills -> SkillFragment.newInstance(viewModel.skills)
                 else -> FragmentEvents()
