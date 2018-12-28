@@ -4,9 +4,9 @@ import br.com.redcode.base.extensions.extract
 import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
 import br.com.ufg.www.events.App
 import br.com.ufg.www.events.R
-import br.com.ufg.www.events.data.model.JobType
+import br.com.ufg.www.events.data.model.Skill
 import br.com.ufg.www.events.data.offline.interactor.InteractorEvent
-import br.com.ufg.www.events.data.offline.interactor.InteractorEventWithJobType
+import br.com.ufg.www.events.data.offline.interactor.InteractorEventWithSkills
 import br.com.ufg.www.events.data.offline.interactor.InteractorPlace
 import br.com.ufg.www.events.data.ui.InputEvent
 import br.com.ufg.www.events.extensions.isValid
@@ -17,7 +17,7 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
 
     private val interactorPlaces = InteractorPlace()
     private val interactorEvent = InteractorEvent()
-    private val interactorEventWithJobTypes = InteractorEventWithJobType()
+    private val interactorEventWithSkills = InteractorEventWithSkills()
 
     override fun load() {
         launch(coroutineContext) {
@@ -47,7 +47,7 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
         }
     }
 
-    fun save(selecteds: List<JobType>) {
+    fun save(selecteds: List<Skill>) {
         launch(coroutineContext) {
             try {
                 liveData.value?.apply {
@@ -62,8 +62,8 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
                             val idEvent = interactorEvent.save(eventEntity)
 
                             if (idEvent.isValid()) {
-                                val toInsert = selecteds.map { it.toEventWithJobTypesEntity(idEvent) }.toTypedArray()
-                                interactorEventWithJobTypes.insertAll(idEvent, *toInsert)
+                                val toInsert = selecteds.map { it.toEntity(idEvent) }.toTypedArray()
+                                interactorEventWithSkills.insertAll(idEvent, *toInsert)
                             }
 
                             sendEventToUI("onRegistered")

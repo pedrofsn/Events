@@ -20,9 +20,9 @@ import java.util.concurrent.Executors
         entities = [
             UserEntity::class,
             PlaceEntity::class,
-            JobTypeEntity::class,
+            SkillEntity::class,
             EventEntity::class,
-            EventWithJobTypeEntity::class
+            EventWithSkillsEntity::class
         ],
         version = 1,
         exportSchema = false
@@ -33,8 +33,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun userDAO(): UserDao
     abstract fun placeDAO(): PlaceDao
     abstract fun eventDAO(): EventDAO
-    abstract fun jobTypesDAO(): JobTypeDao
-    abstract fun eventWithJobTypeDAO(): EventWithJobTypesDAO
+    abstract fun skillDAO(): SkillDAO
+    abstract fun eventWithSkillsDAO(): EventWithSkillsDAO
 
     companion object {
 

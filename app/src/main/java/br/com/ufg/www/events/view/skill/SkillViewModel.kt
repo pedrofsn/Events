@@ -2,40 +2,40 @@ package br.com.ufg.www.events.view.skill
 
 import br.com.redcode.easyrecyclerview.library.extension_functions.clearAndAddAll
 import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModel
-import br.com.ufg.www.events.data.model.JobType
-import br.com.ufg.www.events.data.offline.interactor.InteractorJobType
+import br.com.ufg.www.events.data.model.Skill
+import br.com.ufg.www.events.data.offline.interactor.InteractorSkill
 import br.com.ufg.www.events.extensions.isValid
 import kotlinx.coroutines.launch
 
 class SkillViewModel : BaseViewModel() {
 
-    private val interactorJobTypes = InteractorJobType()
+    private val interactor = InteractorSkill()
 
-    private val jobTypes = arrayListOf<JobType>()
+    private val skills = arrayListOf<Skill>()
 
     fun load(idEvent: Long) {
         launch(coroutineContext) {
-            val result = if (idEvent.isValid()) interactorJobTypes.readAll(idEvent) else interactorJobTypes.readAll()
-            jobTypes.clearAndAddAll(result)
+            val result = if (idEvent.isValid()) interactor.readAll(idEvent) else interactor.readAll()
+            skills.clearAndAddAll(result)
 
-            sendEventToUI("addJobType", getSelectedJobTypes())
+            sendEventToUI("onAdded", getSelecteds())
         }
     }
 
-    fun getSelectableJobTypes() = jobTypes.filterNot { it.selected }
-    fun getSelectedJobTypes() = jobTypes.filter { it.selected }
+    fun getUnselecteds() = skills.filterNot { it.selected }
+    fun getSelecteds() = skills.filter { it.selected }
 
-    fun addJobType(jobType: JobType) {
-        jobTypes.filter { it.id == jobType.id }.firstOrNull()?.selected = true
-        sendEventToUI("addJobType", jobType)
+    fun add(skill: Skill) {
+        skills.filter { it.id == skill.id }.firstOrNull()?.selected = true
+        sendEventToUI("onAdded", skill)
     }
 
-    fun removeJobType(jobType: JobType) {
-        jobTypes.filter { it.id == jobType.id }.firstOrNull()?.selected = false
-        sendEventToUI("removeJobType", jobType)
+    fun remove(skill: Skill) {
+        skills.filter { it.id == skill.id }.firstOrNull()?.selected = false
+        sendEventToUI("onRemoved", skill)
     }
 
-    fun hasSelectedJobType() = jobTypes.filter { it.selected }.isNotEmpty()
-    fun refreshVisibilityImageViewAdd() = sendEventToUI("refreshVisibilityImageViewAdd", getSelectableJobTypes().isNotEmpty())
+    fun hasSelected() = skills.filter { it.selected }.isNotEmpty()
+    fun refreshVisibilityImageViewAdd() = sendEventToUI("refreshVisibilityImageViewAdd", getUnselecteds().isNotEmpty())
 
 }

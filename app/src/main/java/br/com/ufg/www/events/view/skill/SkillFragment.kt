@@ -5,7 +5,7 @@ import android.content.DialogInterface
 import br.com.redcode.base.utils.Alerts
 import br.com.redcode.easyrestful.library.fragment.FragmentMVVM
 import br.com.ufg.www.events.R
-import br.com.ufg.www.events.data.model.JobType
+import br.com.ufg.www.events.data.model.Skill
 import br.com.ufg.www.events.databinding.FragmentSkillBinding
 import br.com.ufg.www.events.extensions.showOrHide
 import com.google.android.material.chip.Chip
@@ -18,22 +18,22 @@ class SkillFragment : FragmentMVVM<FragmentSkillBinding, SkillViewModel>() {
 
     override fun afterOnCreate() {
         super.afterOnCreate()
-        binding.imageViewAdd.setOnClickListener { addJob() }
+        binding.imageViewAdd.setOnClickListener { add() }
     }
 
-    fun addJob() {
-        val selectableJobTypes = viewModel.getSelectableJobTypes()
+    private fun add() {
+        val unselecteds = viewModel.getUnselecteds()
 
-        if (selectableJobTypes.isNotEmpty()) {
-            val options = selectableJobTypes.map { it.description }
+        if (unselecteds.isNotEmpty()) {
+            val options = unselecteds.map { it.description }
 
             val dialog = Alerts.getDialogSimpleList(
                     context = activity as Context,
                     options = options,
                     callback = DialogInterface.OnClickListener { dialog, which ->
                         dialog.dismiss()
-                        val selectedJobType = viewModel.getSelectableJobTypes()[which]
-                        viewModel.addJobType(selectedJobType)
+                        val selected = viewModel.getUnselecteds()[which]
+                        viewModel.add(selected)
                     }
             )
             dialog.setTitle(R.string.job_needs)
@@ -45,44 +45,44 @@ class SkillFragment : FragmentMVVM<FragmentSkillBinding, SkillViewModel>() {
 
     override fun handleEvent(event: String, obj: Any?) {
         when (event) {
-            "addJobType" -> addJobType(obj)
-            "removeJobType" -> if (obj != null && obj is JobType) removeChip(jobType = obj)
+            "onAdded" -> onAdded(obj)
+            "onRemoved" -> if (obj != null && obj is Skill) onRemoved(skill = obj)
             "refreshVisibilityImageViewAdd" -> if (obj != null && obj is Boolean) refreshVisibilityImageViewAdd(obj)
             else -> super.handleEvent(event, obj)
         }
     }
 
-    private fun addJobType(obj: Any?) {
+    private fun onAdded(obj: Any?) {
         if (obj != null) {
             when (obj) {
-                is JobType -> addChip(jobType = obj)
-                is List<*> -> obj.forEach { addJobType(it as JobType) }
+                is Skill -> onAdded(skill = obj)
+                is List<*> -> obj.forEach { onAdded(it as Skill) }
             }
         }
     }
 
-    private fun addChip(jobType: JobType) {
+    private fun onAdded(skill: Skill) {
         val viewChip = Chip(activity)
-        viewChip.text = jobType.description
-        viewChip.tag = jobType.id
+        viewChip.text = skill.description
+        viewChip.tag = skill.id
         viewChip.isCheckable = false
         viewChip.isCloseIconEnabled = true
-        viewChip.setOnCloseIconClickListener { viewModel.removeJobType(jobType) }
+        viewChip.setOnCloseIconClickListener { viewModel.remove(skill) }
 
         binding.chipGroup.addView(viewChip)
     }
 
-    private fun removeChip(jobType: JobType) {
-        showFeedbackJobTypeRemoved(jobType)
-        val viewChip = binding.chipGroup.findViewWithTag<Chip>(jobType.id)
+    private fun onRemoved(skill: Skill) {
+        showVisualFeedback(skill)
+        val viewChip = binding.chipGroup.findViewWithTag<Chip>(skill.id)
         binding.chipGroup.removeView(viewChip)
     }
 
-    private fun showFeedbackJobTypeRemoved(jobType: JobType) {
-        val message = "'${jobType.description}' ${getString(R.string.removed)}"
+    private fun showVisualFeedback(skill: Skill) {
+        val message = "'${skill.description}' ${getString(R.string.removed)}"
         val snackbar = Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT)
         snackbar.setAction(getString(R.string.undo)) {
-            viewModel.addJobType(jobType)
+            viewModel.add(skill)
         }
         snackbar.show()
         viewModel.refreshVisibilityImageViewAdd()

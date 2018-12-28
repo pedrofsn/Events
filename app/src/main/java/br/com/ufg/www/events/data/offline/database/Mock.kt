@@ -12,21 +12,21 @@ object Mock {
             passwordUpperAndHashed = "pedrokra@gmail.com".toUpperCaseAndApplySHA256()
     )
 
-    private val mockJobType1 = JobTypeEntity(id = 1, description = "Garçom")
-    private val mockJobType2 = JobTypeEntity(id = 2, description = "Churrasqueiro")
-    private val mockJobType3 = JobTypeEntity(id = 3, description = "Animador de festa infantil")
+    private val mockSkill1 = SkillEntity(id = 1, description = "Garçom")
+    private val mockSkill2 = SkillEntity(id = 2, description = "Churrasqueiro")
+    private val mockSkill3 = SkillEntity(id = 3, description = "Animador de festa infantil")
 
     private val mockPlace = PlaceEntity(1, mockUser.id, "-16.650307", "-49.228746", "Parque Beija Flor")
     private val mockEventEntity = EventEntity(1, mockPlace.idUser, mockPlace.id, Date(), "Festa do Dia")
 
-    private val mockEventWithJobTypeEntity1 = EventWithJobTypeEntity(1, mockEventEntity.id, mockJobType1.id)
-    private val mockEventWithJobTypeEntity2 = EventWithJobTypeEntity(2, mockEventEntity.id, mockJobType2.id)
+    private val mockEventWithSkillEntity1 = EventWithSkillsEntity(1, mockEventEntity.id, mockSkill1.id)
+    private val mockEventWithSkillEntity2 = EventWithSkillsEntity(2, mockEventEntity.id, mockSkill2.id)
 
     fun seedDatabase() {
         AppDatabase.getInstance().userDAO().insert(mockUser)
-        AppDatabase.getInstance().jobTypesDAO().insert(mockJobType1, mockJobType2, mockJobType3)
+        AppDatabase.getInstance().skillDAO().insert(mockSkill1, mockSkill2, mockSkill3)
         AppDatabase.getInstance().placeDAO().insert(mockPlace)
         AppDatabase.getInstance().eventDAO().insert(mockEventEntity)
-        AppDatabase.getInstance().eventWithJobTypeDAO().insert(mockEventWithJobTypeEntity1, mockEventWithJobTypeEntity2)
+        AppDatabase.getInstance().eventWithSkillsDAO().insert(mockEventWithSkillEntity1, mockEventWithSkillEntity2)
     }
 }

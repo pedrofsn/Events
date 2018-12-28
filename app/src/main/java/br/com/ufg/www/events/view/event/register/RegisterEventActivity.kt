@@ -41,8 +41,8 @@ class RegisterEventActivity : ActivityMVVM<ActivityRegisterEventBinding, Registe
 
             val skillViewModel = ((fragmentSkill as BaseFragmentMVVM<*, *>).viewModel as SkillViewModel)
 
-            if (skillViewModel.hasSelectedJobType()) {
-                viewModel.save(skillViewModel.getSelectedJobTypes())
+            if (skillViewModel.hasSelected()) {
+                viewModel.save(skillViewModel.getSelecteds())
             } else {
                 showMessage(getString(R.string.select_a_job_need))
             }

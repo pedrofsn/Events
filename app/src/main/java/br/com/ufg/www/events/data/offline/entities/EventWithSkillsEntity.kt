@@ -4,7 +4,7 @@ import androidx.room.*
 
 
 @Entity(
-        tableName = "event_with_job_type",
+        tableName = "event_with_skills",
         foreignKeys = arrayOf(
                 ForeignKey(
                         entity = EventEntity::class,
@@ -13,20 +13,20 @@ import androidx.room.*
                         onDelete = ForeignKey.CASCADE,
                         onUpdate = ForeignKey.CASCADE),
                 ForeignKey(
-                        entity = JobTypeEntity::class,
+                        entity = SkillEntity::class,
                         parentColumns = arrayOf("id"),
-                        childColumns = arrayOf("job_type_id"),
+                        childColumns = arrayOf("skill_id"),
                         onDelete = ForeignKey.CASCADE,
                         onUpdate = ForeignKey.CASCADE)
         ),
         indices = [
             Index(
-                    value = ["event_id", "job_type_id"],
+                    value = ["event_id", "skill_id"],
                     unique = true)
         ]
 )
-class EventWithJobTypeEntity(
+class EventWithSkillsEntity(
         @PrimaryKey(autoGenerate = true) val id: Long = 0,
         @ColumnInfo(name = "event_id") val idEvent: Long,
-        @ColumnInfo(name = "job_type_id") val idJobType: Long
+        @ColumnInfo(name = "skill_id") val idSkill: Long
 )

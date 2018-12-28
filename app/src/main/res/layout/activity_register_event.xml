@@ -227,7 +227,7 @@
             <!--android:layout_height="wrap_content"-->
             <!--android:layout_gravity="right"-->
             <!--android:minWidth="150dp"-->
-            <!--android:onClick="addJob"-->
+            <!--android:onClick="add"-->
             <!--android:text="@string/add"-->
             <!--app:cornerRadius="@dimen/respiro_visual_menor" />-->
 
