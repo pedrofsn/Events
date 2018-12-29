@@ -45,7 +45,6 @@ interface EventDAO : BaseDAO<EventEntity> {
     }
 
 
-
     @Language("RoomSql")
     @Query("SELECT event_id as idEvent, name, date_start as dateStart, date_end as dateEnd, place_id as idPlace FROM events where user_id like :idUser order by date_start asc")
     fun readAll(idUser: Long): List<Event>

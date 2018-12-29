@@ -48,7 +48,7 @@ abstract class AppDatabase : RoomDatabase() {
                 ?: synchronized(this) {
                     INSTANCE
                             ?: buildDatabase(context).also { INSTANCE = it }
-        }
+                }
 
         private fun buildDatabase(context: Context): AppDatabase {
             val room = Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
