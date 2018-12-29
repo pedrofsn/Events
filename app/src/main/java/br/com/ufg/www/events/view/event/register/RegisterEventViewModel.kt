@@ -37,7 +37,7 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
                         label.dateEnd = event.getDateEndFormmated()
 
                         interactorPlaces.read(event.idPlace)?.let { place ->
-                            label.idPlace = place.id
+                            label.idPlace = place.idPlace
                             label.address = extract safe place.address
                             label.latitude = place.latitude
                             label.longitude = place.longitude

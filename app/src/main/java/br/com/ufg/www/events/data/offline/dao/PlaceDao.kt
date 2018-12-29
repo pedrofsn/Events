@@ -10,11 +10,11 @@ import org.intellij.lang.annotations.Language
 interface PlaceDao : BaseDAO<PlaceEntity> {
 
     @Language("RoomSql")
-    @Query("SELECT place_id as id, latitude, longitude, address FROM places where user_id like :idUser")
+    @Query("SELECT place_id as idPlace, latitude, longitude, address FROM places where user_id like :idUser")
     fun readAll(idUser: Long): List<Place>
 
     @Language("RoomSql")
-    @Query("SELECT place_id as id, latitude, longitude, address FROM places where place_id = :id")
-    fun read(id: Long): Place?
+    @Query("SELECT place_id as idPlace, latitude, longitude, address FROM places where place_id = :idPlace")
+    fun read(idPlace: Long): Place?
 
 }

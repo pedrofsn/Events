@@ -26,7 +26,7 @@ class PlaceEntity(
         val address: String?
 ) {
     fun toModel() = Place(
-            id = idPlace,
+            idPlace = idPlace,
             latitude = latitude,
             longitude = longitude,
             address = address

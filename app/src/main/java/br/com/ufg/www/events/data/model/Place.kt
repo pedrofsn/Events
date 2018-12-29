@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Place(
-        val id: Long,
+        val idPlace: Long,
         val latitude: String,
         val longitude: String,
         val address: String?
