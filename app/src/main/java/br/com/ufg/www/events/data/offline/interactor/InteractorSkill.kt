@@ -5,8 +5,8 @@ import kotlinx.coroutines.coroutineScope
 
 class InteractorSkill {
 
-    suspend fun readAll() = coroutineScope { AppDatabase.getInstance().skillDAO().readAll() }
-    suspend fun readAll(idEvent: Long) = coroutineScope { AppDatabase.getInstance().skillDAO().readAll(idEvent) }
+    suspend fun getAllSkills() = coroutineScope { AppDatabase.getInstance().skillDAO().getAllSkills() }
+    suspend fun getSkillsSelectedsAndUnselecteds(idEvent: Long) = coroutineScope { AppDatabase.getInstance().skillDAO().getSkillsSelectedsAndUnselecteds(idEvent) }
     suspend fun getMySkills() = coroutineScope { AppDatabase.getInstance().skillDAO().getMySkills() }
 
 }

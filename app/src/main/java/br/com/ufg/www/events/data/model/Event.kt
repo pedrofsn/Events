@@ -4,7 +4,7 @@ import br.com.redcode.base.utils.Constants.SDF_BRAZILIAN_DATE_AND_TIME
 import java.util.*
 
 data class Event(
-        val id: Long,
+        val idEvent: Long,
         val name: String,
         val dateStart: Date,
         val dateEnd: Date,

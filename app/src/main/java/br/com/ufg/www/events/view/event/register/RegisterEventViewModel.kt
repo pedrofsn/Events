@@ -31,7 +31,7 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
                 if (id.isValid()) {
 
                     interactorEvent.read(idEvent = id)?.let { event ->
-                        label.idEvent = event.id
+                        label.idEvent = event.idEvent
                         label.name = event.name
                         label.dateStart = event.getDateStartFormmated()
                         label.dateEnd = event.getDateEndFormmated()
@@ -55,7 +55,7 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
     fun loadSkills(callback: (ArrayList<Skill>) -> Unit) {
         launch(coroutineContext) {
             val skills = arrayListOf<Skill>()
-            val results = if (id.isValid()) interactorSkills.readAll(idEvent = id) else interactorSkills.readAll()
+            val results = if (id.isValid()) interactorSkills.getSkillsSelectedsAndUnselecteds(idEvent = id) else interactorSkills.getAllSkills()
             skills.clearAndAddAll(results)
             callback.invoke(skills)
         }

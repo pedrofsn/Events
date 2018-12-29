@@ -11,11 +11,15 @@ interface SkillDAO : BaseDAO<SkillEntity> {
 
     @Language("RoomSql")
     @Query("SELECT id, description, 0 > 1 as selected FROM skills order by description")
-    fun readAll(): List<Skill>
+    fun getAllSkills(): List<Skill>
 
     @Language("RoomSql")
     @Query("SELECT j.id, j.description, (select count(*) > 0 from event_with_skills ew where ew.event_id = :idEvent and ew.skill_id = j.id) as selected FROM skills j order by description asc")
-    fun readAll(idEvent: Long): List<Skill>
+    fun getSkillsSelectedsAndUnselecteds(idEvent: Long): List<Skill>
+
+    @Language("RoomSql")
+    @Query("SELECT j.id, j.description, 1 > 0  as selected FROM skills j WHERE j.id in (select skill_id from event_with_skills ew where ew.event_id = :idEvent and ew.skill_id = j.id) ORDER BY description ASC")
+    fun getSkillsSelecteds(idEvent: Long): List<Skill>
 
     @Language("RoomSql")
     @Query("SELECT j.id, j.description, (select count(*) > 0 from my_skills ew where ew.skill_id = j.id) as selected FROM skills j order by description asc")

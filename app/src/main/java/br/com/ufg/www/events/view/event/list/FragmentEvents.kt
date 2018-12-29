@@ -37,6 +37,6 @@ class FragmentEvents : FragmentMVVM<FragmentEventsBinding, EventsViewModel>() {
     }
 
     private fun openRegister() = goTo<RegisterEventActivity>()
-    private fun openEdit(event: Event) = goTo<RegisterEventActivity>("id" to event.id)
+    private fun openEdit(event: Event) = goTo<RegisterEventActivity>("id" to event.idEvent)
 
 }

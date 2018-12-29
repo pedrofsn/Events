@@ -25,7 +25,7 @@ import java.util.*
         )
 )
 class EventEntity(
-        @PrimaryKey(autoGenerate = true) val id: Long = 0,
+        @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "event_id") val id: Long = 0,
         @ColumnInfo(name = "user_id") val idUser: Long,
         @ColumnInfo(name = "place_id") val idPlace: Long,
         @ColumnInfo(name = "date_start") val dateStart: Date,

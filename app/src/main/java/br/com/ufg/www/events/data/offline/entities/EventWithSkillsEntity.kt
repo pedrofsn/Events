@@ -8,7 +8,7 @@ import androidx.room.*
         foreignKeys = arrayOf(
                 ForeignKey(
                         entity = EventEntity::class,
-                        parentColumns = arrayOf("id"),
+                        parentColumns = arrayOf("event_id"),
                         childColumns = arrayOf("event_id"),
                         onDelete = ForeignKey.CASCADE,
                         onUpdate = ForeignKey.CASCADE),
