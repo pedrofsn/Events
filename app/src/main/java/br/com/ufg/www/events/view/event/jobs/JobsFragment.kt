@@ -1,9 +1,7 @@
 package br.com.ufg.www.events.view.event.jobs
 
-import br.com.redcode.base.extensions.delay
 import br.com.redcode.base.extensions.getString
 import br.com.redcode.base.mvvm.extensions.observer
-import br.com.redcode.base.utils.Constants
 import br.com.redcode.easyrecyclerview.library.extension_functions.setCustomAdapter
 import br.com.redcode.easyrestful.library.fragment.FragmentSwipeRefreshRecyclerViewMVVM
 import br.com.ufg.www.events.R
@@ -30,7 +28,7 @@ class JobsFragment : FragmentSwipeRefreshRecyclerViewMVVM<FragmentJobsBinding, J
 
     private fun load(query: String?) {
         showProgress()
-        delay(Constants.ONE_SECOND_IN_MILLISECONDS) { viewModel.load(query) }
+        viewModel.load(query)
     }
 
     override fun setupUI() {
