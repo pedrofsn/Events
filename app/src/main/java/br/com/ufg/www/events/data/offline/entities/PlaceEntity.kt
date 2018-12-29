@@ -12,7 +12,7 @@ import br.com.ufg.www.events.data.model.Place
         foreignKeys = arrayOf(
                 ForeignKey(
                         entity = UserEntity::class,
-                        parentColumns = arrayOf("id"),
+                        parentColumns = arrayOf("user_id"),
                         childColumns = arrayOf("user_id"),
                         onDelete = ForeignKey.CASCADE,
                         onUpdate = ForeignKey.CASCADE)

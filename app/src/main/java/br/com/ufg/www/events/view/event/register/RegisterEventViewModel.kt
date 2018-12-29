@@ -65,7 +65,7 @@ class RegisterEventViewModel : BaseViewModelWithLiveData<InputEvent>() {
         launch(coroutineContext) {
             try {
                 liveData.value?.apply {
-                    App.userLoggedIn?.id?.let { idUser ->
+                    App.userLoggedIn?.idUser?.let { idUser ->
                         val placeEntity = toPlaceEntity(idUser)
 
                         val idPlace = interactorPlaces.save(placeEntity)

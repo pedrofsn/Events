@@ -15,7 +15,10 @@ import androidx.room.PrimaryKey
         ]
 )
 class UserEntity(
-        @PrimaryKey(autoGenerate = true) val id: Long = 0,
+        @PrimaryKey(autoGenerate = true)
+        @ColumnInfo(name = "user_id")
+        val id: Long = 0,
+
         @ColumnInfo(name = "password") val passwordUpperAndHashed: String,
         val email: String
 )

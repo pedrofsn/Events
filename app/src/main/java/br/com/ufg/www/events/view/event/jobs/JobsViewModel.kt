@@ -19,7 +19,7 @@ class JobsViewModel : BaseViewModelWithLiveData<LabelEvents>() {
             val x = interactor.getAllEvents()
             "Capturou: ${x.size}".toLogcat()
 
-            val results = interactor.readAll(App.userLoggedIn?.id!!)
+            val results = interactor.readAll(App.userLoggedIn?.idUser!!)
             val temp = arrayListOf<Event>()
             temp.addAll(results)
             temp.addAll(results)

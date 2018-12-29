@@ -18,7 +18,7 @@ class RegisterPlaceViewModel : BaseViewModelWithLiveData<InputPlace>() {
     override fun load() = liveData.postValue(InputPlace(EMPTY_STRING))
 
     fun register() = launch(coroutineContext) {
-        App.userLoggedIn?.id?.let { idUser ->
+        App.userLoggedIn?.idUser?.let { idUser ->
             liveData.value?.toPlaceEntity(idUser)?.let { entity ->
                 interactor.register(entity)
                 sendEventToUI("onSuccess")

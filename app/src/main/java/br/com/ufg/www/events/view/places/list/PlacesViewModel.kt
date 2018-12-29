@@ -12,7 +12,7 @@ class PlacesViewModel : BaseViewModelWithLiveData<LabelPlaces>() {
 
     override fun load() {
         launch(coroutineContext) {
-            val places = interactor.load(App.userLoggedIn?.id!!)
+            val places = interactor.load(App.userLoggedIn?.idUser!!)
             liveData.postValue(LabelPlaces(places))
         }
     }

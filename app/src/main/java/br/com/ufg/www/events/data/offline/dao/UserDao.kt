@@ -14,11 +14,11 @@ interface UserDao : BaseDAO<UserEntity> {
     fun readAll(): List<UserEntity>
 
     @Language("RoomSql")
-    @Query("SELECT id, email FROM users where email like :email and password like :passwordUpperAndHashed limit 1")
+    @Query("SELECT user_id as idUser, email FROM users where email like :email and password like :passwordUpperAndHashed limit 1")
     fun login(email: String, passwordUpperAndHashed: String): User?
 
     @Language("RoomSql")
-    @Query("SELECT id, email FROM users where id = :idUser")
+    @Query("SELECT user_id as idUser, email FROM users where user_id = :idUser")
     fun getUser(idUser: Long): User?
 
 }
