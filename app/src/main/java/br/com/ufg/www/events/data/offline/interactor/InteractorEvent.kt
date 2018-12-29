@@ -9,6 +9,6 @@ class InteractorEvent {
     suspend fun save(entity: EventEntity) = coroutineScope { AppDatabase.getInstance().eventDAO().insert(entity) }
     suspend fun readAll(idUser: Long) = coroutineScope { AppDatabase.getInstance().eventDAO().readAll(idUser) }
     suspend fun read(idEvent: Long) = coroutineScope { AppDatabase.getInstance().eventDAO().read(idEvent) }
-    suspend fun getAllEvents() = coroutineScope { AppDatabase.getInstance().eventDAO().getAllEventsX() }
+    suspend fun getAllEventFull() = coroutineScope { AppDatabase.getInstance().eventDAO().getAllEventFull() }
 
 }

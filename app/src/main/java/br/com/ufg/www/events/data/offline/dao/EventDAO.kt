@@ -23,7 +23,7 @@ interface EventDAO : BaseDAO<EventEntity> {
     fun getAllEvents(): List<EventFullEntity>
 
     @Transaction
-    fun getAllEventsX(): List<EventFull> {
+    fun getAllEventFull(): List<EventFull> {
         val eventsFull = arrayListOf<EventFull>()
         val eventsFullEntity = getAllEvents()
         eventsFullEntity.forEach { event ->
