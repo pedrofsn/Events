@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Skill(
-        val id: Long,
+        val idSkill: Long,
         val description: String,
 
         var selected: Boolean = false
@@ -14,7 +14,7 @@ data class Skill(
 
     fun toEntity(idEvent: Long) = EventWithSkillsEntity(
             idEvent = idEvent,
-            idSkill = id
+            idSkill = idSkill
     )
 
 }

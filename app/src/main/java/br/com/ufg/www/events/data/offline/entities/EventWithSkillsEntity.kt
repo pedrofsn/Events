@@ -14,7 +14,7 @@ import androidx.room.*
                         onUpdate = ForeignKey.CASCADE),
                 ForeignKey(
                         entity = SkillEntity::class,
-                        parentColumns = arrayOf("id"),
+                        parentColumns = arrayOf("skill_id"),
                         childColumns = arrayOf("skill_id"),
                         onDelete = ForeignKey.CASCADE,
                         onUpdate = ForeignKey.CASCADE)

@@ -18,12 +18,12 @@ class SkillViewModel : BaseViewModel() {
     fun getSelecteds() = skills.filter { it.selected }
 
     fun add(skill: Skill) {
-        skills.filter { it.id == skill.id }.firstOrNull()?.selected = true
+        skills.filter { it.idSkill == skill.idSkill }.firstOrNull()?.selected = true
         sendEventToUI("onAdded", skill)
     }
 
     fun remove(skill: Skill) {
-        skills.filter { it.id == skill.id }.firstOrNull()?.selected = false
+        skills.filter { it.idSkill == skill.idSkill }.firstOrNull()?.selected = false
         sendEventToUI("onRemoved", skill)
     }
 

@@ -21,7 +21,7 @@ class ProfessionalViewModel : BaseViewModel() {
         }
     }
 
-    fun saveMySkill(skill: Skill) = launch(coroutineContext) { interactorMySkills.save(skill.id) }
-    fun removeMySkill(skill: Skill) = launch(coroutineContext) { interactorMySkills.delete(skill.id) }
+    fun saveMySkill(skill: Skill) = launch(coroutineContext) { interactorMySkills.save(skill.idSkill) }
+    fun removeMySkill(skill: Skill) = launch(coroutineContext) { interactorMySkills.delete(skill.idSkill) }
 
 }

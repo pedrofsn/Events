@@ -84,7 +84,7 @@ class SkillFragment : FragmentMVVM<FragmentSkillBinding, SkillViewModel>() {
     private fun onAdded(skill: Skill) {
         val viewChip = Chip(activity)
         viewChip.text = skill.description
-        viewChip.tag = skill.id
+        viewChip.tag = skill.idSkill
         viewChip.isCheckable = false
         viewChip.isCloseIconEnabled = true
         viewChip.setOnCloseIconClickListener {
@@ -97,7 +97,7 @@ class SkillFragment : FragmentMVVM<FragmentSkillBinding, SkillViewModel>() {
 
     private fun onRemoved(skill: Skill) {
         showVisualFeedback(skill)
-        val viewChip = binding.chipGroup.findViewWithTag<Chip>(skill.id)
+        val viewChip = binding.chipGroup.findViewWithTag<Chip>(skill.idSkill)
         binding.chipGroup.removeView(viewChip)
     }
 
