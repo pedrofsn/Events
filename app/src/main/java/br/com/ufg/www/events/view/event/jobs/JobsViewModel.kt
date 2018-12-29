@@ -2,7 +2,6 @@ package br.com.ufg.www.events.view.event.jobs
 
 import br.com.redcode.base.extensions.toLogcat
 import br.com.redcode.easyrestful.library.impl.viewmodel.BaseViewModelWithLiveData
-import br.com.ufg.www.events.App
 import br.com.ufg.www.events.data.model.Event
 import br.com.ufg.www.events.data.offline.interactor.InteractorEvent
 import br.com.ufg.www.events.data.ui.LabelEvents
@@ -16,10 +15,10 @@ class JobsViewModel : BaseViewModelWithLiveData<LabelEvents>() {
 
     fun load(query: String?) {
         launch(coroutineContext) {
-            val x = interactor.getAllEventFull()
+            val x = interactor.getAllEventFullWithMySkills()
             "Capturou: ${x.size}".toLogcat()
 
-            val results = interactor.readAll(App.userLoggedIn?.idUser!!)
+            val results = x.map { it.temp() }
             val temp = arrayListOf<Event>()
             temp.addAll(results)
             temp.addAll(results)

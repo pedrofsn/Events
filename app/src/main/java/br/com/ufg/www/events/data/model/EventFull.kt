@@ -11,4 +11,12 @@ data class EventFull(
         val place: Place,
 
         val skills: List<Skill>
-)
+) {
+    fun temp() = Event(
+            idPlace = place.idPlace,
+            idEvent = idEvent,
+            name = name,
+            dateStart = dateStart,
+            dateEnd = dateEnd
+    )
+}

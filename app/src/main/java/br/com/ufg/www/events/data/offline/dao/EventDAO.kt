@@ -19,13 +19,24 @@ interface EventDAO : BaseDAO<EventEntity> {
          p.place_id, p.user_id, p.latitude, p.longitude, p.address
          FROM events e
          INNER JOIN places p ON p.place_id = e.place_id
+         INNER JOIN event_with_skills es ON es.event_id = e.event_id
+         INNER JOIN my_skills ms ON ms.skill_id = es.skill_id
+         order by date_start asc""")
+    fun getAllEventsWithMySkills(): List<EventFullEntity>
+
+    @Language("RoomSql")
+    @Query("""SELECT
+         e.event_id, e.name, e.date_start, e.date_end,
+         p.place_id, p.user_id, p.latitude, p.longitude, p.address
+         FROM events e
+         INNER JOIN places p ON p.place_id = e.place_id
          order by date_start asc""")
     fun getAllEvents(): List<EventFullEntity>
 
     @Transaction
-    fun getAllEventFull(): List<EventFull> {
+    fun getAllEventFullWithMySkills(): List<EventFull> {
         val eventsFull = arrayListOf<EventFull>()
-        val eventsFullEntity = getAllEvents()
+        val eventsFullEntity = getAllEventsWithMySkills()
         eventsFullEntity.forEach { event ->
             val skills = AppDatabase.getInstance().skillDAO().getSkillsSelecteds(event.event_id)
             val place = event.place.toModel()
