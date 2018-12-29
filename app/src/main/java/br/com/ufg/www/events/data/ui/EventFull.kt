@@ -3,8 +3,8 @@ package br.com.ufg.www.events.data.ui
 import androidx.room.Embedded
 import androidx.room.Relation
 import br.com.redcode.base.utils.Constants.SDF_BRAZILIAN_DATE_AND_TIME
+import br.com.ufg.www.events.data.model.Place
 import br.com.ufg.www.events.data.offline.entities.EventWithSkillsEntity
-import br.com.ufg.www.events.data.offline.entities.PlaceEntity
 import java.util.*
 
 data class EventFull(
@@ -14,7 +14,7 @@ data class EventFull(
         val dateEnd: Date,
 
         @Embedded
-        val place: PlaceEntity,
+        val place: Place,
 
         @Relation(
                 parentColumn = "idEvent",

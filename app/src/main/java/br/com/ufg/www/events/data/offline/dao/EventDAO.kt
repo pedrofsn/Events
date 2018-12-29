@@ -13,7 +13,7 @@ interface EventDAO : BaseDAO<EventEntity> {
     @Language("RoomSql")
     @Query("""SELECT
          e.id as idEvent, e.name, e.date_start as dateStart, e.date_end as dateEnd,
-         p.place_id, p.user_id, p.latitude, p.longitude, p.address
+         p.place_id as id, p.user_id as idUser, p.latitude, p.longitude, p.address
          FROM events e
          INNER JOIN places p ON p.place_id = e.place_id
          order by date_start asc""")
