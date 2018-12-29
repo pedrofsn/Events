@@ -30,7 +30,7 @@ class JobsFragment : FragmentSwipeRefreshRecyclerViewMVVM<FragmentJobsBinding, J
 
     private fun load(query: String?) {
         showProgress()
-        delay(Constants.ONE_SECOND_IN_MILLISECONDS * 5) { viewModel.load(query) }
+        delay(Constants.ONE_SECOND_IN_MILLISECONDS) { viewModel.load(query) }
     }
 
     override fun setupUI() {

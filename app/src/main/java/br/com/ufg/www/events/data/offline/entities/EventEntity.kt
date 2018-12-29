@@ -18,7 +18,7 @@ import java.util.*
                         onUpdate = ForeignKey.CASCADE),
                 ForeignKey(
                         entity = PlaceEntity::class,
-                        parentColumns = arrayOf("id"),
+                        parentColumns = arrayOf("place_id"),
                         childColumns = arrayOf("place_id"),
                         onDelete = ForeignKey.CASCADE,
                         onUpdate = ForeignKey.CASCADE)

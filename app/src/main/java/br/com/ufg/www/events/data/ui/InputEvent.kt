@@ -51,7 +51,7 @@ class InputEvent : BaseObservable() {
     }
 
     fun toPlaceEntity(idUser: Long) = PlaceEntity(
-            id = idPlace ?: 0,
+            idPlace = idPlace ?: 0,
             latitude = extract safe latitude,
             longitude = extract safe longitude,
             address = extract safe address,
