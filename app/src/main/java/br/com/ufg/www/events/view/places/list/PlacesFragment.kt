@@ -30,7 +30,9 @@ class PlacesFragment : FragmentSwipeRefreshRecyclerViewMVVM<FragmentPlacesBindin
         viewModel.myList.observe(this, observer)
     }
 
-    private fun updateUI(items: List<Place>) = adapter.setCustomList(items)
+    private fun updateUI(items: List<Place>) {
+        adapter.setDiffList(items)
+    }
 
     override fun onResume() {
         super.onResume()
