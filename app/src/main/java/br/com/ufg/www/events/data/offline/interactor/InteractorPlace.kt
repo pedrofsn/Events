@@ -9,6 +9,9 @@ class InteractorPlace {
 
     suspend fun readAll(idUser: Long) = coroutineScope { AppDatabase.getInstance().placeDAO().readAll(idUser) }
     suspend fun save(placeEntity: PlaceEntity) = coroutineScope { AppDatabase.getInstance().placeDAO().insert(placeEntity) }
+    fun saveByWorkManager(placeEntity: PlaceEntity) {
+        AppDatabase.getInstance().placeDAO().insert(placeEntity)
+    }
     suspend fun read(id: Long) = coroutineScope { AppDatabase.getInstance().placeDAO().read(id) }
 
 }

@@ -91,5 +91,9 @@ dependencies {
     // Base code
     implementation 'com.github.pedrofsn.base-redcode:mvvm-restful:1.1.3.2'
 
+    // SQL Navigation
     debugImplementation 'com.facebook.stetho:stetho:1.5.0'
+
+    // WorkerManager
+    implementation 'android.arch.work:work-runtime:1.0.0-alpha13'
 }
