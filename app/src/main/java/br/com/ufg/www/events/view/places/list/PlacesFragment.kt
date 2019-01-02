@@ -21,7 +21,10 @@ class PlacesFragment : FragmentSwipeRefreshRecyclerViewMVVM<FragmentPlacesBindin
     override val adapter = AdapterPlace() { place: Place, _: Int -> openInMaps(place) }
     private val observer = observer<LabelPlaces> { updateUI(it) }
 
-    override fun afterOnCreate() = binding.recyclerView.setCustomAdapter(adapter)
+    override fun afterOnCreate() {
+        binding.recyclerView.setCustomAdapter(adapter)
+        binding.fab.setOnClickListener { showMessage("teste") }
+    }
 
     override fun setupUI() {
         super.setupUI()
