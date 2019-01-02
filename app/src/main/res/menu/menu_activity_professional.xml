@@ -20,6 +20,11 @@
             android:checked="false"
             android:icon="@drawable/ic_assignment_ind_white_24dp"
             android:title="@string/my_skills" />
+        <item
+            android:id="@+id/nav_places"
+            android:checked="false"
+            android:icon="@drawable/ic_place_white_24dp"
+            android:title="@string/places" />
     </group>
 
 </menu>

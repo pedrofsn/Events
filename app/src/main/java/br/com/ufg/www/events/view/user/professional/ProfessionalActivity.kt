@@ -6,6 +6,7 @@ import br.com.ufg.www.events.R
 import br.com.ufg.www.events.databinding.ActivityProfessionalBinding
 import br.com.ufg.www.events.view.event.jobs.JobsFragment
 import br.com.ufg.www.events.view.event.list.FragmentEvents
+import br.com.ufg.www.events.view.places.list.PlacesFragment
 import br.com.ufg.www.events.view.skill.SkillFragment
 
 class ProfessionalActivity : ActivityMVVM<ActivityProfessionalBinding, ProfessionalViewModel>() {
@@ -29,6 +30,7 @@ class ProfessionalActivity : ActivityMVVM<ActivityProfessionalBinding, Professio
                 R.id.nav_jobs -> JobsFragment()
                 R.id.nav_events -> FragmentEvents()
                 R.id.nav_skills -> SkillFragment.newInstance(viewModel.skills)
+                R.id.nav_places -> PlacesFragment()
                 else -> FragmentEvents()
             }
 
