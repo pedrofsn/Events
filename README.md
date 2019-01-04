@@ -6,11 +6,15 @@ Projeto de conclusão da disciplina de Android Avançado da pós graduação em 
 
 # Tecnologias utilizadas até a última atualização do projeto
 - Kotlin
-- Java
-- Constraint Layout
 - Play Services Location
-- AppCompatV7
-- Support Design
+- [AndroidX](https://developer.android.com/jetpack/androidx/migrate)
+- [MaterialDesign](https://material.io/develop/android/)
+- [Data Binding Library](https://developer.android.com/topic/libraries/data-binding/?hl=pt-br)
+- [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle?hl=pt-br)
+- [LiveData](https://developer.android.com/topic/libraries/architecture/livedata?hl=pt-br)
+- [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room?hl=pt-br)
+- [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?hl=pt-br)
+- [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager/?hl=pt-br)
 - Google Maps
 - Android Studio
 - Git
