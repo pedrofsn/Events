@@ -11,5 +11,4 @@ class JobsViewModel(private val repository: Repository) : ViewModel() {
 
     fun getJobs() = repository.getJobs()
 
-
 }
