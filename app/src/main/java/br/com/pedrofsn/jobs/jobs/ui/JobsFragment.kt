@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pedrofsn.jobs.R
-import br.com.pedrofsn.jobs.jobs.data.repository.Repository
 import br.com.pedrofsn.jobs.jobs.ui.list.JobAdapter
 import br.com.redcode.easyrecyclerview.library.extension_functions.setCustomAdapter
-import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 
 /*
     CREATED BY @PEDROFSN IN 24/10/20 12:08
@@ -20,7 +19,8 @@ class JobsFragment : Fragment() {
 
     private val recyclerView by lazy { view?.findViewById<RecyclerView>(R.id.recyclerView) }
 
-    private val repository: Repository by inject()
+    private val viewModel: JobsViewModel by viewModel()
+
     private val adapter = JobAdapter()
 
     override fun onCreateView(
@@ -38,7 +38,7 @@ class JobsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        adapter.setCustomList(repository.getJobs())
+        adapter.setCustomList(viewModel.getJobs())
     }
 
 }

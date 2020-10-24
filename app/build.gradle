@@ -40,11 +40,16 @@ dependencies {
 
     // DI
     implementation 'org.koin:koin-android:2.1.6'
+    implementation "org.koin:koin-android-viewmodel:2.1.6"
 
     // UI
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
     implementation 'com.github.pedrofsn:EasyRecyclerview:1.0.1'
+
+    // Lifecycle
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 
     // Navigation
     implementation "androidx.navigation:navigation-ui-ktx:2.3.1"

@@ -2,6 +2,8 @@ package br.com.pedrofsn.jobs.di
 
 import br.com.pedrofsn.jobs.jobs.data.repository.Repository
 import br.com.pedrofsn.jobs.jobs.data.repository.RepositoryImpl
+import br.com.pedrofsn.jobs.jobs.ui.JobsViewModel
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 /*
@@ -10,4 +12,5 @@ import org.koin.dsl.module
 
 val jobsModule = module {
     single<Repository> { RepositoryImpl() }
+    viewModel { JobsViewModel(repository = get()) }
 }
