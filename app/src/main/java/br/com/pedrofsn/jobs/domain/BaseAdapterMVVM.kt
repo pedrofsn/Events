@@ -30,10 +30,7 @@ abstract class BaseAdapterMVVM<Data, Binding : ViewDataBinding> :
     abstract fun getViewHolder(binding: Binding): BaseViewHolderMVVM<Data, Binding>
 
     override fun onBindViewHolder(holder: BaseViewHolderMVVM<Data, Binding>, position: Int) {
-        holder.bind(
-            data = items[position],
-            onClick = click
-        )
+        holder.bind(data = items[position], onClick = click)
     }
 
     override fun getItemCount() = items.size
@@ -42,8 +39,10 @@ abstract class BaseAdapterMVVM<Data, Binding : ViewDataBinding> :
 
     open fun setCustomList(customList: List<Data>?) {
         if (customList != null) {
-            this.items.clear()
-            this.items.addAll(customList)
+            if (items.isNotEmpty()) {
+                items.clear()
+            }
+            items.addAll(customList)
             notifyDataSetChanged()
         }
     }
