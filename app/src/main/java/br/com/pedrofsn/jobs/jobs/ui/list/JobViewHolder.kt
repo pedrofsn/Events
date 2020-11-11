@@ -9,4 +9,10 @@ import br.com.pedrofsn.jobs.jobs.data.model.JobItem
 */
 
 class JobViewHolder(binding: ViewholderJobBinding) :
-    BaseViewHolderMVVM<JobItem, ViewholderJobBinding>(binding)
+    BaseViewHolderMVVM<JobItem, ViewholderJobBinding>(binding) {
+
+    override fun bind(data: JobItem) {
+        binding.data = data
+    }
+
+}

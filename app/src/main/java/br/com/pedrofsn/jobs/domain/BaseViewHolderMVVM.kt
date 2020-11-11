@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
  * Created by pedrofsn on 16/10/2017.
  */
 
-abstract class BaseViewHolderMVVM<Data, B : ViewDataBinding>(private val binding: B) :
+abstract class BaseViewHolderMVVM<Data, B : ViewDataBinding>(val binding: B) :
     RecyclerView.ViewHolder(binding.root) {
 
     protected fun context(): Context = binding.root.context
 
-    open fun bind(data: Data) = binding.executePendingBindings()
+    abstract fun bind(data: Data)
 
     open fun bind(data: Data, onClick: ((Data, Int) -> Unit)?) {
         bind(data)
