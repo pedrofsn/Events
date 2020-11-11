@@ -14,6 +14,8 @@ class RepositoryImpl : Repository {
             val element = JobItem(
                 id = 0,
                 title = "Job #$i",
+                date = "06/11/1992",
+                place = "Campus Samambaia",
                 description = "This is a cool Job!"
             )
 
