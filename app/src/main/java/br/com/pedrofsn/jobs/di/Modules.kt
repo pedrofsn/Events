@@ -2,7 +2,7 @@ package br.com.pedrofsn.jobs.di
 
 import br.com.pedrofsn.jobs.jobs.data.repository.Repository
 import br.com.pedrofsn.jobs.jobs.data.repository.RepositoryImpl
-import br.com.pedrofsn.jobs.jobs.ui.JobsViewModel
+import br.com.pedrofsn.jobs.jobs.ui.list.JobsViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

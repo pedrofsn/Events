@@ -1,11 +1,11 @@
-package br.com.pedrofsn.jobs.jobs.ui
+package br.com.pedrofsn.jobs.jobs.ui.list
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.domain.BaseFragment
-import br.com.pedrofsn.jobs.jobs.ui.list.JobAdapter
+import br.com.pedrofsn.jobs.jobs.ui.list.adapter.JobAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -13,10 +13,9 @@ import org.koin.android.viewmodel.ext.android.viewModel
     CREATED BY @PEDROFSN IN 24/10/20 12:08
 */
 
-class JobsFragment : BaseFragment() {
+class JobsFragment(override val layout: Int = R.layout.fragment_main) : BaseFragment() {
 
     private val viewModel: JobsViewModel by viewModel()
-    override val layout = R.layout.fragment_main
 
     private val adapter = JobAdapter { item, _ ->
         Toast.makeText(requireContext(), item.title, Toast.LENGTH_SHORT).show()

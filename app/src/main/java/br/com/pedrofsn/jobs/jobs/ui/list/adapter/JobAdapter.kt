@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.jobs.ui.list
+package br.com.pedrofsn.jobs.jobs.ui.list.adapter
 
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.databinding.ViewholderJobBinding

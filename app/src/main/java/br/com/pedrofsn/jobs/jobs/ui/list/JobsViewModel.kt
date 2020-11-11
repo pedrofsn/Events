@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.jobs.ui
+package br.com.pedrofsn.jobs.jobs.ui.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
