@@ -7,8 +7,18 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="br.com.pedrofsn.jobs.jobs.ui.JobsFragment"
+        android:name="br.com.pedrofsn.jobs.jobs.ui.list.JobsFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/openDetail"
+            app:destination="@id/jobDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/jobDetailFragment"
+        android:name="br.com.pedrofsn.jobs.jobs.ui.detail.JobDetailFragment"
+        android:label="fragment_job_detail"
+        tools:layout="@layout/fragment_job_detail" />
 
 </navigation>
