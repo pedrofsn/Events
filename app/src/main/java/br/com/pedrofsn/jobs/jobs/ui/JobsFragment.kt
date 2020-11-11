@@ -25,6 +25,13 @@ class JobsFragment : Fragment() {
         Toast.makeText(requireContext(), item.title, Toast.LENGTH_SHORT).show()
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.jobs.observe(this) { data ->
+            adapter.setCustomList(data)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,7 +47,7 @@ class JobsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        adapter.setCustomList(viewModel.getJobs())
+        viewModel.initialize()
     }
 
 }
