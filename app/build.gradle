@@ -1,12 +1,10 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "br.com.pedrofsn.jobs"
@@ -50,7 +48,6 @@ dependencies {
     // UI
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'com.github.pedrofsn:EasyRecyclerview:1.0.1'
 
     // Lifecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'

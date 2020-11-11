@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.jobs.ui.list.JobAdapter
-import br.com.redcode.easyrecyclerview.library.extension_functions.setCustomAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
 
 /*
@@ -33,7 +32,7 @@ class JobsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView?.setCustomAdapter(adapter)
+        recyclerView?.adapter = adapter
     }
 
     override fun onResume() {
