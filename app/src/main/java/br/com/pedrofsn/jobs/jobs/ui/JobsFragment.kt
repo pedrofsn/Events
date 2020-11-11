@@ -1,25 +1,22 @@
 package br.com.pedrofsn.jobs.jobs.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import br.com.pedrofsn.jobs.R
+import br.com.pedrofsn.jobs.domain.BaseFragment
 import br.com.pedrofsn.jobs.jobs.ui.list.JobAdapter
+import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 /*
     CREATED BY @PEDROFSN IN 24/10/20 12:08
 */
 
-class JobsFragment : Fragment() {
-
-    private val recyclerView by lazy { view?.findViewById<RecyclerView>(R.id.recyclerView) }
+class JobsFragment : BaseFragment() {
 
     private val viewModel: JobsViewModel by viewModel()
+    override val layout = R.layout.fragment_main
 
     private val adapter = JobAdapter { item, _ ->
         Toast.makeText(requireContext(), item.title, Toast.LENGTH_SHORT).show()
@@ -30,14 +27,6 @@ class JobsFragment : Fragment() {
         viewModel.jobs.observe(this) { data ->
             adapter.setCustomList(data)
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
