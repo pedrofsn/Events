@@ -12,13 +12,20 @@
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/openDetail"
-            app:destination="@id/jobDetailFragment" />
+            app:destination="@id/jobDetailFragment">
+            <argument
+                android:name="job"
+                app:argType="br.com.pedrofsn.jobs.jobs.data.model.JobItem" />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/jobDetailFragment"
         android:name="br.com.pedrofsn.jobs.jobs.ui.detail.JobDetailFragment"
-        android:label="fragment_job_detail"
-        tools:layout="@layout/fragment_job_detail" />
+        tools:layout="@layout/fragment_job_detail">
+        <argument
+            android:name="job"
+            app:argType="br.com.pedrofsn.jobs.jobs.data.model.JobItem" />
+    </fragment>
 
 </navigation>

@@ -2,7 +2,6 @@ package br.com.pedrofsn.jobs.jobs.ui.list
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.domain.BaseFragment
@@ -19,8 +18,8 @@ class JobsFragment(override val layout: Int = R.layout.fragment_main) : BaseFrag
     private val viewModel: JobsViewModel by viewModel()
 
     private val adapter = JobAdapter { item, _ ->
-        Toast.makeText(requireContext(), item.title, Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.openDetail)
+        val directions = JobsFragmentDirections.openDetail(item)
+        findNavController().navigate(directions)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
