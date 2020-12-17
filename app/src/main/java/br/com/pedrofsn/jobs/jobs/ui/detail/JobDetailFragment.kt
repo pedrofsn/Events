@@ -24,7 +24,7 @@ class JobDetailFragment(override val layout: Int = R.layout.fragment_job_detail)
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentJobDetailBinding.inflate(inflater)
         return binding.root
     }
