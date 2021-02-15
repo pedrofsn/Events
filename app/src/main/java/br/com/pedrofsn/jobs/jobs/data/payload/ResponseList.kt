@@ -6,7 +6,7 @@ import br.com.pedrofsn.jobs.network.data.payload.Sort
 import br.com.redcode.easyreftrofit.library.Payload
 
 data class ResponseList(
-    val content: List<Any>,
+    val content: List<Content>?,
     val empty: Boolean,
     val first: Boolean,
     val last: Boolean,
@@ -18,6 +18,5 @@ data class ResponseList(
     val totalElements: Int,
     val totalPages: Int
 ) : Payload<List<JobItem>> {
-    override fun toModel() = listOf(JobItem(id = 0, title = "AAA", place = "BBB", date = "CCCC", description = "DDD"))
+    override fun toModel() = content?.map { it.toModel() } ?: emptyList()
 }
-

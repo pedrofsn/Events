@@ -28,7 +28,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 
     // Utils
-    implementation 'com.github.pedrofsn:k-extractor:1.0.0'
+    api 'com.github.pedrofsn:k-extractor:1.0.0'
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
