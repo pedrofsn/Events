@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 
@@ -57,6 +57,9 @@ dependencies {
     // Navigation
     implementation "androidx.navigation:navigation-ui-ktx:2.3.3"
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.3"
+
+    // Network
+    implementation project(":network")
 
     // Tests
     testImplementation 'junit:junit:4.13.1'
