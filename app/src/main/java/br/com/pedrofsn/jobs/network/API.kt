@@ -1,6 +1,6 @@
-package br.com.pedrofsn.jobs.network.impl
+package br.com.pedrofsn.jobs.network
 
-import br.com.pedrofsn.jobs.network.data.payload.ResponseList
+import br.com.pedrofsn.jobs.jobs.data.payload.ResponseList
 import retrofit2.http.GET
 
 interface API {

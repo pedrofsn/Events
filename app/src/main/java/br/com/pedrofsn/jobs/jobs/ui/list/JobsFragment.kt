@@ -3,10 +3,10 @@ package br.com.pedrofsn.jobs.jobs.ui.list
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.domain.BaseFragment
 import br.com.pedrofsn.jobs.jobs.ui.list.adapter.JobAdapter
-import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 /*
@@ -16,6 +16,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class JobsFragment(override val layout: Int = R.layout.fragment_main) : BaseFragment() {
 
     private val viewModel: JobsViewModel by viewModel()
+    private val recyclerView by lazy { view?.findViewById<RecyclerView>(R.id.recyclerView) }
 
     private val adapter = JobAdapter { item, _ ->
         val directions = JobsFragmentDirections.openDetail(item)

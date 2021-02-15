@@ -12,7 +12,7 @@ import org.koin.dsl.module
 */
 
 val jobsModule = module {
-    single<Repository> { RepositoryImpl() }
+    single<Repository> { RepositoryImpl(callbackNetworkRequest = null) }
     viewModel { JobsViewModel(repository = get()) }
     viewModel { JobViewModel() }
 }

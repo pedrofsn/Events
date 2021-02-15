@@ -1,21 +1,17 @@
 package br.com.pedrofsn.jobs.network.domain
 
-import br.com.pedrofsn.jobs.network.infra.BaseInteractor
-import br.com.pedrofsn.jobs.network.impl.API
-import br.com.pedrofsn.jobs.network.impl.APIConnection
 import br.com.pedrofsn.jobs.network.impl.NetworkAndErrorHandler
 import br.com.pedrofsn.jobs.network.data.payload.PayloadError
 import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 import br.com.redcode.easyreftrofit.library.Payload
 import br.com.redcode.easyreftrofit.library.model.ErrorHandled
+import extract
 import retrofit2.HttpException
 import java.net.UnknownHostException
 
 /*
     CREATED BY @PEDROFSN
 */
-
-fun BaseInteractor.api(): API = APIConnection.service
 
 fun PayloadError.toModel(networkError: Int) = ErrorHandled(
     message = extract safe msg,

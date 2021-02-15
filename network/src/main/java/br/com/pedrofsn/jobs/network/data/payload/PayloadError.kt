@@ -1,7 +1,7 @@
 package br.com.pedrofsn.jobs.network.data.payload
 
 import br.com.pedrofsn.jobs.network.data.model.ErrorAPI
-import br.com.pedrofsn.jobs.network.domain.extract
+import extract
 import java.io.Serializable
 
 /**

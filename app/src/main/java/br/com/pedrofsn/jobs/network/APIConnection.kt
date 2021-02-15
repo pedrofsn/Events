@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.network.impl
+package br.com.pedrofsn.jobs.network
 
 import br.com.pedrofsn.jobs.network.infra.CustomAPIConnection
 

@@ -1,10 +1,9 @@
-package br.com.pedrofsn.jobs.network.impl
+package br.com.pedrofsn.jobs.network
 
-import br.com.pedrofsn.jobs.network.domain.api
+import br.com.pedrofsn.jobs.domain.api
 import br.com.pedrofsn.jobs.network.domain.doRequest
 import br.com.pedrofsn.jobs.network.infra.BaseInteractor
 import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
-
 
 /*
     CREATED BY @PEDROFSN
