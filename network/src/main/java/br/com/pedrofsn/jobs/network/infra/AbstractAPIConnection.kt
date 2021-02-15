@@ -6,13 +6,14 @@ import okhttp3.OkHttpClient
 // import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
+import okhttp3.logging.HttpLoggingInterceptor
 
 /**
  * Created by pedrofsn on 31/10/2018.
  */
 abstract class AbstractAPIConnection<T>(
     baseURL: String,
-    // showLogs: Boolean,
+    showLogs: Boolean,
     interceptor: Interceptor
 ) {
 
@@ -25,9 +26,9 @@ abstract class AbstractAPIConnection<T>(
         okHttppBuilder.readTimeout(1, TimeUnit.MINUTES)
         okHttppBuilder.addInterceptor(interceptor)
 
-        // val logging = HttpLoggingInterceptor()
-        // logging.level = if (showLogs) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-        // okHttppBuilder.addInterceptor(logging)
+        val logging = HttpLoggingInterceptor()
+        logging.level = if (showLogs) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        okHttppBuilder.addInterceptor(logging)
 
         val apiConnection = APIConnection(
             apiBaseURL = baseURL,
