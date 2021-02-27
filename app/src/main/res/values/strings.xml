@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Jobs</string>
+    <string name="published_in">Publicado em</string>
 </resources>

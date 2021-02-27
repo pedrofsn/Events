@@ -8,7 +8,7 @@ import br.com.pedrofsn.jobs.R
 
 class MainActivity : AppCompatActivity() {
 
-    private val navController by lazy { Navigation.findNavController(this, R.id.navHost) }
+    val navController by lazy { Navigation.findNavController(this, R.id.navHost) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
