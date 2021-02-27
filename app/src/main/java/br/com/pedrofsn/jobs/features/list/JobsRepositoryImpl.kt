@@ -1,6 +1,5 @@
 package br.com.pedrofsn.jobs.features.list
 
-import br.com.pedrofsn.jobs.data.Mock
 import br.com.pedrofsn.jobs.data.model.JobItem
 import br.com.pedrofsn.jobs.network.NetworkAndErrorHandler
 import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
@@ -11,14 +10,12 @@ import retrofit2.HttpException
 class JobsRepositoryImpl(private val interactor: Interactor) : JobsRepository {
 
     override suspend fun getJobs(callback: CallbackNetworkRequest): List<JobItem> {
-        return Mock.jobs
-        // TODO tratar erros de conexão
-        // return try {
-        //     interactor.receiveList()?.toModel() ?: emptyList()
-        // } catch (e: Exception) {
-        //     e.printStackTrace()
-        //     emptyList()
-        // }
+        return try {
+            interactor.receiveList()?.toModel() ?: emptyList()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            emptyList()
+        }
     }
 
     suspend fun <TypePayload : Payload<TypeModel>, TypeModel> TypePayload.doRequest(
