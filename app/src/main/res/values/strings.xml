@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Jobs</string>
     <string name="published_in">Publicado em</string>
+    <string name="posted_today">Publicado hoje!!!</string>
+    <plurals name="posted_since">
+        <item quantity="one">Publicado ontem</item>
+        <item quantity="other">Publicado há %d dias</item>
+    </plurals>
 </resources>

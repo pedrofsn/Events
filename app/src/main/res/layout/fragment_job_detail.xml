@@ -66,7 +66,7 @@
             android:id="@+id/textViewDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
+            android:layout_marginStart="@dimen/space_between_words"
             android:text="@{data.date}"
             app:layout_constraintBottom_toBottomOf="@id/textViewLabel"
             app:layout_constraintEnd_toEndOf="parent"

@@ -33,16 +33,15 @@
             tools:text="@tools:sample/full_names" />
 
         <TextView
-            android:id="@+id/textViewDescription"
+            android:id="@+id/textViewSubtitle"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{data.date}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textViewTitle"
             app:layout_constraintStart_toStartOf="@id/textViewTitle"
             app:layout_constraintTop_toBottomOf="@id/textViewTitle"
-            tools:text="@tools:sample/cities" />
+            tools:text="@tools:sample/date/ddmmyy" />
 
         <TextView
             android:id="@+id/textViewDate"
@@ -55,7 +54,7 @@
             android:textSize="@dimen/small_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/date/ddmmyy" />
+            tools:text="@tools:sample/cities" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
