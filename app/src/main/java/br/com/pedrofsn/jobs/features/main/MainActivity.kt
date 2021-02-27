@@ -1,9 +1,10 @@
-package br.com.pedrofsn.jobs
+package br.com.pedrofsn.jobs.features.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import br.com.pedrofsn.jobs.R
 
 class MainActivity : AppCompatActivity() {
 

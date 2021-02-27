@@ -1,9 +1,9 @@
-package br.com.pedrofsn.jobs.jobs.data.repository
+package br.com.pedrofsn.jobs.features.list
 
-import br.com.pedrofsn.jobs.jobs.data.model.JobItem
+import br.com.pedrofsn.jobs.data.model.JobItem
 import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 
-interface Repository {
+interface JobsRepository {
 
     suspend fun getJobs(callback : CallbackNetworkRequest): List<JobItem>
 }

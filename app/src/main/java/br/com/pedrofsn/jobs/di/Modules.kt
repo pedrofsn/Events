@@ -1,20 +1,20 @@
 package br.com.pedrofsn.jobs.di
 
-import br.com.pedrofsn.jobs.jobs.data.repository.Repository
-import br.com.pedrofsn.jobs.jobs.data.repository.RepositoryImpl
-import br.com.pedrofsn.jobs.jobs.ui.detail.JobViewModel
-import br.com.pedrofsn.jobs.jobs.ui.list.JobsViewModel
+import br.com.pedrofsn.jobs.features.list.JobsRepository
+import br.com.pedrofsn.jobs.features.list.JobsRepositoryImpl
+import br.com.pedrofsn.jobs.features.detail.JobViewModel
+import br.com.pedrofsn.jobs.features.list.JobsViewModel
 import br.com.pedrofsn.jobs.network.API
 import br.com.pedrofsn.jobs.network.APIConnection
-import br.com.pedrofsn.jobs.network.InteractorImpl
-import br.com.pedrofsn.jobs.network.infra.Interactor
+import br.com.pedrofsn.jobs.features.list.InteractorImpl
+import br.com.pedrofsn.jobs.features.list.Interactor
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val jobsModule = module {
     single<API> { APIConnection.service }
     factory<Interactor> { InteractorImpl(api = get()) }
-    factory<Repository> { RepositoryImpl(interactor = get()) }
+    factory<JobsRepository> { JobsRepositoryImpl(interactor = get()) }
     viewModel { JobsViewModel(repository = get()) }
     viewModel { JobViewModel() }
 }

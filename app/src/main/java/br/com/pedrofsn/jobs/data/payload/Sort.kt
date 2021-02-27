@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.jobs.data.payload
+package br.com.pedrofsn.jobs.data.payload
 
 data class Sort(
     val empty: Boolean,

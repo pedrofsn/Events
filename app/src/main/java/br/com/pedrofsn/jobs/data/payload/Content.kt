@@ -1,6 +1,6 @@
-package br.com.pedrofsn.jobs.jobs.data.payload
+package br.com.pedrofsn.jobs.data.payload
 
-import br.com.pedrofsn.jobs.jobs.data.model.JobItem
+import br.com.pedrofsn.jobs.data.model.JobItem
 import br.com.redcode.easyreftrofit.library.Payload
 import extract
 

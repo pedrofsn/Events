@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.jobs.ui.list
+package br.com.pedrofsn.jobs.features.list
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.domain.BaseFragment
-import br.com.pedrofsn.jobs.jobs.ui.list.adapter.JobAdapter
+import br.com.pedrofsn.jobs.features.list.adapter.JobAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class JobsFragment(override val layout: Int = R.layout.fragment_jobs) : BaseFragment() {
@@ -27,13 +27,8 @@ class JobsFragment(override val layout: Int = R.layout.fragment_jobs) : BaseFrag
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initializeViews(view)
-    }
-
-    private fun initializeViews(view: View) {
-        view.findViewById<RecyclerView>(R.id.recyclerView).run {
-            this.adapter = adapter
-        }
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.adapter = adapter
     }
 
     override fun onResume() {

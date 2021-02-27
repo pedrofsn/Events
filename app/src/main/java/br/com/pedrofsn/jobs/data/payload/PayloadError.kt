@@ -1,6 +1,6 @@
-package br.com.pedrofsn.jobs.jobs.data.payload
+package br.com.pedrofsn.jobs.data.payload
 
-import br.com.pedrofsn.jobs.jobs.data.model.ErrorAPI
+import br.com.pedrofsn.jobs.data.model.ErrorAPI
 import extract
 import java.io.Serializable
 

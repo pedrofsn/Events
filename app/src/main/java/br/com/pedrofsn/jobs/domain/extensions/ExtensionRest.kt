@@ -1,6 +1,6 @@
 package br.com.pedrofsn.jobs.domain.extensions
 
-import br.com.pedrofsn.jobs.jobs.data.payload.PayloadError
+import br.com.pedrofsn.jobs.data.payload.PayloadError
 import br.com.pedrofsn.jobs.network.NetworkAndErrorHandler
 import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 import br.com.redcode.easyreftrofit.library.Payload

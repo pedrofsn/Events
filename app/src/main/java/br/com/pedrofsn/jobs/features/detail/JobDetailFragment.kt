@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.jobs.ui.detail
+package br.com.pedrofsn.jobs.features.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater

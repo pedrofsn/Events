@@ -6,7 +6,7 @@
 
         <variable
             name="data"
-            type="br.com.pedrofsn.jobs.jobs.data.model.JobItem" />
+            type="br.com.pedrofsn.jobs.data.model.JobItem" />
     </data>
 
     <LinearLayout

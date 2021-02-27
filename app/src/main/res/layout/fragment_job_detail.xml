@@ -6,13 +6,13 @@
 
         <variable
             name="viewModel"
-            type="br.com.pedrofsn.jobs.jobs.ui.detail.JobViewModel" />
+            type="br.com.pedrofsn.jobs.features.detail.JobViewModel" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".jobs.ui.detail.JobDetailFragment">
+        tools:context=".features.detail.JobDetailFragment">
 
         <TextView
             android:layout_width="match_parent"
