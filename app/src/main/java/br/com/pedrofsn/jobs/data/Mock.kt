@@ -9,7 +9,7 @@ object Mock {
             id = 0,
             title = "Android Developer",
             place = "Goiânia",
-            date = "06/11/992",
+            date = "06/11/1992",
             description = "Oi eu sou o Goku"
         ),
         JobItem(

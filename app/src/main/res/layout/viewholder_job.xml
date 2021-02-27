@@ -26,22 +26,35 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{data.title}"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/textViewDate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/cities" />
+            tools:text="@tools:sample/full_names" />
 
         <TextView
             android:id="@+id/textViewDescription"
             style="@style/TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{data.place}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/textViewTitle"
+            app:layout_constraintEnd_toEndOf="@+id/textViewTitle"
             app:layout_constraintStart_toStartOf="@id/textViewTitle"
             app:layout_constraintTop_toBottomOf="@id/textViewTitle"
             tools:text="@tools:sample/cities" />
+
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tag"
+            android:padding="8dp"
+            android:text="@{data.date}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/small_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/date/ddmmyy" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
