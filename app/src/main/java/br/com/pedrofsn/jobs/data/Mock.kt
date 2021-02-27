@@ -15,14 +15,14 @@ object Mock {
         JobItem(
             id = 3,
             title = "Backend Developer",
-            place = "São Paulo",
+            place = "Belo Horizonte",
             date = "26/02/2021",
             description = "Trampo como dev backend"
         ),
         JobItem(
             id = 4,
             title = "Backend Developer",
-            place = "São Paulo",
+            place = "Manaus",
             date = "25/02/2021",
             description = "Trampo como dev backend"
         ),
