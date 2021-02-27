@@ -5,5 +5,5 @@ import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 
 interface JobsRepository {
 
-    suspend fun getJobs(callback : CallbackNetworkRequest): List<JobItem>
+    suspend fun getJobs(callback: CallbackNetworkRequest): List<JobItem>
 }

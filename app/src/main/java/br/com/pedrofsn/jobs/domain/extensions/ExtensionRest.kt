@@ -6,8 +6,8 @@ import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 import br.com.redcode.easyreftrofit.library.Payload
 import br.com.redcode.easyreftrofit.library.model.ErrorHandled
 import extract
-import retrofit2.HttpException
 import java.net.UnknownHostException
+import retrofit2.HttpException
 
 fun PayloadError.toModel(networkError: Int) = ErrorHandled(
     message = extract safe msg,

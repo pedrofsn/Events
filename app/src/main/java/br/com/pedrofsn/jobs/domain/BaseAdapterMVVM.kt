@@ -77,5 +77,4 @@ abstract class BaseAdapterMVVM<Data, Binding : ViewDataBinding> :
     }
 
     fun getItem(index: Int) = items[index]
-
 }

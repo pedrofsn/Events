@@ -16,7 +16,15 @@ class JobsRepositoryImpl(private val interactor: Interactor) : JobsRepository {
             e.printStackTrace()
             // emptyList()
             // TODO fake hardcoded
-            listOf(JobItem(id = 0, title = "Título 1", place = "Goiânia", date = "06/11/992", description = "Oi eu sou o Goky"))
+            listOf(
+                JobItem(
+                    id = 0,
+                    title = "Título 1",
+                    place = "Goiânia",
+                    date = "06/11/992",
+                    description = "Oi eu sou o Goky"
+                )
+            )
         }
     }
 

@@ -1,12 +1,12 @@
 package br.com.pedrofsn.jobs.network.infra
 
+// import okhttp3.logging.HttpLoggingInterceptor
 import br.com.redcode.easyreftrofit.library.APIConnection
+import java.util.concurrent.TimeUnit
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-// import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.converter.moshi.MoshiConverterFactory
-import java.util.concurrent.TimeUnit
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 abstract class AbstractAPIConnection<T>(
     baseURL: String,
@@ -24,7 +24,8 @@ abstract class AbstractAPIConnection<T>(
         okHttppBuilder.addInterceptor(interceptor)
 
         val logging = HttpLoggingInterceptor()
-        logging.level = if (showLogs) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        logging.level =
+            if (showLogs) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         okHttppBuilder.addInterceptor(logging)
 
         val apiConnection = APIConnection(
@@ -37,5 +38,4 @@ abstract class AbstractAPIConnection<T>(
 
         return@lazy retrofit.create(classz)
     }
-
 }

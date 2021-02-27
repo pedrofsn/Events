@@ -20,5 +20,4 @@ abstract class BaseViewHolderMVVM<Data, B : ViewDataBinding>(val binding: B) :
     open fun click(view: View?, data: Data, onClick: ((Data, Int) -> Unit)?) {
         view?.setOnClickListener { onClick?.invoke(data, adapterPosition) }
     }
-
 }

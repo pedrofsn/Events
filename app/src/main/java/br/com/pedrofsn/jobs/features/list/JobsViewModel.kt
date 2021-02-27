@@ -2,8 +2,8 @@ package br.com.pedrofsn.jobs.features.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import br.com.pedrofsn.jobs.domain.BaseViewModel
 import br.com.pedrofsn.jobs.data.model.JobItem
+import br.com.pedrofsn.jobs.domain.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

@@ -31,5 +31,4 @@ class JobDetailFragment(override val layout: Int = R.layout.fragment_job_detail)
         viewModel.data.postValue(job)
         Toast.makeText(requireContext(), job.title + " <<< ", Toast.LENGTH_SHORT).show()
     }
-
 }

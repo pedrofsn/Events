@@ -17,5 +17,4 @@ abstract class BaseFragment : Fragment() {
     ): View? {
         return inflater.inflate(layout, container, false)
     }
-
 }

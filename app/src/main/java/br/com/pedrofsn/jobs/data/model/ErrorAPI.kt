@@ -2,7 +2,6 @@ package br.com.pedrofsn.jobs.data.model
 
 import java.io.Serializable
 
-
 class ErrorAPI(
     private val erro: Boolean = false,
     val msg: String = "",

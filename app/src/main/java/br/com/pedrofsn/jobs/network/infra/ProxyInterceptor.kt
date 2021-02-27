@@ -27,5 +27,4 @@ class ProxyInterceptor : Interceptor {
         val request = requestBuilder.build()
         return chain.proceed(request)
     }
-
 }
