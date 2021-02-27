@@ -20,6 +20,7 @@ class JobViewHolder(binding: ViewholderJobBinding) :
     private fun getSubtitle(days: Int): String {
         val resources = binding.root.context.resources
         return when (days) {
+            -1 -> resources.getString(R.string.posted_unknown)
             0 -> resources.getString(R.string.posted_today)
             else -> resources.getQuantityString(R.plurals.posted_since, days, days)
         }
