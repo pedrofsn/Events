@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.network.data.payload
+package br.com.pedrofsn.jobs.jobs.data.payload
 
 data class Pageable(
     val offset: Int,

@@ -6,7 +6,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.domain.BaseFragment
+import br.com.pedrofsn.jobs.jobs.data.repository.Repository
 import br.com.pedrofsn.jobs.jobs.ui.list.adapter.JobAdapter
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 /*
@@ -39,5 +41,4 @@ class JobsFragment(override val layout: Int = R.layout.fragment_main) : BaseFrag
         super.onResume()
         viewModel.initialize()
     }
-
 }

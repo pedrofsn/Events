@@ -1,10 +1,7 @@
-package br.com.pedrofsn.jobs.network
+package br.com.pedrofsn.jobs.network.infra
 
 import br.com.pedrofsn.jobs.jobs.data.payload.ResponseList
-import retrofit2.http.GET
 
-interface API {
-
-    @GET("anuncios")
+interface Interactor {
     suspend fun receiveList(): ResponseList?
 }

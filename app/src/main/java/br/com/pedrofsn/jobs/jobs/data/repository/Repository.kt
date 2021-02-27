@@ -9,7 +9,5 @@ import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 
 interface Repository {
 
-    val callbackNetworkRequest: CallbackNetworkRequest?
-
-    suspend fun getJobs(): List<JobItem>
+    suspend fun getJobs(callback : CallbackNetworkRequest): List<JobItem>
 }

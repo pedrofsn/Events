@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.network.domain
+package br.com.pedrofsn.jobs.domain.extensions
 
 import br.com.redcode.easyreftrofit.library.Payload
 

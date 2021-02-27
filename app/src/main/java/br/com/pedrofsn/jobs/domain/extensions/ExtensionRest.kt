@@ -1,7 +1,7 @@
-package br.com.pedrofsn.jobs.network.domain
+package br.com.pedrofsn.jobs.domain.extensions
 
-import br.com.pedrofsn.jobs.network.impl.NetworkAndErrorHandler
-import br.com.pedrofsn.jobs.network.data.payload.PayloadError
+import br.com.pedrofsn.jobs.jobs.data.payload.PayloadError
+import br.com.pedrofsn.jobs.network.NetworkAndErrorHandler
 import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 import br.com.redcode.easyreftrofit.library.Payload
 import br.com.redcode.easyreftrofit.library.model.ErrorHandled
