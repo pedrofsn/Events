@@ -6,15 +6,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.domain.BaseFragment
-import br.com.pedrofsn.jobs.jobs.data.repository.Repository
 import br.com.pedrofsn.jobs.jobs.ui.list.adapter.JobAdapter
-import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class JobsFragment(override val layout: Int = R.layout.fragment_main) : BaseFragment() {
+class JobsFragment(override val layout: Int = R.layout.fragment_jobs) : BaseFragment() {
 
     private val viewModel: JobsViewModel by viewModel()
-    private val recyclerView by lazy { view?.findViewById<RecyclerView>(R.id.recyclerView) }
 
     private val adapter = JobAdapter { item, _ ->
         val directions = JobsFragmentDirections.openDetail(item)
@@ -30,7 +27,13 @@ class JobsFragment(override val layout: Int = R.layout.fragment_main) : BaseFrag
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView?.adapter = adapter
+        initializeViews(view)
+    }
+
+    private fun initializeViews(view: View) {
+        view.findViewById<RecyclerView>(R.id.recyclerView).run {
+            this.adapter = adapter
+        }
     }
 
     override fun onResume() {
