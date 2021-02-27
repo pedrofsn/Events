@@ -1,6 +1,5 @@
 package br.com.pedrofsn.jobs.di
 
-import br.com.pedrofsn.jobs.features.detail.JobViewModel
 import br.com.pedrofsn.jobs.features.list.Interactor
 import br.com.pedrofsn.jobs.features.list.InteractorImpl
 import br.com.pedrofsn.jobs.features.list.JobsRepository
@@ -16,5 +15,4 @@ val jobsModule = module {
     factory<Interactor> { InteractorImpl(api = get()) }
     factory<JobsRepository> { JobsRepositoryImpl(interactor = get()) }
     viewModel { JobsViewModel(repository = get()) }
-    viewModel { JobViewModel() }
 }

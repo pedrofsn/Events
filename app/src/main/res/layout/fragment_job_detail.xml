@@ -1,23 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".features.detail.JobDetailFragment">
 
     <data>
 
         <variable
-            name="viewModel"
-            type="br.com.pedrofsn.jobs.features.detail.JobViewModel" />
+            name="data"
+            type="br.com.pedrofsn.jobs.data.model.JobItem" />
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".features.detail.JobDetailFragment">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/default_dimen">
 
         <TextView
+            style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/app_name" />
+            android:layout_height="wrap_content"
+            android:text="@{data.title}"
+            tools:text="@tools:sample/full_names" />
 
-    </FrameLayout>
+        <TextView
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@{data.place}"
+            tools:text="@tools:sample/cities" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@{data.description}"
+            tools:lines="5"
+            tools:text="@tools:sample/lorem/random" />
+
+    </LinearLayout>
+
 </layout>
