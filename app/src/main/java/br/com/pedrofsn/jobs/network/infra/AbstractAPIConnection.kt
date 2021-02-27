@@ -8,9 +8,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import okhttp3.logging.HttpLoggingInterceptor
 
-/**
- * Created by pedrofsn on 31/10/2018.
- */
 abstract class AbstractAPIConnection<T>(
     baseURL: String,
     showLogs: Boolean,

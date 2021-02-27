@@ -11,10 +11,6 @@ import br.com.pedrofsn.jobs.jobs.ui.list.adapter.JobAdapter
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-/*
-    CREATED BY @PEDROFSN IN 24/10/20 12:08
-*/
-
 class JobsFragment(override val layout: Int = R.layout.fragment_main) : BaseFragment() {
 
     private val viewModel: JobsViewModel by viewModel()

@@ -5,10 +5,6 @@ import br.com.pedrofsn.jobs.databinding.ViewholderJobBinding
 import br.com.pedrofsn.jobs.domain.BaseAdapterMVVM
 import br.com.pedrofsn.jobs.jobs.data.model.JobItem
 
-/*
-    CREATED BY @PEDROFSN IN 24/10/20 12:17
-*/
-
 class JobAdapter(override var click: ((JobItem, Int) -> Unit)? = null) :
     BaseAdapterMVVM<JobItem, ViewholderJobBinding>() {
 

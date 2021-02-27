@@ -4,10 +4,6 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import okio.IOException
 
-/**
- * Created by pedrofsn on 17/10/2017.
- */
-
 class ProxyInterceptor : Interceptor {
 
     @Throws(IOException::class)

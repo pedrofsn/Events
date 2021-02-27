@@ -8,10 +8,6 @@ import br.com.pedrofsn.jobs.jobs.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-/*
-    CREATED BY @PEDROFSN IN 24/10/20 15:39
-*/
-
 class JobsViewModel(private val repository: Repository) : BaseViewModel() {
 
     private val _jobs = MutableLiveData<List<JobItem>>()

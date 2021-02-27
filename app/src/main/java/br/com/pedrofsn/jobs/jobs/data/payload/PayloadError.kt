@@ -4,10 +4,6 @@ import br.com.pedrofsn.jobs.jobs.data.model.ErrorAPI
 import extract
 import java.io.Serializable
 
-/**
- * Created by pedrofsn on 21/02/18.
- */
-
 open class PayloadError(
     val erro: Boolean? = false,
     val msg: String? = "",

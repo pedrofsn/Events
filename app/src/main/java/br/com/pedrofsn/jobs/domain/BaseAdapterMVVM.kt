@@ -7,9 +7,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
-/**
- * Created by pedrofsn on 16/10/2017.
- */
 abstract class BaseAdapterMVVM<Data, Binding : ViewDataBinding> :
     RecyclerView.Adapter<BaseViewHolderMVVM<Data, Binding>>() {
 

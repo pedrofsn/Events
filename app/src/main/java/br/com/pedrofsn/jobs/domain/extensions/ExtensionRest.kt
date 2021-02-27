@@ -9,10 +9,6 @@ import extract
 import retrofit2.HttpException
 import java.net.UnknownHostException
 
-/*
-    CREATED BY @PEDROFSN
-*/
-
 fun PayloadError.toModel(networkError: Int) = ErrorHandled(
     message = extract safe msg,
     actionAPI = extract safe acao,
