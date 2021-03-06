@@ -1,5 +1,6 @@
 package br.com.pedrofsn.jobs.domain.network
 
+import br.com.pedrofsn.jobs.BuildConfig
 import br.com.pedrofsn.jobs.data.payload.PayloadError
 import br.com.pedrofsn.jobs.domain.extensions.toLogcat
 import br.com.pedrofsn.jobs.domain.extensions.toModel
@@ -17,7 +18,7 @@ class NetworkAndErrorHandler(override val callbackNetworkRequest: CallbackNetwor
 
     override fun catchedException(exception: Throwable) {
         when {
-            true.not() -> "Throwable message: ${exception.message}".toLogcat() // somente em debug
+            BuildConfig.DEBUG -> "Throwable message: ${exception.message}".toLogcat() // somente em debug
             else -> exception.printStackTrace()
         }
     }
@@ -33,8 +34,8 @@ class NetworkAndErrorHandler(override val callbackNetworkRequest: CallbackNetwor
             )
             result
         } catch (e: Exception) {
-            val error =
-                PayloadError(msg = String.format(message, networkError), msg_dev = e.message)
+            val message = String.format(message, networkError)
+            val error = PayloadError(msg = message, msg_dev = e.message)
             val errorHandled: ErrorHandled = error.toModel(networkError)
             "Error in method 'parseBodyError' from class 'NetworkAndErrorHandler.kt': ${e.message}".toLogcat()
             errorHandled
