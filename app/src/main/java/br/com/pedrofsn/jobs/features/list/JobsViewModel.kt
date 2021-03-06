@@ -11,11 +11,15 @@ class JobsViewModel(private val repository: JobsRepository) : BaseViewModel() {
 
     private val _jobs = MutableLiveData<List<JobItem>>()
     val jobs: LiveData<List<JobItem>> = _jobs
+    val loading = MutableLiveData(false)
 
-    fun initialize() {
+    fun load() {
+        loading.value = true
         launch(Dispatchers.IO) {
             val list = repository.getJobs(this@JobsViewModel)
             _jobs.postValue(list)
+            loading.postValue(false)
         }
     }
 }
+
