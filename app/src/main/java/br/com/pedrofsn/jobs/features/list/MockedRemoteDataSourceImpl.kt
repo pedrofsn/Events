@@ -8,7 +8,7 @@ import br.com.pedrofsn.jobs.data.payload.ResponseList
 import br.com.pedrofsn.jobs.data.payload.Sort
 import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 
-class InteractorMockImpl(override val api: API) : Interactor {
+class MockedRemoteDataSourceImpl(override val api: API) : RemoteDataSource {
 
     override suspend fun CallbackNetworkRequest.receiveList(page: Int): JobItems? {
         val mock = ResponseList(

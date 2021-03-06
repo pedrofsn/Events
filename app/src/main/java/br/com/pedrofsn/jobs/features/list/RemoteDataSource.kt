@@ -5,6 +5,6 @@ import br.com.pedrofsn.jobs.data.model.JobItems
 import br.com.pedrofsn.jobs.domain.network.NetworkLayer
 import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 
-interface Interactor : NetworkLayer<API> {
+interface RemoteDataSource : NetworkLayer<API> {
     suspend fun CallbackNetworkRequest.receiveList(page: Int): JobItems?
 }
