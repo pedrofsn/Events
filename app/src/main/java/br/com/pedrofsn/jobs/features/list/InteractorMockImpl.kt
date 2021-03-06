@@ -1,10 +1,10 @@
 package br.com.pedrofsn.jobs.features.list
 
+import br.com.pedrofsn.jobs.data.API
 import br.com.pedrofsn.jobs.data.payload.Content
 import br.com.pedrofsn.jobs.data.payload.Pageable
 import br.com.pedrofsn.jobs.data.payload.ResponseList
 import br.com.pedrofsn.jobs.data.payload.Sort
-import br.com.pedrofsn.jobs.network.API
 
 class InteractorMockImpl(private val api: API) : Interactor {
 

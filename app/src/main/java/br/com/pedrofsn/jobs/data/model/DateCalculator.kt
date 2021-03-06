@@ -17,7 +17,5 @@ object DateCalculator {
         return days.toInt()
     }
 
-    fun countDaysBetween(start: Date, end: Date): Int {
-        return countDaysBetween(start.time, end.time)
-    }
+    fun countDaysBetween(start: Date, end: Date) = countDaysBetween(start.time, end.time)
 }

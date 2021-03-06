@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.features.main
+package br.com.pedrofsn.jobs.features
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

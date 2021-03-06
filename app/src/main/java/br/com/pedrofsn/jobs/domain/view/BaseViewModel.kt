@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.domain
+package br.com.pedrofsn.jobs.domain.view
 
 import androidx.lifecycle.ViewModel
 import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest

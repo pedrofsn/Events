@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.network
+package br.com.pedrofsn.jobs.data
 
 import br.com.pedrofsn.jobs.data.payload.ResponseList
 import retrofit2.http.GET

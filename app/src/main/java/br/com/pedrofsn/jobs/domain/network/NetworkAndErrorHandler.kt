@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.network
+package br.com.pedrofsn.jobs.domain.network
 
 import br.com.pedrofsn.jobs.data.payload.PayloadError
 import br.com.pedrofsn.jobs.domain.extensions.toLogcat

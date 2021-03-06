@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.domain
+package br.com.pedrofsn.jobs.domain.view
 
 import android.content.Context
 import android.view.View

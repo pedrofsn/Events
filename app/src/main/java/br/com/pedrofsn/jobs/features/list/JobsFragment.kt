@@ -5,7 +5,7 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pedrofsn.jobs.R
-import br.com.pedrofsn.jobs.domain.BaseFragment
+import br.com.pedrofsn.jobs.domain.view.BaseFragment
 import br.com.pedrofsn.jobs.features.list.adapter.JobAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
 

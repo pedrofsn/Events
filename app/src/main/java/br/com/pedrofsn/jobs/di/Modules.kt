@@ -1,12 +1,12 @@
 package br.com.pedrofsn.jobs.di
 
+import br.com.pedrofsn.jobs.data.API
+import br.com.pedrofsn.jobs.domain.network.APIConnection
 import br.com.pedrofsn.jobs.features.list.Interactor
 import br.com.pedrofsn.jobs.features.list.InteractorMockImpl
 import br.com.pedrofsn.jobs.features.list.JobsRepository
 import br.com.pedrofsn.jobs.features.list.JobsRepositoryImpl
 import br.com.pedrofsn.jobs.features.list.JobsViewModel
-import br.com.pedrofsn.jobs.network.API
-import br.com.pedrofsn.jobs.network.APIConnection
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

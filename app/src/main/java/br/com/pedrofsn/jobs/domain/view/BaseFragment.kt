@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.domain
+package br.com.pedrofsn.jobs.domain.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

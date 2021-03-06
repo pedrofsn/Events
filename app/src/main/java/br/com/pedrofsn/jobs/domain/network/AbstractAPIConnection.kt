@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.network.infra
+package br.com.pedrofsn.jobs.domain.network
 
 // import okhttp3.logging.HttpLoggingInterceptor
 import br.com.redcode.easyreftrofit.library.APIConnection
