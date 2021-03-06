@@ -10,14 +10,14 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.data.model.JobItem
 import br.com.pedrofsn.jobs.domain.extensions.observer
-import br.com.pedrofsn.jobs.domain.view.BaseFragment
+import br.com.pedrofsn.jobs.domain.view.BaseFragmentMVVM
 import br.com.pedrofsn.jobs.features.list.adapter.JobAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class JobsFragment(override val layout: Int = R.layout.fragment_jobs) : BaseFragment(),
+class JobsFragment(override val layout: Int = R.layout.fragment_jobs) : BaseFragmentMVVM(),
     SwipeRefreshLayout.OnRefreshListener {
 
-    private val viewModel: JobsViewModel by viewModel()
+    override val viewModel: JobsViewModel by viewModel()
     private var swipeRefreshLayout: SwipeRefreshLayout? = null
 
     private val observerPagination = observer<PagedList<JobItem>> { onPaged(it) }
