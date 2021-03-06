@@ -1,6 +1,7 @@
 package br.com.pedrofsn.jobs.di
 
 import br.com.pedrofsn.jobs.domain.network.APIConnection
+import br.com.pedrofsn.jobs.domain.network.NetworkFeedback
 import br.com.pedrofsn.jobs.features.list.JobsRepository
 import br.com.pedrofsn.jobs.features.list.JobsRepositoryImpl
 import br.com.pedrofsn.jobs.features.list.JobsViewModel
@@ -11,7 +12,8 @@ import org.koin.dsl.module
 
 val jobsModule = module {
     single { APIConnection.service }
-    factory<RemoteDataSource> { RemoteDataSourceImpl(api = get()) }
-    factory<JobsRepository> { JobsRepositoryImpl(dataSource = get()) }
-    viewModel { JobsViewModel(repository = get()) }
+    single { NetworkFeedback() }
+    factory<RemoteDataSource> { RemoteDataSourceImpl(api = get(), networkFeedback = get()) }
+    factory<JobsRepository> { JobsRepositoryImpl(remote = get()) }
+    viewModel { JobsViewModel(repository = get(), networkFeedback = get()) }
 }

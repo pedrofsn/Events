@@ -6,11 +6,14 @@ import br.com.pedrofsn.jobs.data.payload.Content
 import br.com.pedrofsn.jobs.data.payload.Pageable
 import br.com.pedrofsn.jobs.data.payload.ResponseList
 import br.com.pedrofsn.jobs.data.payload.Sort
-import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
+import br.com.pedrofsn.jobs.domain.network.NetworkFeedback
 
-class MockedRemoteDataSourceImpl(override val api: API) : RemoteDataSource {
+class MockedRemoteDataSourceImpl(
+    override val api: API,
+    override val networkFeedback: NetworkFeedback
+) : RemoteDataSource {
 
-    override suspend fun CallbackNetworkRequest.receiveList(page: Int): JobItems? {
+    override suspend fun receiveList(page: Int): JobItems? {
         val mock = ResponseList(
             content = listOf(
                 Content(

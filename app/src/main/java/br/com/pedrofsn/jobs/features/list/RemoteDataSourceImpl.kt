@@ -1,11 +1,12 @@
 package br.com.pedrofsn.jobs.features.list
 
 import br.com.pedrofsn.jobs.data.API
-import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
+import br.com.pedrofsn.jobs.domain.network.NetworkFeedback
 
-class RemoteDataSourceImpl(override val api: API) : RemoteDataSource {
+class RemoteDataSourceImpl(
+    override val api: API,
+    override val networkFeedback: NetworkFeedback
+) : RemoteDataSource {
 
-    override suspend fun CallbackNetworkRequest.receiveList(page: Int) = request {
-        receiveList(page)
-    }
+    override suspend fun receiveList(page: Int) = request { receiveList(page) }
 }
