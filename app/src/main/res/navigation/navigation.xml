@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/jobsFragment">
+
+    <fragment
+        android:id="@+id/jobsFragment"
+        android:name="br.com.pedrofsn.jobs.features.list.JobsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_jobs">
+        <action
+            android:id="@+id/openDetail"
+            app:destination="@id/jobDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="job"
+                app:argType="br.com.pedrofsn.jobs.data.model.JobItem" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/jobDetailFragment"
+        android:name="br.com.pedrofsn.jobs.features.detail.JobDetailFragment"
+        tools:layout="@layout/fragment_job_detail">
+        <argument
+            android:name="job"
+            app:argType="br.com.pedrofsn.jobs.data.model.JobItem" />
+    </fragment>
+
+</navigation>
