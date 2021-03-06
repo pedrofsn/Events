@@ -23,8 +23,10 @@ abstract class AbstractAPIConnection<T>(
         okHttppBuilder.addInterceptor(interceptor)
 
         val logging = HttpLoggingInterceptor()
-        logging.level =
-            if (showLogs) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        logging.level = when {
+            showLogs -> HttpLoggingInterceptor.Level.BODY
+            else -> HttpLoggingInterceptor.Level.NONE
+        }
         okHttppBuilder.addInterceptor(logging)
 
         val apiConnection = APIConnection(
