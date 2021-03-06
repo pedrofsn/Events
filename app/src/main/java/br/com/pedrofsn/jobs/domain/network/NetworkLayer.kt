@@ -10,15 +10,11 @@ interface NetworkLayer<APIRetrofit> {
 
     suspend fun <TypePayload : Payload<TypeModel>, TypeModel> CallbackNetworkRequest.request(request: suspend APIRetrofit.() -> TypePayload?): TypeModel? {
         return try {
-            val service = api
-            val result = request.invoke(service)
-            result?.toModel()
+            request.invoke(api)?.toModel()
         } catch (exception: Exception) {
             handleError(
                 exception = exception,
                 callbackNetworkRequest = this,
-                handleErrorManual = null, // TODO [PEDROFSN]
-                handleFailureManual = null
             )
             null
         }
@@ -26,31 +22,20 @@ interface NetworkLayer<APIRetrofit> {
 
     private fun handleError(
         exception: Exception,
-        callbackNetworkRequest: CallbackNetworkRequest?,
-        handleErrorManual: ((String?) -> Unit)?,
-        handleFailureManual: ((Throwable) -> Unit)?
+        callbackNetworkRequest: CallbackNetworkRequest?
     ) {
         val code = (exception as? HttpException)?.code()
         val errorBody = (exception as? HttpException)?.response()?.errorBody()?.string()
         val isHttpError = exception is HttpException
-            && handleErrorManual == null
             && code != null
             && errorBody != null
 
-        when {
-            isHttpError -> {
-                val handler = NetworkAndErrorHandler(callbackNetworkRequest)
-                handler.handleErrorJSONWithStatusCodeHTTP(errorBody!!, code!!)
-            }
-
-            handleErrorManual != null -> handleErrorManual.invoke(errorBody)
-            handleFailureManual != null -> handleFailureManual.invoke(exception)
-
-            else -> {
+        NetworkAndErrorHandler(callbackNetworkRequest).run {
+            if (isHttpError) {
+                handleErrorJSONWithStatusCodeHTTP(errorBody!!, code!!)
+            } else {
                 exception.printStackTrace()
-                NetworkAndErrorHandler(callbackNetworkRequest = callbackNetworkRequest).apply {
-                    handle(exception)
-                }
+                handle(exception)
             }
         }
     }

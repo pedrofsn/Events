@@ -6,6 +6,6 @@ import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 class RemoteDataSourceImpl(override val api: API) : RemoteDataSource {
 
     override suspend fun CallbackNetworkRequest.receiveList(page: Int) = request {
-        api.receiveList(page)
+        receiveList(page)
     }
 }
