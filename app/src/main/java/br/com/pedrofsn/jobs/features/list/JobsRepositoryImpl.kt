@@ -1,7 +1,7 @@
 package br.com.pedrofsn.jobs.features.list
 
 import br.com.pedrofsn.jobs.data.model.JobItem
-import br.com.pedrofsn.jobs.network.NetworkAndErrorHandler
+import br.com.pedrofsn.jobs.domain.network.NetworkAndErrorHandler
 import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
 import br.com.redcode.easyreftrofit.library.Payload
 import java.net.UnknownHostException
