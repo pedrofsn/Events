@@ -1,6 +1,5 @@
 package br.com.pedrofsn.jobs.domain.network
 
-// import okhttp3.logging.HttpLoggingInterceptor
 import br.com.redcode.easyreftrofit.library.APIConnection
 import java.util.concurrent.TimeUnit
 import okhttp3.Interceptor
