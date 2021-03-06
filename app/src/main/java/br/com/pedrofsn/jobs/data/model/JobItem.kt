@@ -8,12 +8,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class JobItem(
-    val id: Long,
+    override val id: Long,
     val title: String,
     val place: String,
     val date: String,
     val description: String
-) : Parcelable {
+) : Parcelable, WithID {
 
     fun countDaysFromDateUntilNow(): Int {
         val today = getTodayAsDate()
