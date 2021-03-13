@@ -20,7 +20,8 @@ abstract class BaseFragmentMVVM : BaseFragment() {
     }
 
     private fun onNetworkError(errorType: NetworkErrorType) = when (errorType) {
-        is NetworkErrorType.GenericError -> onNetworkError()
+        is NetworkErrorType.ServerNotResponding -> onServerNotResponding()
+        is NetworkErrorType.UnknownHost -> onUnknownHost()
         is NetworkErrorType.HttpError -> onNetworkHttpError(errorType.errorHandled)
         is NetworkErrorType.Timeout -> onNetworkTimeout()
         is NetworkErrorType.UnknownError -> onNetworkUnknownError(errorType.message)

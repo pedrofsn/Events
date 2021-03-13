@@ -1,6 +1,6 @@
 package br.com.pedrofsn.jobs.domain.extensions
 
-import br.com.redcode.easyreftrofit.library.Payload
+import br.com.pedrofsn.jobs.domain.network.Payload
 
 fun <T> List<Payload<T>>?.toModel(): List<T>? = this?.map { obj -> obj.toModel() }
 

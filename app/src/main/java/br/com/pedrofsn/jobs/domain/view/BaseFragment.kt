@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
-import br.com.redcode.easyreftrofit.library.model.ErrorHandled
+import br.com.pedrofsn.jobs.R
+import br.com.pedrofsn.jobs.domain.network.CallbackNetworkRequest
+import br.com.pedrofsn.jobs.domain.network.ErrorHandled
+
 import com.google.android.material.snackbar.Snackbar
 
 abstract class BaseFragment : Fragment(), CallbackNetworkRequest {
@@ -21,12 +23,16 @@ abstract class BaseFragment : Fragment(), CallbackNetworkRequest {
         return inflater.inflate(layout, container, false)
     }
 
-    override fun onNetworkError() {
+    override fun onServerNotResponding() {
+        showError(getString(R.string.network_error_server_not_responding))
+    }
+
+    override fun onUnknownHost() {
         showError("onNetworkError")
     }
 
     override fun onNetworkHttpError(errorHandled: ErrorHandled) {
-        showError("Erro ${errorHandled.networkError}")
+        showError("Erro ${errorHandled.statusCode}")
     }
 
     override fun onNetworkTimeout() {

@@ -1,15 +1,18 @@
 package br.com.pedrofsn.jobs.domain.network
 
 import androidx.lifecycle.MutableLiveData
-import br.com.redcode.easyreftrofit.library.CallbackNetworkRequest
-import br.com.redcode.easyreftrofit.library.model.ErrorHandled
+
 
 class NetworkFeedback : CallbackNetworkRequest {
 
     val eventNetworkError = MutableLiveData<NetworkErrorType>()
 
-    override fun onNetworkError() {
-        eventNetworkError.postValue(NetworkErrorType.GenericError)
+    override fun onServerNotResponding() {
+        eventNetworkError.postValue(NetworkErrorType.ServerNotResponding)
+    }
+
+    override fun onUnknownHost() {
+        eventNetworkError.postValue(NetworkErrorType.UnknownHost)
     }
 
     override fun onNetworkHttpError(errorHandled: ErrorHandled) {

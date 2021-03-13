@@ -3,6 +3,7 @@
     <string name="published_in">Publicado em</string>
     <string name="posted_today">Publicado hoje!!!</string>
     <string name="posted_unknown">Publicação desconhecida</string>
+    <string name="network_error_server_not_responding">Não foi possível comunicar com os nossos servidores.</string>
     <plurals name="posted_since">
         <item quantity="one">Publicado ontem</item>
         <item quantity="other">Publicado há %d dias</item>

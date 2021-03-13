@@ -1,7 +1,7 @@
 package br.com.pedrofsn.jobs.data.payload
 
 import br.com.pedrofsn.jobs.data.model.JobItems
-import br.com.redcode.easyreftrofit.library.Payload
+import br.com.pedrofsn.jobs.domain.network.Payload
 
 data class ResponseList(
     val content: List<Content>?,
