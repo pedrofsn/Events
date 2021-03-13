@@ -1,7 +1,7 @@
 package br.com.pedrofsn.jobs.data.payload
 
 import br.com.pedrofsn.jobs.data.model.JobItems
-import br.com.pedrofsn.network.Payload
+import br.com.pedrofsn.network.domain.Payload
 
 data class ResponseList(
     val content: List<Content>?,

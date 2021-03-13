@@ -14,7 +14,7 @@ import br.com.pedrofsn.jobs.domain.extensions.observer
 import br.com.pedrofsn.jobs.domain.extensions.toLogcat
 import br.com.pedrofsn.jobs.domain.view.BaseFragmentMVVM
 import br.com.pedrofsn.jobs.features.list.adapter.JobAdapter
-import br.com.pedrofsn.network.data.ErrorHandled
+import br.com.pedrofsn.network.model.ErrorHandled
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class JobsFragment(override val layout: Int = R.layout.fragment_jobs) : BaseFragmentMVVM(),

@@ -5,7 +5,7 @@ import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PageKeyedDataSource
 import androidx.paging.PagedList
-import br.com.pedrofsn.jobs.domain.Constants.EMPTY_STRING
+import br.com.pedrofsn.network.domain.Constants.EMPTY_STRING
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

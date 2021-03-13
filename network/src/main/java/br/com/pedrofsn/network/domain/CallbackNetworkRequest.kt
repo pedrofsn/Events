@@ -1,6 +1,6 @@
-package br.com.pedrofsn.network
+package br.com.pedrofsn.network.domain
 
-import br.com.pedrofsn.network.data.ErrorHandled
+import br.com.pedrofsn.network.model.ErrorHandled
 
 interface CallbackNetworkRequest {
 

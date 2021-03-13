@@ -3,7 +3,7 @@ package br.com.pedrofsn.jobs.features.list
 import androidx.lifecycle.MutableLiveData
 import br.com.pedrofsn.jobs.domain.pagination.Pagination
 import br.com.pedrofsn.jobs.domain.view.BaseViewModel
-import br.com.pedrofsn.network.NetworkFeedback
+import br.com.pedrofsn.network.feature.NetworkFeedback
 
 class JobsViewModel(
     private val repository: JobsRepository,

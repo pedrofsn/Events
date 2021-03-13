@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.data.model
+package br.com.pedrofsn.network.model
 
 import java.io.Serializable
 

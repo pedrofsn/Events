@@ -1,6 +1,6 @@
 package br.com.pedrofsn.jobs.domain.extensions
 
-import br.com.pedrofsn.network.Payload
+import br.com.pedrofsn.network.domain.Payload
 
 fun <T> List<Payload<T>>?.toModel(): List<T>? = this?.map { obj -> obj.toModel() }
 

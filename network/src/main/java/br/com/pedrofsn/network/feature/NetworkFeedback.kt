@@ -1,7 +1,8 @@
-package br.com.pedrofsn.network
+package br.com.pedrofsn.network.feature
 
-import br.com.pedrofsn.network.data.ErrorHandled
-import br.com.pedrofsn.network.data.NetworkErrorType
+import br.com.pedrofsn.network.domain.CallbackNetworkRequest
+import br.com.pedrofsn.network.domain.NetworkErrorType
+import br.com.pedrofsn.network.model.ErrorHandled
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 

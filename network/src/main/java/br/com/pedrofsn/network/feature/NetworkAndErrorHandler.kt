@@ -1,8 +1,9 @@
-package br.com.pedrofsn.network
+package br.com.pedrofsn.network.feature
 
-import br.com.pedrofsn.network.data.Constants.EMPTY_STRING
-import br.com.pedrofsn.network.data.ErrorHandled
-import br.com.pedrofsn.network.data.PayloadError
+import br.com.pedrofsn.network.domain.CallbackNetworkRequest
+import br.com.pedrofsn.network.domain.Constants.EMPTY_STRING
+import br.com.pedrofsn.network.model.ErrorHandled
+import br.com.pedrofsn.network.payload.PayloadError
 import com.squareup.moshi.Moshi
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException

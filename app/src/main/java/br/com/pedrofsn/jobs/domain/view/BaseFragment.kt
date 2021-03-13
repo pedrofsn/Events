@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.domain.extensions.toLogcat
-import br.com.pedrofsn.network.CallbackNetworkRequest
-import br.com.pedrofsn.network.data.ErrorHandled
+import br.com.pedrofsn.network.domain.CallbackNetworkRequest
+import br.com.pedrofsn.network.model.ErrorHandled
 import com.google.android.material.snackbar.Snackbar
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope

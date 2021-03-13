@@ -6,7 +6,7 @@ import br.com.pedrofsn.jobs.data.payload.Content
 import br.com.pedrofsn.jobs.data.payload.Pageable
 import br.com.pedrofsn.jobs.data.payload.ResponseList
 import br.com.pedrofsn.jobs.data.payload.Sort
-import br.com.pedrofsn.network.NetworkFeedback
+import br.com.pedrofsn.network.feature.NetworkFeedback
 
 class MockedRemoteDataSourceImpl(
     override val api: API,

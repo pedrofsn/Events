@@ -1,4 +1,4 @@
-package br.com.pedrofsn.network
+package br.com.pedrofsn.network.feature
 
 import okhttp3.Interceptor
 import okhttp3.Response

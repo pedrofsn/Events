@@ -2,7 +2,7 @@ package br.com.pedrofsn.jobs.domain.network
 
 import br.com.pedrofsn.jobs.BuildConfig
 import br.com.pedrofsn.jobs.data.API
-import br.com.pedrofsn.network.ProxyInterceptor
+import br.com.pedrofsn.network.feature.ProxyInterceptor
 import java.util.concurrent.TimeUnit
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

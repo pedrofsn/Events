@@ -1,6 +1,8 @@
-package br.com.pedrofsn.network.data
+package br.com.pedrofsn.network.payload
 
-import br.com.pedrofsn.network.Payload
+import br.com.pedrofsn.network.domain.Payload
+import br.com.pedrofsn.network.model.ErrorAPI
+import br.com.pedrofsn.network.model.ErrorHandled
 import extract
 import java.io.Serializable
 

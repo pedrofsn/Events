@@ -1,8 +1,8 @@
 package br.com.pedrofsn.jobs.domain.network
 
-import br.com.pedrofsn.network.NetworkAndErrorHandler
-import br.com.pedrofsn.network.NetworkFeedback
-import br.com.pedrofsn.network.Payload
+import br.com.pedrofsn.network.domain.Payload
+import br.com.pedrofsn.network.feature.NetworkAndErrorHandler
+import br.com.pedrofsn.network.feature.NetworkFeedback
 
 interface NetworkLayer<APIRetrofit> {
 

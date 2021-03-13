@@ -1,4 +1,6 @@
-package br.com.pedrofsn.network.data
+package br.com.pedrofsn.network.domain
+
+import br.com.pedrofsn.network.model.ErrorHandled
 
 sealed class NetworkErrorType {
     object Nothing : NetworkErrorType()

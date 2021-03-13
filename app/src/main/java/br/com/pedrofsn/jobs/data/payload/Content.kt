@@ -1,7 +1,7 @@
 package br.com.pedrofsn.jobs.data.payload
 
 import br.com.pedrofsn.jobs.data.model.JobItem
-import br.com.pedrofsn.network.Payload
+import br.com.pedrofsn.network.domain.Payload
 import extract
 
 data class Content(

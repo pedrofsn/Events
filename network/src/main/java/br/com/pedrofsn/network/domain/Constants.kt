@@ -1,4 +1,4 @@
-package br.com.pedrofsn.network.data
+package br.com.pedrofsn.network.domain
 
 object Constants {
 
