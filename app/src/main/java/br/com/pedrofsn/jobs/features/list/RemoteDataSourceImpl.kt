@@ -1,7 +1,7 @@
 package br.com.pedrofsn.jobs.features.list
 
 import br.com.pedrofsn.jobs.data.API
-import br.com.pedrofsn.jobs.domain.network.NetworkFeedback
+import br.com.pedrofsn.network.NetworkFeedback
 
 class RemoteDataSourceImpl(
     override val api: API,

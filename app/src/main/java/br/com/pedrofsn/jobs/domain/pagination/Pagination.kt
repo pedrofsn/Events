@@ -14,12 +14,14 @@ private const val ITENS_PER_PAGE = 20
 
 class Pagination<T>(
     private val scope: CoroutineScope,
-    private val filter: () -> String?,
+    private var filter: (() -> String?)? = null,
 
     private val onPreExecute: () -> Unit,
     private val doInBackground: suspend (String?, Int) -> (Paginated<T>)?,
     private val onPostExecute: (List<T>, Any?) -> Unit,
-    private val handleEmptyData: (Boolean) -> Unit,
+    private val onSucces: () -> Unit,
+    private val onError: () -> Unit,
+    private val handleEmptyData: ((Boolean) -> Unit)? = null,
 
     private var count: Int = 0,
     private var total: Int = 0,
@@ -51,7 +53,7 @@ class Pagination<T>(
 
         val dataSourceFactory = object : DataSource.Factory<Int, T>() {
             override fun create(): Pagination<T>.MyDataSource {
-                val filterCurrent = filter.invoke()
+                val filterCurrent = filter?.invoke()
                 dataSource = MyDataSource(filter = filterCurrent)
                 return dataSource as MyDataSource
             }
@@ -63,7 +65,7 @@ class Pagination<T>(
     inner class MyDataSource(val filter: String?) : PageKeyedDataSource<Int, T>() {
 
         override fun loadInitial(
-            p: LoadInitialParams<Int>,
+            loadInitialParams: LoadInitialParams<Int>,
             callback: LoadInitialCallback<Int, T>
         ) {
             paginatedLoad(PAGINATION_FIRST_PAGE) { _, list ->
@@ -73,13 +75,10 @@ class Pagination<T>(
 
         override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, T>) {
             val page = params.key + 1
-            paginatedLoad(params.key) { _, list ->
-                callback.onResult(list, page)
-            }
+            paginatedLoad(params.key) { _, list -> callback.onResult(list, page) }
         }
 
-        override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, T>) {
-        }
+        override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, T>) = Unit
 
         private fun paginatedLoad(page: Int, onLoaded: (Int, List<T>) -> Unit) {
             if (hasMoreToLoad(page)) {
@@ -95,11 +94,12 @@ class Pagination<T>(
                         count += result.data.size
 
                         onPostExecute.invoke(result.data, result)
-                        handleEmptyData.invoke(total == 0)
+                        handleEmptyData?.invoke(total == 0)
 
                         onLoaded(total, result.data)
                         lastFilter = filter
-                    }
+                        onSucces.invoke()
+                    } ?: onError.invoke()
                 }
             }
         }

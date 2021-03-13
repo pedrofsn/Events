@@ -1,11 +1,8 @@
-package br.com.pedrofsn.jobs.domain.network
+package br.com.pedrofsn.network
 
-import br.com.pedrofsn.jobs.BuildConfig
-import br.com.pedrofsn.jobs.domain.Constants.EMPTY_STRING
-import br.com.pedrofsn.jobs.domain.extensions.toLogcat
-import br.com.pedrofsn.jobs.domain.extensions.toModel
-import br.com.pedrofsn.jobs.domain.network.data.ErrorHandled
-import br.com.pedrofsn.jobs.domain.network.data.PayloadError
+import br.com.pedrofsn.network.data.Constants.EMPTY_STRING
+import br.com.pedrofsn.network.data.ErrorHandled
+import br.com.pedrofsn.network.data.PayloadError
 import com.squareup.moshi.Moshi
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -47,7 +44,7 @@ class NetworkAndErrorHandler(private val callbackNetworkRequest: CallbackNetwork
     private fun catchedException(exception: Throwable) {
         when {
             // TODO passar para o timber
-            BuildConfig.DEBUG -> "Throwable message: ${exception.message}".toLogcat() // somente em debug
+            /*BuildConfig.DEBUG*/  true -> "Throwable message: ${exception.message}" //.toLogcat() // somente em debug
             else -> exception.printStackTrace()
         }
     }
@@ -60,7 +57,7 @@ class NetworkAndErrorHandler(private val callbackNetworkRequest: CallbackNetwork
         result
     } catch (e: Exception) {
         val errorHandled = ErrorHandled(EMPTY_STRING, statusCode)
-        "Error in method 'parseBodyError' from class 'NetworkAndErrorHandler.kt': ${e.message}".toLogcat()
+        "Error in method 'parseBodyError' from class 'NetworkAndErrorHandler.kt': ${e.message}" //.toLogcat()
         errorHandled
     }
 }

@@ -1,6 +1,6 @@
-package br.com.pedrofsn.jobs.domain.network.data
+package br.com.pedrofsn.network.data
 
-import br.com.pedrofsn.jobs.domain.Constants.EMPTY_STRING
+import br.com.pedrofsn.network.data.Constants.EMPTY_STRING
 
 data class ErrorHandled(
     val message: String,

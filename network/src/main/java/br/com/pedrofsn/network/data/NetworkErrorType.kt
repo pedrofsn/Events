@@ -1,6 +1,7 @@
-package br.com.pedrofsn.jobs.domain.network.data
+package br.com.pedrofsn.network.data
 
 sealed class NetworkErrorType {
+    object Nothing : NetworkErrorType()
     object Timeout : NetworkErrorType()
     object UnknownHost : NetworkErrorType()
     object ServerNotResponding : NetworkErrorType()

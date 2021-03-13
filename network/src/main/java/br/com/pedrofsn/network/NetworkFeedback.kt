@@ -1,12 +1,12 @@
-package br.com.pedrofsn.jobs.domain.network
+package br.com.pedrofsn.network
 
-import androidx.lifecycle.MutableLiveData
-import br.com.pedrofsn.jobs.domain.network.data.ErrorHandled
-import br.com.pedrofsn.jobs.domain.network.data.NetworkErrorType
+import br.com.pedrofsn.network.data.ErrorHandled
+import br.com.pedrofsn.network.data.NetworkErrorType
+import kotlinx.coroutines.flow.MutableStateFlow
 
 class NetworkFeedback : CallbackNetworkRequest {
 
-    val eventNetworkError = MutableLiveData<NetworkErrorType>()
+    val eventNetworkError = MutableStateFlow<NetworkErrorType>(NetworkErrorType.Nothing)
 
     override fun onServerNotResponding() {
         NetworkErrorType.ServerNotResponding.notify()
@@ -28,5 +28,7 @@ class NetworkFeedback : CallbackNetworkRequest {
         NetworkErrorType.UnknownError(message).notify()
     }
 
-    private fun NetworkErrorType.notify() = eventNetworkError.postValue(this)
+    private fun NetworkErrorType.notify() {
+        eventNetworkError.value = this
+    }
 }

@@ -7,14 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.domain.extensions.toLogcat
-import br.com.pedrofsn.jobs.domain.network.CallbackNetworkRequest
-import br.com.pedrofsn.jobs.domain.network.data.ErrorHandled
-
+import br.com.pedrofsn.network.CallbackNetworkRequest
+import br.com.pedrofsn.network.data.ErrorHandled
 import com.google.android.material.snackbar.Snackbar
+import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
-abstract class BaseFragment : Fragment(), CallbackNetworkRequest {
+abstract class BaseFragment : Fragment(), CoroutineScope, CallbackNetworkRequest {
 
     abstract val layout: Int
+    override val coroutineContext: CoroutineContext = Dispatchers.IO
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,7 +44,7 @@ abstract class BaseFragment : Fragment(), CallbackNetworkRequest {
     }
 
     override fun onNetworkUnknownError(message: String) {
-        getString(R.string.network_error_unknown)
+        showError(getString(R.string.network_error_unknown))
         message.toLogcat()
     }
 

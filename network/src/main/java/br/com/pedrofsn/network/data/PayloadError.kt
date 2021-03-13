@@ -1,6 +1,6 @@
-package br.com.pedrofsn.jobs.domain.network.data
+package br.com.pedrofsn.network.data
 
-import br.com.pedrofsn.jobs.data.model.ErrorAPI
+import br.com.pedrofsn.network.Payload
 import extract
 import java.io.Serializable
 
@@ -10,12 +10,19 @@ open class PayloadError(
     private val msg_dev: String? = "",
     val acao: Int? = -1,
     val id: String? = ""
-) : Serializable {
-    fun toModel() = ErrorAPI(
+) : Payload<ErrorAPI>, Serializable {
+    override fun toModel() = ErrorAPI( // todo precisa deste model?
         erro = extract safe erro,
         msg = extract safe msg,
         msg_dev = extract safe msg_dev,
         action = extract safe acao,
+        id = extract safe id
+    )
+
+    fun toModel(networkError: Int) = ErrorHandled(
+        message = extract safe msg,
+        actionAPI = extract safe acao,
+        statusCode = networkError,
         id = extract safe id
     )
 }

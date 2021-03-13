@@ -1,6 +1,5 @@
-package br.com.pedrofsn.jobs.domain.network
+package br.com.pedrofsn.network
 
-import br.com.pedrofsn.jobs.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
 import okio.IOException
@@ -12,7 +11,7 @@ private const val HEADER_OS_NAME = "os_name"
 private const val HEADER_ACCEPT_VALUE = "application/json"
 private const val HEADER_OS_NAME_VALUE = "ANDROID"
 
-class ProxyInterceptor : Interceptor {
+class ProxyInterceptor(val osVersionName: String) : Interceptor {
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -26,7 +25,7 @@ class ProxyInterceptor : Interceptor {
             .url(httpUrl)
 
         requestBuilder.addHeader(HEADER_ACCEPT, HEADER_ACCEPT_VALUE)
-        requestBuilder.addHeader(HEADER_OS_VERSION_NAME, BuildConfig.VERSION_NAME)
+        requestBuilder.addHeader(HEADER_OS_VERSION_NAME, osVersionName)
         requestBuilder.addHeader(HEADER_OS_NAME, HEADER_OS_NAME_VALUE)
 
         val request = requestBuilder.build()

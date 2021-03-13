@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.domain.network
+package br.com.pedrofsn.network
 
 interface Payload<T> {
     fun toModel(): T

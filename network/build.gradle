@@ -1,0 +1,24 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
+
+    // Network
+    api 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.okio:okio:2.8.0'
+    api 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+
+    // Utils
+    api 'com.github.pedrofsn:k-extractor:1.0.0'
+}

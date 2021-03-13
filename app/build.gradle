@@ -69,13 +69,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.3"
 
     // Network
-    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.okio:okio:2.8.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
-
-    // Utils
-    api 'com.github.pedrofsn:k-extractor:1.0.0'
+    implementation project(":network")
 
     // Tests
     testImplementation 'junit:junit:4.13.2'
