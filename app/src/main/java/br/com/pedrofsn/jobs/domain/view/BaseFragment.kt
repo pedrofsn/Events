@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.pedrofsn.jobs.R
+import br.com.pedrofsn.jobs.domain.extensions.toLogcat
 import br.com.pedrofsn.jobs.domain.network.CallbackNetworkRequest
 import br.com.pedrofsn.jobs.domain.network.data.ErrorHandled
 
@@ -28,19 +29,20 @@ abstract class BaseFragment : Fragment(), CallbackNetworkRequest {
     }
 
     override fun onUnknownHost() {
-        showError("onNetworkError")
+        showError(getString(R.string.network_error_unknown_host_excpetion))
     }
 
     override fun onNetworkHttpError(errorHandled: ErrorHandled) {
-        showError("Erro ${errorHandled.statusCode}")
+        showError(getString(R.string.network_error_http_x, errorHandled.statusCode))
     }
 
     override fun onNetworkTimeout() {
-        showError("onNetworkTimeout")
+        showError(getString(R.string.network_error_timeout))
     }
 
     override fun onNetworkUnknownError(message: String) {
-        showError("onNetworkUnknownError: $message")
+        getString(R.string.network_error_unknown)
+        message.toLogcat()
     }
 
     private fun showError(message: String) {

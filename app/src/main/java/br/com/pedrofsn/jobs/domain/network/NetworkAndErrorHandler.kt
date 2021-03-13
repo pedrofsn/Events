@@ -1,6 +1,7 @@
 package br.com.pedrofsn.jobs.domain.network
 
 import br.com.pedrofsn.jobs.BuildConfig
+import br.com.pedrofsn.jobs.domain.Constants.EMPTY_STRING
 import br.com.pedrofsn.jobs.domain.extensions.toLogcat
 import br.com.pedrofsn.jobs.domain.extensions.toModel
 import br.com.pedrofsn.jobs.domain.network.data.ErrorHandled
@@ -51,19 +52,15 @@ class NetworkAndErrorHandler(private val callbackNetworkRequest: CallbackNetwork
         }
     }
 
-    private fun parseBodyError(errorBodyAsString: String, statusCode: Int): ErrorHandled {
-        val message = String.format("Erro %d do servidor", statusCode)
-        return try {
-            val adapter = MOSHI.adapter(PayloadError::class.java)
-            val payloadError: PayloadError? = adapter.fromJson(errorBodyAsString)
-            val modelError = payloadError?.toModel(statusCode)
-            val result: ErrorHandled = modelError ?: ErrorHandled(message, statusCode)
-            result
-        } catch (e: Exception) {
-            val error = PayloadError(msg = message, msg_dev = e.message)
-            val errorHandled: ErrorHandled = error.toModel(statusCode)
-            "Error in method 'parseBodyError' from class 'NetworkAndErrorHandler.kt': ${e.message}".toLogcat()
-            errorHandled
-        }
+    private fun parseBodyError(errorBodyAsString: String, statusCode: Int) = try {
+        val adapter = MOSHI.adapter(PayloadError::class.java)
+        val payloadError: PayloadError? = adapter.fromJson(errorBodyAsString)
+        val modelError = payloadError?.toModel(statusCode)
+        val result: ErrorHandled = modelError ?: ErrorHandled(EMPTY_STRING, statusCode)
+        result
+    } catch (e: Exception) {
+        val errorHandled = ErrorHandled(EMPTY_STRING, statusCode)
+        "Error in method 'parseBodyError' from class 'NetworkAndErrorHandler.kt': ${e.message}".toLogcat()
+        errorHandled
     }
 }

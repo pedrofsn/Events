@@ -3,9 +3,15 @@
     <string name="published_in">Publicado em</string>
     <string name="posted_today">Publicado hoje!!!</string>
     <string name="posted_unknown">Publicação desconhecida</string>
-    <string name="network_error_server_not_responding">Não foi possível comunicar com os nossos servidores.</string>
     <plurals name="posted_since">
         <item quantity="one">Publicado ontem</item>
         <item quantity="other">Publicado há %d dias</item>
     </plurals>
+
+    <string name="network_error_server_not_responding">Não foi possível comunicar com os nossos servidores.</string>
+    <string name="network_error_http_x">Erro %d</string>
+    <string name="network_error_timeout">Infelizmente, nossos servidores não estão respondendo.</string>
+    <string name="network_error_unknown">Erro desconhecido ao se comunicar com os nossos servidores.</string>
+    <string name="network_error_unknown_host_excpetion">Não foi possível resolver o nome do host.</string>
+
 </resources>
