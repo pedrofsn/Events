@@ -1,8 +1,16 @@
 package br.com.pedrofsn.jobs.domain.network
 
+import br.com.pedrofsn.jobs.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
 import okio.IOException
+
+private const val HEADER_ACCEPT = "Accept"
+private const val HEADER_OS_VERSION_NAME = "version_name"
+private const val HEADER_OS_NAME = "os_name"
+
+private const val HEADER_ACCEPT_VALUE = "application/json"
+private const val HEADER_OS_NAME_VALUE = "ANDROID"
 
 class ProxyInterceptor : Interceptor {
 
@@ -17,12 +25,9 @@ class ProxyInterceptor : Interceptor {
             .newBuilder()
             .url(httpUrl)
 
-        val token = "@pedrofsn123"
-
-        requestBuilder.addHeader("Accept", "application/json")
-        requestBuilder.addHeader("osversion", "1.0.0")
-        requestBuilder.addHeader("osname", "android")
-        requestBuilder.addHeader("Authorization", "Bearer $token")
+        requestBuilder.addHeader(HEADER_ACCEPT, HEADER_ACCEPT_VALUE)
+        requestBuilder.addHeader(HEADER_OS_VERSION_NAME, BuildConfig.VERSION_NAME)
+        requestBuilder.addHeader(HEADER_OS_NAME, HEADER_OS_NAME_VALUE)
 
         val request = requestBuilder.build()
         return chain.proceed(request)
