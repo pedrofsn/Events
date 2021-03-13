@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.domain.network
+package br.com.pedrofsn.jobs.domain.network.data
 
 import br.com.pedrofsn.jobs.domain.Constants.EMPTY_STRING
 

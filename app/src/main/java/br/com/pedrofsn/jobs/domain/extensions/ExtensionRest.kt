@@ -1,7 +1,7 @@
 package br.com.pedrofsn.jobs.domain.extensions
 
-import br.com.pedrofsn.jobs.data.payload.PayloadError
-import br.com.pedrofsn.jobs.domain.network.ErrorHandled
+import br.com.pedrofsn.jobs.domain.network.data.ErrorHandled
+import br.com.pedrofsn.jobs.domain.network.data.PayloadError
 import extract
 
 fun PayloadError.toModel(networkError: Int) = ErrorHandled(

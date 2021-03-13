@@ -3,7 +3,7 @@ package br.com.pedrofsn.jobs.domain.view
 import android.os.Bundle
 import android.view.View
 import br.com.pedrofsn.jobs.domain.extensions.observer
-import br.com.pedrofsn.jobs.domain.network.NetworkErrorType
+import br.com.pedrofsn.jobs.domain.network.data.NetworkErrorType
 
 abstract class BaseFragmentMVVM : BaseFragment() {
 

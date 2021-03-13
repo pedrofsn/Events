@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.pedrofsn.jobs.R
 import br.com.pedrofsn.jobs.domain.network.CallbackNetworkRequest
-import br.com.pedrofsn.jobs.domain.network.ErrorHandled
+import br.com.pedrofsn.jobs.domain.network.data.ErrorHandled
 
 import com.google.android.material.snackbar.Snackbar
 

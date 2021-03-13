@@ -1,29 +1,32 @@
 package br.com.pedrofsn.jobs.domain.network
 
 import androidx.lifecycle.MutableLiveData
-
+import br.com.pedrofsn.jobs.domain.network.data.ErrorHandled
+import br.com.pedrofsn.jobs.domain.network.data.NetworkErrorType
 
 class NetworkFeedback : CallbackNetworkRequest {
 
     val eventNetworkError = MutableLiveData<NetworkErrorType>()
 
     override fun onServerNotResponding() {
-        eventNetworkError.postValue(NetworkErrorType.ServerNotResponding)
+        NetworkErrorType.ServerNotResponding.notify()
     }
 
     override fun onUnknownHost() {
-        eventNetworkError.postValue(NetworkErrorType.UnknownHost)
+        NetworkErrorType.UnknownHost.notify()
     }
 
     override fun onNetworkHttpError(errorHandled: ErrorHandled) {
-        eventNetworkError.postValue(NetworkErrorType.HttpError(errorHandled))
+        NetworkErrorType.HttpError(errorHandled).notify()
     }
 
     override fun onNetworkTimeout() {
-        eventNetworkError.postValue(NetworkErrorType.Timeout)
+        NetworkErrorType.Timeout.notify()
     }
 
     override fun onNetworkUnknownError(message: String) {
-        eventNetworkError.postValue(NetworkErrorType.UnknownError(message))
+        NetworkErrorType.UnknownError(message).notify()
     }
+
+    private fun NetworkErrorType.notify() = eventNetworkError.postValue(this)
 }

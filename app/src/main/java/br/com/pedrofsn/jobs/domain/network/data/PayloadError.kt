@@ -1,4 +1,4 @@
-package br.com.pedrofsn.jobs.data.payload
+package br.com.pedrofsn.jobs.domain.network.data
 
 import br.com.pedrofsn.jobs.data.model.ErrorAPI
 import extract
