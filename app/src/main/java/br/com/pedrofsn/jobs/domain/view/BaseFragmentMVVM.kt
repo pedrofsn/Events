@@ -11,12 +11,14 @@ abstract class BaseFragmentMVVM : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getEventNetworkError().observe(viewLifecycleOwner) { state ->
-            onNetworkError(state)
-        }
+        observeNetworkError()
     }
 
-    private fun getEventNetworkError() = viewModel.networkFeedback.eventNetworkError.asLiveData()
+    private fun observeNetworkError() = viewModel
+        .networkFeedback
+        .stateNetworkError
+        .asLiveData()
+        .observe(viewLifecycleOwner, this::onNetworkError)
 
     private fun onNetworkError(errorType: NetworkErrorType) {
         when (errorType) {
